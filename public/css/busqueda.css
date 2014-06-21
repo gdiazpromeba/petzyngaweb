@@ -1,0 +1,114 @@
+<style type="text/css">
+
+#contactform{
+width: 100%;
+font-size: 16px; /* Primary font size of form. Contained elements' font size are all relative to this setting */
+}
+
+
+#contactform input, #contactform textarea{
+border-radius: 5px;
+border: 1px solid gray;
+font: normal 1.5em auto; /* 24px, or 16px x 1.5 */
+padding: 0.4166666666666667em; /* 10px, or 24px x 0.4166666666666667 */
+box-shadow: 0 0 10px gray inset;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+
+
+
+#contactform input[type="radio"], #contactform input[type="checkbox"]{
+padding: 0;
+width: auto;
+height: auto;
+border-radius: 0;
+}
+
+#contactform select{
+font-size: 1.5em;
+border: 2px solid #eee;
+}
+
+#contactform .formcolumn{ /* column div inside form */
+width: 33%;
+float: left;
+}
+
+#contactform .formcolumn:first-of-type{
+margin-right: 2%; /* 2% margin after first column */
+}
+
+#contactform .formcolumn label, #contactform .formcolumn fieldset{
+font: bold 0.8em Verdana; /* font size is 12.8px, or 16 x 0.8 */
+text-transform: uppercase;
+display: block;
+margin-top: 2em;
+margin-bottom: 3px;
+}
+
+#contactform fieldset{
+width: 98%;
+-webkit-box-sizing: border-box;
+-moz-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+#contactform .formcolumn label:first-child, #contactform .formcolumn fieldset:first-child{
+margin-top: 0; /* first label or fieldset within each column should not no top margin */
+}
+
+#contactform fieldset ul{
+list-type: none;
+margin: 0;
+padding: 0;
+}
+
+#contactform fieldset ul li{
+display: inline-block;
+margin-bottom: 5px;
+margin-right: 1em;
+}
+
+#contactform div.buttons{
+clear: both;
+text-align: center;
+}
+
+#contactform input.button{
+margin-top: 1.5EM;
+box-shadow: 0 0 10px gray;
+text-transform: uppercase;
+cursor: pointer;
+color: white;
+font-weight: bold;
+letter-spacing: 7px;
+text-shadow: 0 -2px 1px #8a8a8a;
+background: rgb(169,3,41);
+background: -moz-linear-gradient(top,  rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(169,3,41,1)), color-stop(44%,rgba(143,2,34,1)), color-stop(100%,rgba(109,0,25,1)));
+background: -webkit-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+background: -o-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+background: -ms-linear-gradient(top,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+background: linear-gradient(to bottom,  rgba(169,3,41,1) 0%,rgba(143,2,34,1) 44%,rgba(109,0,25,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019',GradientType=0 );
+}
+
+#contactform input.button:active{
+text-shadow: 0 0 1px #8a8a8a;
+background: rgb(109,0,25);
+background: -moz-linear-gradient(top,  rgba(109,0,25,1) 0%, rgba(143,2,34,1) 56%, rgba(169,3,41,1) 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(109,0,25,1)), color-stop(56%,rgba(143,2,34,1)), color-stop(100%,rgba(169,3,41,1)));
+background: -webkit-linear-gradient(top,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 56%,rgba(169,3,41,1) 100%);
+background: -o-linear-gradient(top,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 56%,rgba(169,3,41,1) 100%);
+background: -ms-linear-gradient(top,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 56%,rgba(169,3,41,1) 100%);
+background: linear-gradient(to bottom,  rgba(109,0,25,1) 0%,rgba(143,2,34,1) 56%,rgba(169,3,41,1) 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6d0019', endColorstr='#a90329',GradientType=0 );
+}
+
+
+</style>
+

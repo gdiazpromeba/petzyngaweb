@@ -1,0 +1,294 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+
+html, body {
+	margin: 0;
+	font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
+	color: #000;
+	background: #ccccff;
+	text-align: center;
+}
+
+
+#container {
+	margin: 20px auto;
+	background: white;
+	width: 1000px;
+	border-width: 1px;
+	border-style:solid;
+	text-align: center;
+	margin: 0 auto; 
+	height: 1240px;
+	position: relative;
+}
+
+#logoContainer{
+	height: 155px;
+}
+
+.navigation-div{
+  font-family: 'Oswald', arial, serif;
+  font-size: 16px;
+  height: 50px;
+  background-color: olive;
+  width: 100%;
+  vertical-align:top;
+}
+
+.navigation-div a:link, .navigation-div a:visited {
+    text-decoration: none;
+    color:white;
+}
+
+span.menuItem { 
+	display:inline-block; 
+	padding-top:10px;
+	padding-left:15px;
+	padding-right:15px;
+}
+
+h1 {
+	line-height: 75px;
+	margin: 0;
+	text-align: center;
+	background: #ff6600
+}
+#left {
+    top: 201px;
+	width: 175px;
+	padding: 20px;
+	float: left; 
+	background: #f7fafe;
+	height: 975px;
+}
+#right {
+	width: 786px;
+	background: white;
+	margin-left: 215px;
+    text-align:middle;
+	
+}
+
+#footer {
+	color: white;
+	background-color: olive;
+    width:  999px;
+    margin: 0 auto;
+    position: absolute; bottom: 0;
+}
+
+h2, h3, footer p {
+	line-height: 45px;
+	margin: 0;
+	text-align: center;
+}
+
+#busqueda {
+	width:  786px;
+    top: 201px;
+    left: 215px;
+    width: 770px;
+	margin-left:auto; 
+    margin-right:auto;  
+    margin-top: 25px;  
+    font-size:10px;
+    background: #f7fafe;
+}
+
+.busqueda{
+	font-size: 12px;
+	width: 6em;
+}
+
+.busquedaInput{
+	font-size: 12px;
+	width: 6em;
+	margin-left: 4px;
+}
+
+
+
+.tituloBusqueda{
+	height: 26px;
+	font-family:Oswald;
+	font-size: 14px;
+	color: white;
+	background-color: olive;
+	padding-top:2px;
+	padding-left: 4px;
+	text-align:left;
+	letter-spacing:1px;
+}
+
+
+label {
+  display: inline-block;
+  width: 90px;
+  font-size: 12px;
+}
+
+
+table.picturesTable {
+	margin-left:auto; 
+    margin-right:auto;
+    top: 265px;
+    left: 265px;    
+    width: 770px;
+}
+
+table.pictureInternalTable {
+	margin-left:auto; 
+    margin-right:auto;
+}
+
+td.tdPictureContainer{
+	align: center;
+}
+
+td.pictureTitle{
+	text-align: center;
+	color: #1e6b88;
+	font-size: 18px;
+	font-family: "Oswald";
+}
+
+div.pictureContainer{
+	text-align:center;
+	align:center;
+	padding:5px;
+	margin: 0 auto;
+}
+
+span.navegacionPaginas{
+	text-align: center;
+	color: #1e6b88;
+	font-size: 18px;
+	font-family: "Oswald";
+}
+
+/* form de búsqueda */
+td.submitButtons{
+	align:right;
+}
+
+.busquedaBotones{
+	font-size: 12px;
+	padding-right:10px;
+}
+
+
+
+
+.redondeado{
+  border-radius: 5px;
+  border: 1px solid gray;
+  font: normal 1.5em auto; /* 24px, or 16px x 1.5 */
+  font-family: 'Oswald';
+  padding: 0.1em;
+  box-shadow: 0 0 10px gray inset;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+
+
+#contactform .formcolumn{ /* column div inside form */
+  width: 33%;
+  float: left;
+}
+
+#contactform .formcolumn label, #contactform .formcolumn fieldset{
+font: 1.2em Oswald; /* font size is 12.8px, or 16 x 0.8 */
+display: inline-block;
+margin-top: 2em;
+margin-bottom: 3px;
+}
+
+#contactform input.button{
+margin-top: 1.5EM;
+box-shadow: 0 0 10px gray;
+font-weight: bold;
+}
+
+
+/* dog info details page */
+table.features{
+	position:relative;
+	top:20px;
+	left: 10px;
+	margin: 0 auto;
+	width: 390px;
+}
+
+td.featureTitle{
+	text-align: left;
+	vertical-align: top;
+	padding-top:5px;
+	color: #1e6b88;
+	font-size: 14px;
+	font-family: "Oswald";
+	height: 30px;
+	width:150px;
+}
+
+td.featureText{
+	text-align: justify;
+	font-size: 14px;
+	width:300px;
+	
+}
+
+td.mainFeatures{
+	text-align: center;
+	color: black;
+	background-color: #f7fafe;
+	font-size: 18px;
+	font-weight: bold;
+	border:none;
+}
+
+img.infoDetail{
+	width: 250px;
+}
+
+div.textTitle{
+	text-align: left;
+	color: #1e6b88;
+	font-size: 15px;
+	font-family: "Oswald";
+}
+
+table.tableFotoInfo{
+	position:relative;
+	top:20px;
+	margin: 0 auto;
+	float:left;
+}
+
+div.infoText{
+	text-align:justify;
+	padding-left:5px;
+	padding-right:5px;
+	font-size: 80%;
+}
+
+span.infoTextTitle{
+	width:230px;
+	display:inline-block;
+	padding-left:5px;
+}
+
+img.estrellas{
+	height:20px;
+}
+
+td.pictureTitleInfo{
+	text-align: center;
+	color: white;
+	background-color: olive;
+	font-size: 18px;
+	font-family: "Oswald";
+}
+
+
+		

@@ -290,5 +290,10 @@ td.pictureTitleInfo{
 	font-family: "Oswald";
 }
 
+img.breedImage{
+	height: 152px;
+	width: auto;
+}
+
 
 		

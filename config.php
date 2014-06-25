@@ -11,12 +11,12 @@
 
   //local
   $GLOBALS['debug'] = true;
-  global $raiz; $raiz = 'C:/xampp/htdocs/petzynga/cms';
+  global $raiz; $raiz = 'C:/xampp/htdocs/petzyngaweb';
   global $usuario; $usuario ='almarlam_gonzalo';
   global $clave; $clave ='manuela';
   global $baseDeDatos; $baseDeDatos ='petzynga';
-  $GLOBALS['dirWeb'] ='/a/php-mvc';
-  $GLOBALS['dirAplicacion'] ='/petzynga';
+  $GLOBALS['dirWeb'] ='/petzyngaweb';
+  $GLOBALS['dirAplicacion'] ='/petzyngacms';
   $GLOBALS['host'] ='localhost';
     
 ?>

@@ -17,7 +17,7 @@
                       echo "  <a href='" . URL . "dogbreedinfo/info/" . str_replace(" ", "_", $bean->getNombre()) . "'>\n";                      
                       echo "    <table class='pictureInternalTable'> \n";
                       echo "      <tr><td class='pictureTitle'>" . $bean->getNombre() . "</td></tr> \n";
-                      echo "      <tr><td><img src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";
+                      echo "      <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";
                       echo "    </table> \n";
                       echo "  </a> \n";
                       echo "</div>";

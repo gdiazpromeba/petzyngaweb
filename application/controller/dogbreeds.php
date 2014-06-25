@@ -218,8 +218,7 @@ class DogBreeds extends Controller{
     	$upkeepHasta=$arrUpkeep[1];
     	
     	 
-    	
-    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
+   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
     	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta);
     	
     	$_SESSION['letraInicial']=$letraInicial;
@@ -271,6 +270,9 @@ class DogBreeds extends Controller{
     	$_SESSION['hayAnterior']= true;
     	$_SESSION['haySiguiente'] =($amountOfDogBreeds> ($start + self::$tamPagina));
     	$_SESSION['start'] = $start;
+    	
+    	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
+    	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
 
     	require 'application/views/_templates/header.php';
     	require 'application/views/dogbreeds/index.php';

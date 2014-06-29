@@ -4,7 +4,7 @@
           <tr><td class="pictureTitleInfo"><?php echo $info->getNombre(); ?></td></tr>  
           <tr><td><img class="infoDetail" src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/breeds/" . $info->getPictureUrl() ?>'></td></tr>
           <tr><td class="mainFeatures"><?php echo   $info->getMainFeatures() . "!"?></td></tr>
-          <tr><td class="featureText" style="text-align:center;" ><?php echo  "Watch a <a target='_blank' href='http://www.youtube.com/watch?v=" . $info->getVideoUrl() . "'"?> >Video</td></tr>
+          <tr><td class="mainFeatures"><?php echo  "Watch a <a target='_blank' href='http://www.youtube.com/watch?v=" . $info->getVideoUrl() . "'"?> >Video</td></tr>
         </table>
         <table class="features">
           <tr><td class="featureTitle">Size</td><td class="featureText"><?php echo $info->getSizeName(); ?></td></tr>  

@@ -271,8 +271,8 @@ class DogBreeds extends Controller{
     	$_SESSION['haySiguiente'] =($amountOfDogBreeds> ($start + self::$tamPagina));
     	$_SESSION['start'] = $start;
     	
-    	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
-    	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
+//     	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
+//     	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
 
     	require 'application/views/_templates/header.php';
     	require 'application/views/dogbreeds/index.php';
@@ -317,18 +317,22 @@ class DogBreeds extends Controller{
     	$tamañoHasta=100;
     	 
     	switch($selDogSize){
-    		case "larger":
+    		case "large":
     			$tamañoDesde=60;
-    			$tamañoHasta=100;
+    			$tamañoHasta=60;
     			break;
     		case "medium":
     			$tamañoDesde=50;
     			$tamañoHasta=50;
     			break;
-    		case "smaller":
-    			$tamañoDesde=0;
-    			$tamañoHasta=40;
+    		case "small":
+    			$tamañoDesde=30;
+    			$tamañoHasta=30;
     			break;
+    		case "toy":
+    			$tamañoDesde=20;
+    			$tamañoHasta=20;
+    			break;    			
     		default:
     			$tamañoDesde=0;
     			$tamañoHasta=100;

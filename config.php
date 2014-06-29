@@ -1,12 +1,12 @@
 <?php
 
   //servidor qa
-//    $GLOBALS['debug'] = false;
-//    global $usuario; $usuario ='petzynga_gonzalo';
+//  $GLOBALS['debug'] = false;
+//  global $usuario; $usuario ='petzynga_gonzalo';
 //    global $clave; $clave ='manuela';
 //    global $baseDeDatos; $baseDeDatos ='petzynga_cmsqa';
 //    $GLOBALS['dirWeb'] ='/qaweb';
-//    $GLOBALS['dirAplicacion'] ='/qa/qacms';
+//    $GLOBALS['dirAplicacion'] ='/qacms';
 //    $GLOBALS['host'] ='petzynga.com';
 
   //local

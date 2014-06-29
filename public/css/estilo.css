@@ -96,12 +96,12 @@ h2, h3, footer p {
 
 .busqueda{
 	font-size: 12px;
-	width: 6em;
+	width: 8em;
 }
 
 .busquedaInput{
 	font-size: 12px;
-	width: 6em;
+	width: 7.7em;
 	margin-left: 4px;
 }
 
@@ -120,11 +120,14 @@ h2, h3, footer p {
 }
 
 
-label {
+.labelBusqueda {
   display: inline-block;
   width: 90px;
   font-size: 12px;
+  text-align: right;
+  padding-right: 5px;
 }
+
 
 
 table.picturesTable {
@@ -246,6 +249,12 @@ td.mainFeatures{
 	font-weight: bold;
 	border:none;
 }
+
+
+td.mainFeatures a{
+	  color: olive;
+}
+
 
 img.infoDetail{
 	width: 250px;

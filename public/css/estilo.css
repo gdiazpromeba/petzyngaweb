@@ -220,13 +220,13 @@ table.features{
 	top:20px;
 	left: 10px;
 	margin: 0 auto;
-	width: 390px;
+	width: 460px;
+
 }
 
 td.featureTitle{
 	text-align: left;
-	vertical-align: top;
-	padding-top:5px;
+	vertical-align: middle;
 	color: #1e6b88;
 	font-size: 14px;
 	font-family: "Oswald";
@@ -236,6 +236,7 @@ td.featureTitle{
 
 td.featureText{
 	text-align: justify;
+	vertical-align: middle;
 	font-size: 14px;
 	width:300px;
 	

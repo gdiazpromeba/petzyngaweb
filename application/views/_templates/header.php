@@ -9,6 +9,8 @@
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
+    <!--  google maps -->
+    <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
 </head>
 <body>
 <!-- header -->

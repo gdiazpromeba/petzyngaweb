@@ -18,7 +18,7 @@
                    	echo "  </table></td> \n";
                    }
                    
-                   echo "  <td style='border-style:solid'>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getNumber()) . "'>Details</a></td> \n";
+                   echo "  <td>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getNumber()) . "'>Details</a></td> \n";
                    echo "</tr> \n"; 
                  }
                ?>
@@ -36,4 +36,5 @@
         
       ?>
     </span>
+    <div id="map-canvas"></div>
 </div>

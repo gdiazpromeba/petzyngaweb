@@ -19,10 +19,9 @@ class ShelterUsaInfo extends Controller
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/songs/index
      */
-    public function info($nombre)
+    public function info($number)
     {
-    	$nombre=str_replace("_", " ", $nombre);
-    	$info=$this->svc->obtienePorNombre($nombre);
+    	$info=$this->svc->obtienePorNumero($number);
     		
     	//$feedingArmado=$this->armaFeeding($info);
 

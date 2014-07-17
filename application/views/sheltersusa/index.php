@@ -1,15 +1,24 @@
 <div id="right">
 
 	<?php include 'formBusqueda.php'?>
-
+    <br/>
+    <br/>
     <div>
-              <table class="picturesTable">
+              <table class="sheltersTable">
                <?php
                  foreach ($shelters as $shelter){
                    echo "<tr> \n"; 
                    echo "  <td class='shelterContainer'>" . $shelter->getName() . "</td> \n";
-                   echo "  <td>" . $shelter->getCityName() . ", " . $shelter->getStateName()  . "</td> \n";
-                   echo "  <td>  <a href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getName()) . "'>\n";
+                   if (empty($usaZipCode)){
+                     echo "  <td class='locacion'>" . $shelter->getCityName() . ", " . $shelter->getStateName()  . "</td> \n";
+                   }else{//muestra también la distancia
+                   	echo "  <td><table> \n";
+                   	echo "    <tr><td class='locacion'>" . $shelter->getCityName() . ", " . $shelter->getStateName()  . "</td></tr> \n";
+                   	echo "    <tr><td class='distancia'>" .  round($shelter->getDistancia() * 0.621371192)  . " mi</td></tr> \n";
+                   	echo "  </table></td> \n";
+                   }
+                   
+                   echo "  <td style='border-style:solid'>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getNumber()) . "'>Details</a></td> \n";
                    echo "</tr> \n"; 
                  }
                ?>

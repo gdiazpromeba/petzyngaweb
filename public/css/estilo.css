@@ -162,24 +162,6 @@ div.pictureContainer{
 	margin: 0 auto;
 }
 
-
-
-table.sheltersTable {
-	margin-left:auto; 
-    margin-right:auto;
-    top: 265px;
-    left: 265px;    
-    width: 770px;
-}
-
-td.shelterContainer{
-	height: 80px;
-	text-align:left;
-	align:center;
-	padding:5px;
-	margin: 0 auto;	
-}
-
 span.navegacionPaginas{
 	text-align: center;
 	color: #1e6b88;

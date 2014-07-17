@@ -3,14 +3,17 @@
 require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/beans/ShelterUsa.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersUsaSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/ZipsUsaSvcImpl.php';
 // header("Content-Type: text/plain; charset=utf-8");
 
 class SheltersUsa extends Controller{
 	private $svc;
+	private $svcZips;
 	private static $tamPagina = 12;
 	
 	public function __construct(){
 		$this->svc = new SheltersUsaSvcImpl();
+		$this->svcZips = new ZipsUsaSvcImpl();
 	}
 	
 	
@@ -96,14 +99,14 @@ class SheltersUsa extends Controller{
     	 
    	
     	
-    	$latitudeUsa = 0;
-    	$longitudeUsa = 0;
+    	$usaLatitude = 0;
+    	$usaLongitude = 0;
     	//si el zipCode existe, transformarlo en latitud y longitud
     	if (!empty($usaZipCode)){
     		$svcZips = new ZipsUsaSvcImpl();
-    		$zipBean = $svcZips->obtienePorCodigo($_REQUEST['zipCode']);
-    		$latitudeUsa= $zipBean->getLatitude();
-    		$longitudeUsa = $zipBean->getLongitude();
+    		$zipBean = $svcZips->obtienePorCodigo($usaZipCode);
+    		$usaLatitude= $zipBean->getLatitude();
+    		$usaLongitude = $zipBean->getLongitude();
     	}
     	
     	$start=0;
@@ -112,12 +115,14 @@ class SheltersUsa extends Controller{
     	}    	
     	
     	 
-   	    $shelters=$this->svc->selTodos($usaShelterName, null, $latitudeUsa, $longitudeUsa, $usaDistance, $start, self::$tamPagina);
-    	$amountOfUsaShelters=$this->svc->selTodosCuenta($usaShelterName, null, $latitudeUsa, $longitudeUsa, $usaDistance);
+   	    $shelters=$this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
+    	$amountOfUsaShelters=$this->svc->selTodosCuenta($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance);
     	
     	$_SESSION['usaZipCode']=$usaZipCode;
     	$_SESSION['usaShelterName']=$usaShelterName;
     	$_SESSION['usaDistance']=$usaDistance;
+    	$_SESSION['usaLatitude']=$usaLatitude;
+    	$_SESSION['usaLongitude']=$usaLongitude;
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] =($amountOfUsaShelters> self::$tamPagina);
     	$_SESSION['start'] = $start;
@@ -139,18 +144,24 @@ class SheltersUsa extends Controller{
     	$usaZipCode = $_SESSION['usaZipCode'];
     	$usaShelterName = $_SESSION['usaShelterName'];
     	$usaDistance = $_SESSION['usaDistance'];
+    	$usaLatitude = $_SESSION['usaLatitude'];
+    	$usaLongitude = $_SESSION['usaLongitude'];
     	
     	$startAnterior = $_SESSION['start'];
     	$start =  $startAnterior + self::$tamPagina;
     	$amountOfUsaShelters = $_SESSION['amountOfUsaShelters'];
     	
-    	$shelters = $this->svc->selTodos($usaShelterName, null, $latitudeUsa, $longitudeUsa, $usaDistance, $start, self::$tamPagina);
+    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
+    	
+    	$_SESSION['hayAnterior']= true;
+    	$_SESSION['haySiguiente'] =($amountOfUsaShelters> ($start + self::$tamPagina));
+    	$_SESSION['start'] = $start;    	
 
 //     	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
 
     	require 'application/views/_templates/header.php';
-    	require 'application/views/usaShelters/index.php';
+    	require 'application/views/sheltersusa/index.php';
     	require 'application/views/_templates/footer.php';
     }
     
@@ -159,18 +170,24 @@ class SheltersUsa extends Controller{
     	
     	$usaZipCode = $_SESSION['usaZipCode'];
     	$usaShelterName = $_SESSION['usaShelterName'];
-    	$usaDistance = $_SESSION['usaDistance'];    	
+    	$usaDistance = $_SESSION['usaDistance'];    
+    	$usaLatitude = $_SESSION['usaLatitude'];
+    	$usaLongitude = $_SESSION['usaLongitude'];
+    	 
     	 
     	$startAnterior = $_SESSION['start'];
     	$start =  $startAnterior - self::$tamPagina;
     	$amountOfUsaShelters = $_SESSION['amountOfUsaShelters'];
-    
     	
-    	$shelters = $this->svc->selTodos($usaShelterName, null, $latitudeUsa, $longitudeUsa, $usaDistance, $start, self::$tamPagina);
-    
+   	
+    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
+
+    	$_SESSION['hayAnterior']= $start > 0;
+    	$_SESSION['haySiguiente'] = true;
+    	$_SESSION['start'] = $start;    	
    	
     	require 'application/views/_templates/header.php';
-    	require 'application/views/usaShelters/index.php';
+    	require 'application/views/sheltersusa/index.php';
     	require 'application/views/_templates/footer.php';
     
     }

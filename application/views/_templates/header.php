@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
 </head>
 <body>
 <!-- header -->

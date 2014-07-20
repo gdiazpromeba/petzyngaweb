@@ -293,12 +293,13 @@ img.estrellas{
 	height:20px;
 }
 
-td.pictureTitleInfo{
+.pictureTitleInfo{
 	text-align: center;
 	color: white;
 	background-color: olive;
 	font-size: 18px;
 	font-family: "Oswald";
+	vertical-align: top;
 }
 
 img.breedImage{

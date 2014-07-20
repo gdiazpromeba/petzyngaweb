@@ -39,6 +39,14 @@ a.btnMoreDetails:hover{
 	background: #16535b;
 }
 
+img.detailShelterAncha{
+	width:750px;
+}
+
+img.detailShelter{
+	height:150px;
+}
+
 
 .w90 {
 width: 90px;

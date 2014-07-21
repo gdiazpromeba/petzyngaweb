@@ -1,9 +1,9 @@
-<div id="right">
+<div id="columnaListaShelters">
 
 	<?php include 'formBusqueda.php'?>
-    <br/>
-    <br/>
+
     <div>
+   
               <table class="sheltersTable">
                <?php
                  foreach ($shelters as $shelter){
@@ -36,5 +36,4 @@
         
       ?>
     </span>
-    <div id="map-canvas"></div>
 </div>

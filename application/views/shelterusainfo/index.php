@@ -25,9 +25,6 @@
       </td>
     </tr>
     <tr>
-      <td style="width:400px;height:600px">
-        <div id="map-canvas" style="height:100%"></div>   
-      </td>
       <td style="width:400px;height:600px" valign="top">
         <div class="pictureTitleInfo">Contact information</div>
 			  <br/>

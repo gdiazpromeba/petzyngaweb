@@ -26,7 +26,7 @@ class ShelterUsaInfo extends Controller
     	//$feedingArmado=$this->armaFeeding($info);
 
         // load views. within the views we can echo out $songs and $amount_of_songs easily
-        require 'application/views/_templates/header.php';
+        require 'application/views/shelterusainfo/headerShelterUsaInfo.php';
         require 'application/views/shelterusainfo/index.php';
         require 'application/views/_templates/footer.php';
     }

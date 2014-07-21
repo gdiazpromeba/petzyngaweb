@@ -1,4 +1,4 @@
-	<div id="busqueda">
+	<div id="busquedaShelters">
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
 	  <form name="frmBusqueda"  action="<?php echo URL . 'sheltersusa/index'  ?>" method="POST">
 	    <table width="100%">

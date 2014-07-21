@@ -131,7 +131,7 @@ class SheltersUsa extends Controller{
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
     	 
-    	require 'application/views/_templates/header.php';
+    	require 'application/views/sheltersusa/headerSheltersUsaIndex.php';
     	require 'application/views/sheltersusa/index.php';
     	require 'application/views/_templates/footer.php';  
     }
@@ -160,7 +160,7 @@ class SheltersUsa extends Controller{
 //     	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
 
-    	require 'application/views/_templates/header.php';
+    	require 'application/views/sheltersusa/headerSheltersUsaIndex.php';
     	require 'application/views/sheltersusa/index.php';
     	require 'application/views/_templates/footer.php';
     }
@@ -186,7 +186,7 @@ class SheltersUsa extends Controller{
     	$_SESSION['haySiguiente'] = true;
     	$_SESSION['start'] = $start;    	
    	
-    	require 'application/views/_templates/header.php';
+    	require 'application/views/sheltersusa/headerSheltersUsaIndex.php';
     	require 'application/views/sheltersusa/index.php';
     	require 'application/views/_templates/footer.php';
     

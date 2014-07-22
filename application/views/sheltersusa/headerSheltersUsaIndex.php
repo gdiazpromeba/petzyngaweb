@@ -20,32 +20,36 @@
 		  }
 		  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
 		  var bounds = new google.maps.LatLngBounds();
-		  var infowindow = new google.maps.InfoWindow(); 
+		  var infowindow = new google.maps.InfoWindow({maxWidth: 400}); 
 
 		  var locations = [
           <?php 
             foreach ($shelters as $shelter){
               $legend= $shelter->getName() . "\n\n";
               $address=$shelter->getStreetAddress();
-              if (!(empty($address))){
-                 $legend .= $shelter->getStreetAddress();
-              }else{
-                 $legend .= $shelter->getPoBox();
+              if ((empty($address))){
+                 $address = 'PO Box ' + $shelter->getPoBox();
               }
-              echo "[\"" .  $legend . "\", " . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", ". $shelter->getNumber() . "], \n";
+              $address.=  "  " . $shelter->getCityName();
+              $address.=  ",  " . $shelter->getStateName();
+              $address.=  ",  " . $shelter->getZip();
+              $address = str_replace(array("\r\n", "\n", "\r"), '<br/>', $address);
+              echo "[\"" .  $shelter->getName() . "\",\""   .  $address .  "\", "   . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", ". $shelter->getNumber() . "], \n";
             }              
           ?>
 		  ];		         		 
 			
 	      for (i = 0; i < locations.length; i++) {  
 	        marker = new google.maps.Marker({
-	          position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+	          position: new google.maps.LatLng(locations[i][2], locations[i][3]),
 	          map: map
 	        });
 	        bounds.extend(marker.position);
 	        google.maps.event.addListener(marker, 'click', (function(marker, i) {
 	            return function() {
-	              infowindow.setContent(locations[i][0]);
+		          var contentString  ="<div style='font-weight:bold'>" + locations[i][0] + "</div><br/>";
+		          contentString +="<div style='font-color:gray'>" + locations[i][1] + "</div>";
+	              infowindow.setContent(contentString);
 	              infowindow.open(map, marker);
 	            }
 	          })(marker, i));	        

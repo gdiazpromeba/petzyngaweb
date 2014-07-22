@@ -1,7 +1,7 @@
 <div class="right">
-  <table border=1>
-    <tr>
-      <td colspan="2" style="padding-top:10px;padding-bottom:10px;">
+
+    
+ 
         <?php 
           list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterlogos/" . $info->getLogoUrl());
 
@@ -12,20 +12,22 @@
           }
           ?>
           <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/shelterlogos/" . $info->getLogoUrl() ?>'>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" >
+      
+    
+    
+        <br/>
+        <br/>
         <div class="pictureTitleInfo"><?php echo $info->getName(); ?></div>
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2" style="padding-top:10px;padding-bottom:10px;">
+      
+    
+    
+
         <div class="infoText"> <?php echo $info->getDescription(); ?></div> 
-      </td>
-    </tr>
-    <tr>
-      <td style="width:400px;height:600px" valign="top">
+      
+    
+    
+        <br/>
+        <br/>
         <div class="pictureTitleInfo">Contact information</div>
 			  <br/>
 			  <?php
@@ -52,26 +54,29 @@
 			      echo "<br/>";
 			    }
 			  ?>
-			  <h2>Address</h2>
-			  <br/>
-			  <?php echo $info->getStreetAddress(); ?> 
-			  <br/>
-			  <?php echo $info->getCityName(); ?>,&nbsp;&nbsp;<?php echo $info->getStateName(); ?>&nbsp;&nbsp;<?php echo $info->getZip(); ?> 
-			  <br/>
-			  <br/>  
-         
-      </td>
-    </tr>
-    <tr>
-      <td colspan="2">
+			  <?php
+			    $address = $info->getStreetAddress();
+			    if (!empty($address)){
+			      echo "Address:" .  $address ;
+			      echo "<br/>";
+			      echo $info->getCityName() . ", " . $info->getStateName(). " " . $info->getZip(); 
+			      echo "<br/>";
+			    }else{
+                  echo "PO Box " . $info->getPoBox();
+                }
+			  ?>
+    
+    
+        <br/>
+        <br/>
         <span class="navegacionPaginas">
 	      <?php 
 	        echo "  <a href='" . URL . "/sheltersusa'> << Back to List </a> \n";
 	      ?>
         </span> 
-      </td>
-    </tr>
-  </table>
+      
+    
+
   
   
   

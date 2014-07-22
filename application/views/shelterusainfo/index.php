@@ -17,23 +17,24 @@
     
         <br/>
         <br/>
-        <div class="pictureTitleInfo"><?php echo $info->getName(); ?></div>
+        <div class="shelterDescriptionTitle"><?php echo $info->getName(); ?></div>
       
     
     
 
-        <div class="infoText"> <?php echo $info->getDescription(); ?></div> 
+        <div class="shelterDescription"> <?php echo $info->getDescription(); ?></div> 
       
     
     
         <br/>
         <br/>
-        <div class="pictureTitleInfo">Contact information</div>
+        <div class="shelterDescriptionTitle">Contact information</div>
+        <div class="shelterContactInfo">
 			  <br/>
 			  <?php
 			    $phone = $info->getPhone();
 			    if (!empty($phone)){
-			      echo "Phone:" . $phone;
+			      echo $phone;
 			      echo "<br/>";
 			      echo "<br/>";
 			    }
@@ -41,7 +42,7 @@
 			  <?php
 			    $email = $info->getEmail();
 			    if (!empty($email)){
-			      echo "Email:<a href='mailto:" . $email . "'>" . $email . "</a>";
+			      echo "<a href='mailto:" . $email . "'>" . $email . "</a>";
 			      echo "<br/>";
 			      echo "<br/>";
 			    }
@@ -49,7 +50,7 @@
 			  <?php
 			    $url = $info->getUrl();
 			    if (!empty($url)){
-			      echo "Website:<a href='" . $url . "'>" . $url . "</a>";
+			      echo "<a href='" . $url . "'>" . $url . "</a>";
 			      echo "<br/>";
 			      echo "<br/>";
 			    }
@@ -57,7 +58,7 @@
 			  <?php
 			    $address = $info->getStreetAddress();
 			    if (!empty($address)){
-			      echo "Address:" .  $address ;
+			      echo $address ;
 			      echo "<br/>";
 			      echo $info->getCityName() . ", " . $info->getStateName(). " " . $info->getZip(); 
 			      echo "<br/>";
@@ -65,6 +66,8 @@
                   echo "PO Box " . $info->getPoBox();
                 }
 			  ?>
+	    </div>
+		
     
     
         <br/>

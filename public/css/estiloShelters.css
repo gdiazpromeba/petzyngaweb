@@ -97,4 +97,39 @@ width: 90px;
 	padding:5px;
 }
 
+.shelterDescriptionTitle{
+	text-align: center;
+	color: white;
+	background-color: olive;
+	font-size: 18px;
+	font-family: "Oswald";
+	vertical-align: top;
+	padding-left: 15px;
+	padding-right: 15px;
+	display: inline;
+	
+}
+
+.shelterDescription{
+	text-align:justify;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 80%;
+	width: 80%;
+	margin: 0 auto;
+}
+
+.shelterContactInfo{
+	text-align:center;
+	padding-left:25px;
+	padding-right:25px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 80%;
+	width: 40%;
+	margin: 0 auto;
+}
+
 

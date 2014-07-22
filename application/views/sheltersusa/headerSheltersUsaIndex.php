@@ -30,7 +30,7 @@
               if ((empty($address))){
                  $address = 'PO Box ' + $shelter->getPoBox();
               }
-              $address.=  "  " . $shelter->getCityName();
+              $address.=  "<br/>" . $shelter->getCityName();
               $address.=  ",  " . $shelter->getStateName();
               $address.=  ",  " . $shelter->getZip();
               $address = str_replace(array("\r\n", "\n", "\r"), '<br/>', $address);

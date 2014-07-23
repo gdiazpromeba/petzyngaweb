@@ -45,7 +45,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
     <div class="navigation-div">
        <span class="menuItem"><a href="<?php echo URL; ?>">HOME</a></span>
        <span class="menuItem"><a href="<?php echo URL; ?>dogbreeds/">DOG BREEDS</a></span>
-       <span class="menuItem"><a href="<?php echo URL; ?>sheltersUsa/">SHELTERS</a></span>
+       <span class="menuItem"><a href="<?php echo URL; ?>sheltersusa/">SHELTERS</a></span>
     </div>
 
     <div id="left">

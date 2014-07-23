@@ -11,6 +11,7 @@
     <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
     <!--  google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
+    <?php require_once 'configJs.php';?> 
 
     <script>
 	  function initialize() {
@@ -31,7 +32,7 @@
                  $address = 'PO Box ' + $shelter->getPoBox();
               }
               $address.=  "<br/>" . $shelter->getCityName();
-              $address.=  ",  " . $shelter->getStateName();
+              $address.=  ",  " . $shelter->getStateCode();
               $address.=  ",  " . $shelter->getZip();
               $address = str_replace(array("\r\n", "\n", "\r"), '<br/>', $address);
               echo "[\"" .  $shelter->getName() . "\",\""   .  $address .  "\", "   . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", ". $shelter->getNumber() . "], \n";
@@ -49,6 +50,8 @@
 	            return function() {
 		          var contentString  ="<div style='font-weight:bold'>" + locations[i][0] + "</div><br/>";
 		          contentString +="<div style='font-color:gray'>" + locations[i][1] + "</div>";
+		          contentString +="<br/>";
+		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelterusainfo/info/" + locations[i][4] + "'>Details</a> \n";
 	              infowindow.setContent(contentString);
 	              infowindow.open(map, marker);
 	            }

@@ -39,6 +39,16 @@ a.btnMoreDetails:hover{
 	background: #16535b;
 }
 
+
+a.detailMapInfoBox{
+    color: #2ba9bd;
+}
+
+a.detailMapInfoBox:hover{
+	color: #16535b;
+}
+
+
 img.detailShelterAncha{
 	width:750px;
 }

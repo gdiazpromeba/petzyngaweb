@@ -59,12 +59,13 @@
 			    $address = $info->getStreetAddress();
 			    if (!empty($address)){
 			      echo $address ;
-			      echo "<br/>";
-			      echo $info->getCityName() . ", " . $info->getStateName(). " " . $info->getZip(); 
-			      echo "<br/>";
 			    }else{
                   echo "PO Box " . $info->getPoBox();
                 }
+                echo "<br/>";
+                echo $info->getCityName() . ", " . $info->getStateCode(). " " . $info->getZip();
+                echo "<br/>";
+                
 			  ?>
 	    </div>
 		

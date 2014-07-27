@@ -96,12 +96,15 @@ h2, h3, footer p {
 .busqueda{
 	font-size: 12px;
 	width: 8em;
+	display: block;
 }
 
 .busquedaInput{
 	font-size: 12px;
 	width: 7.7em;
-	margin-left: 4px;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */	
 }
 
 
@@ -118,13 +121,17 @@ h2, h3, footer p {
 	letter-spacing:1px;
 }
 
+td.campoBusqueda{
+	text-align: left;
+	padding-left: 5px;
+}
+
 
 .labelBusqueda {
-  display: inline-block;
+  display: block;
   width: 90px;
   font-size: 12px;
-  text-align: right;
-  padding-right: 5px;
+  text-align: left;
 }
 
 

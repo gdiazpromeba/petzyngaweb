@@ -3,10 +3,10 @@
 	  <form name="frmBusqueda"  action="<?php echo URL . 'dogbreeds/index'  ?>" method="POST">
 	    <table width="100%">
 	      <tr>
-	        <td>
+	        <td class="campoBusqueda">
 	          <label class="labelBusqueda" for="nombreOParte">Breed name</label><input class="busquedaInput" type="text" name="nombreOParte"  <?php if (isset($_SESSION['nombreOParte'])) echo "value='" . $_SESSION['nombreOParte'] . "'"; ?> />
 	        </td>
-	        <td>
+	        <td class="campoBusqueda">
 	          <label class="labelBusqueda">Initial</label>
 	          <select name="letraInicial" class="busqueda">
 	            <option value=""  <?php if ($_SESSION['letraInicial']=="") echo "selected='selected'"; ?> >All</option>
@@ -20,7 +20,7 @@
 	          ?>
 	          </select>
 	        </td>
-	        <td>
+	        <td class="campoBusqueda">
 	          <label class="labelBusqueda">Size</label> 
 	          <select name="selDogSize" class="busqueda">
 	            <option value=""        <?php if ($_SESSION['selDogSize']=="")   echo "selected='selected'"; ?> >All</option>
@@ -30,11 +30,9 @@
 	            <option value="large"   <?php if ($_SESSION['selDogSize']=="large")  echo "selected='selected'"; ?> >large</option>
 	          </select>
 	        </td>
-	        <td class="busqueda">
-	        </td>	        
 	      </tr>
 	      <tr>
-	        <td>
+	        <td class="campoBusqueda">
 	          <label class="labelBusqueda">Feeding</label>
 	          <select name="selDogFeeding" class="busqueda">
 	            <option value=""         <?php if ($_SESSION['selDogFeeding']=="")   echo "selected='selected'"; ?> >All</option>
@@ -43,7 +41,7 @@
 	            <option value="more"     <?php if ($_SESSION['selDogFeeding']=="more")  echo "selected='selected'"; ?> >more</option>
 	          </select>	        
 	        </td>
-	        <td>
+	        <td class="campoBusqueda">
 	          <label class="labelBusqueda">Grooming</label>
 	          <select name="selUpkeep" class="busqueda">
 	            <option value=""         <?php if ($_SESSION['selUpkeep']=="")   echo "selected='selected'"; ?> >All</option>
@@ -53,9 +51,9 @@
 	          </select>	        
 	        </td>
 	      	<td align="right" colspan="2">
-	      	  <input type="button" onclick="javascript: resetFrmBusqueda()" value="Reset" class="busquedaBotones" />
+	      	  <input type="button" onClick="javascript: submitFrmBusqueda()" value="Search" class="busquedaBotones" />
 	      	  &nbsp;
-	          <input type="button" onClick="javascript: submitFrmBusqueda()" value="Search" class="busquedaBotones" />
+	      	  <input type="button" onclick="javascript: resetFrmBusqueda()" value="Reset" class="busquedaBotones" />
 	        </td>
 	      </tr>
 	    </table>

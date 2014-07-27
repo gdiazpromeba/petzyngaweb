@@ -5,10 +5,12 @@ var Global={};
 if ($GLOBALS['debug']){
 ?>
  Global.dirAplicacion = '/petzyngaweb';
+ Global.dirCms = '/petzyngacms';
 <?php	
 }else{
 ?>
   Global.dirAplicacion = '/qaweb';
+  Global.dirCms = '/qacms';
 <?php	
 }
 ?>

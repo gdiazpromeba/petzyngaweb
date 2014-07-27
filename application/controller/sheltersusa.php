@@ -11,6 +11,7 @@ class SheltersUsa extends Controller{
 	private $svcZips;
 	private static $tamPagina = 12;
 	
+
 	public function __construct(){
 		$this->svc = new SheltersUsaSvcImpl();
 		$this->svcZips = new ZipsUsaSvcImpl();
@@ -96,6 +97,50 @@ class SheltersUsa extends Controller{
     	}else if (!empty($usaDistanceSesion)){
     		$usaDistance=$usaDistanceSesion;
     	}
+    	
+    	//specialBreedId
+    	$specialBreedId=null;
+    	$specialBreedIdPost=null;
+    	$specialBreedIdSession=null;
+    	 
+    	 
+    	if (isset($_POST['specialBreedId'])){
+    		$specialBreedIdPost=$_POST['specialBreedId'];
+    		session_unset();
+    	}
+    	 
+    	if (isset($_SESSION['specialBreedId'])){
+    		$specialBreedIdSesion=$_SESSION['specialBreedId'];
+    	}
+    	 
+    	 
+    	if (!is_null($specialBreedIdPost)){
+    		$specialBreedId=$specialBreedIdPost;
+    	}else if (!empty($specialBreedIdSesion)){
+    		$specialBreedId=$specialBreedIdSesion;
+    	} 
+
+    	//dogBreedName
+    	$dogBreedName=null;
+    	$dogBreedNamePost=null;
+    	$dogBreedNameSession=null;
+    	
+    	
+    	if (isset($_POST['dogBreedName'])){
+    		$dogBreedNamePost=$_POST['dogBreedName'];
+    		session_unset();
+    	}
+    	
+    	if (isset($_SESSION['dogBreedName'])){
+    		$dogBreedNameSesion=$_SESSION['dogBreedName'];
+    	}
+    	
+    	
+    	if (!is_null($dogBreedNamePost)){
+    		$dogBreedName=$dogBreedNamePost;
+    	}else if (!empty($dogBreedNameSesion)){
+    		$dogBreedName=$dogBreedNameSesion;
+    	}    	
     	 
    	
     	
@@ -115,18 +160,21 @@ class SheltersUsa extends Controller{
     	}    	
     	
     	 
-   	    $shelters=$this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
-    	$amountOfUsaShelters=$this->svc->selTodosCuenta($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance);
+   	    $shelters=$this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $specialBreedId, $start, self::$tamPagina);
+    	$amountOfUsaShelters=$this->svc->selTodosCuenta($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $specialBreedId);
     	
     	$_SESSION['usaZipCode']=$usaZipCode;
     	$_SESSION['usaShelterName']=$usaShelterName;
     	$_SESSION['usaDistance']=$usaDistance;
     	$_SESSION['usaLatitude']=$usaLatitude;
     	$_SESSION['usaLongitude']=$usaLongitude;
+    	$_SESSION['specialBreedId']=$specialBreedId;
+    	$_SESSION['dogBreedName']=$dogBreedName;
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] =($amountOfUsaShelters> self::$tamPagina);
     	$_SESSION['start'] = $start;
     	$_SESSION['amountOfUsaShelters'] = $amountOfUsaShelters;
+    	
     	
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
@@ -146,12 +194,14 @@ class SheltersUsa extends Controller{
     	$usaDistance = $_SESSION['usaDistance'];
     	$usaLatitude = $_SESSION['usaLatitude'];
     	$usaLongitude = $_SESSION['usaLongitude'];
+    	$specialBreedId = $_SESSION['specialBreedId'];
+    	$dogBreedName = $_SESSION['dogBreedName'];
     	
     	$startAnterior = $_SESSION['start'];
     	$start =  $startAnterior + self::$tamPagina;
     	$amountOfUsaShelters = $_SESSION['amountOfUsaShelters'];
     	
-    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
+    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $specialBreedId, $start, self::$tamPagina);
     	
     	$_SESSION['hayAnterior']= true;
     	$_SESSION['haySiguiente'] =($amountOfUsaShelters> ($start + self::$tamPagina));
@@ -173,6 +223,8 @@ class SheltersUsa extends Controller{
     	$usaDistance = $_SESSION['usaDistance'];    
     	$usaLatitude = $_SESSION['usaLatitude'];
     	$usaLongitude = $_SESSION['usaLongitude'];
+    	$specialBreedId = $_SESSION['specialBreedId'];
+    	$dogBreedName = $_SESSION['dogBreedName'];
     	 
     	 
     	$startAnterior = $_SESSION['start'];
@@ -180,7 +232,7 @@ class SheltersUsa extends Controller{
     	$amountOfUsaShelters = $_SESSION['amountOfUsaShelters'];
     	
    	
-    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $start, self::$tamPagina);
+    	$shelters = $this->svc->selTodos($usaShelterName, null, $usaLatitude, $usaLongitude, $usaDistance, $specialBreedId, $start, self::$tamPagina);
 
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] = true;

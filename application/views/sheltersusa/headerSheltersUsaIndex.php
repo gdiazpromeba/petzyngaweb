@@ -7,8 +7,8 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
-    <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet"/>
+    <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet"/>
     <!--  google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <?php require_once 'configJs.php';?> 
@@ -61,10 +61,33 @@
 	  }
 		
 	  google.maps.event.addDomListener(window, 'load', initialize);
+    </script>   
+    
+    
+    <script src="../jquery/external/jquery/jquery.js"></script>
+    <script src="../jquery/jquery-ui.js"></script>
+    <link href="<?php echo URL; ?>jquery/jquery-ui.css" rel="stylesheet"/>
+    <link href="<?php echo URL; ?>jquery/jquery-ui.theme.css" rel="stylesheet"/>
+    <link href="<?php echo URL; ?>jquery/jquery-ui.structure.css" rel="stylesheet"/>
+    <script>
+      $(function() {
+        $( "#dogBreedName" ).autocomplete({
+          source: Global.dirCms + "/svc/conector/dogBreeds.php/selNombres",
+          minLength: 2,
+          select: function( event, ui ) {
+              $("#specialBreedId").val(ui.item.id);
+          }
+        });
+      });
     </script>    
     
-    
-    
+<style>
+.ui-menu .ui-menu-item {
+    font-size: small;
+    text-align: left;
+}
+</style>     
+   
 </head>
 <body>
 <!-- header -->

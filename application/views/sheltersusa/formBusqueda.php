@@ -1,4 +1,5 @@
 	<div id="busquedaShelters">
+      <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
 	  <form name="frmBusqueda"  action="<?php echo URL . 'sheltersusa/index'  ?>" method="POST">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_SESSION['specialBreedId'])) echo "value='" . $_SESSION['specialBreedId'] . "'"; ?> />
@@ -28,6 +29,8 @@
       <script type="text/javascript">
         function submitFrmBusqueda(){
           document.frmBusqueda.submit();
+          var espera=document.getElementById('imgEsperaShelters');
+          espera.style.display="block";
         }
         
         function resetFrmBusqueda(){

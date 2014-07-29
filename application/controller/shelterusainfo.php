@@ -19,9 +19,9 @@ class ShelterUsaInfo extends Controller
      * PAGE: index
      * This method handles what happens when you move to http://yourproject/songs/index
      */
-    public function info($number)
+    public function info($urlEncoded)
     {
-    	$info=$this->svc->obtienePorNumero($number);
+    	$info=$this->svc->obtienePorUrlEncoded($urlEncoded);
     		
     	//$feedingArmado=$this->armaFeeding($info);
 

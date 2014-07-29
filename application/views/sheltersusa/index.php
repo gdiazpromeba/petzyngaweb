@@ -18,7 +18,7 @@
                    	echo "  </table></td> \n";
                    }
                    
-                   echo "  <td>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getNumber()) . "'>Details</a></td> \n";
+                   echo "  <td>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getUrlEncoded()) . "'>Details</a></td> \n";
                    echo "</tr> \n"; 
                  }
                ?>
@@ -27,11 +27,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_SESSION['hayAnterior']){
-          echo "  <a href='" . URL . "/sheltersusa/anterior'> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='" . URL . "sheltersusa/anterior'> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_SESSION['haySiguiente']){
-          echo "  <a href='" . URL . "/sheltersusa/siguiente'>  Next >> </a> \n";
+          echo "  <a href='" . URL . "sheltersusa/siguiente'>  Next >> </a> \n";
         }
         
       ?>

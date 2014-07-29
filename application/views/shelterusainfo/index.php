@@ -75,7 +75,7 @@
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='" . URL . "/sheltersusa'> << Back to List </a> \n";
+	        echo "  <a href='" . URL . "sheltersusa'> << Back to List </a> \n";
 	      ?>
         </span> 
       

@@ -97,7 +97,7 @@
 	      if (!empty($shelters)){
             echo "<tr><td>";
             echo "<br/>";
-            echo "<div class='shelterDescriptionTitle'>Shelters devoted to this breed</div>";
+            echo "<div class='pictureTitleInfo'>Shelters devoted to this breed</div>";
   
             echo "<table class='sheltersPerBreed'>";
             $keys = array_keys($shelters);

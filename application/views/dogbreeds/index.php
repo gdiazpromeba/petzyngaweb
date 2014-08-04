@@ -7,7 +7,7 @@
                <?php
                  $keys = array_keys($dogBreeds);
                  $index=0; 
-                 for ($row=0; $row <4 && $index < count($keys) ; $row++){
+                 for ($row=0; $row <5 && $index < count($keys) ; $row++){
                    echo "<tr> \n"; 
                    for ($col=0; $col<3 && $index < count($keys) ; $col++){
                       $bean=$dogBreeds[$keys[$index]];

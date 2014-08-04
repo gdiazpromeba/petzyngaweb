@@ -33,6 +33,8 @@ class DogBreedInfo extends Controller
     	$info=$this->svc->obtienePorNombre($nombre);
     		
     	$feedingArmado=$this->armaFeeding($info);
+    	
+    	$shelters=$this->svc->selSheltersPorRaza($info->getId());
 
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         require 'application/views/_templates/header.php';

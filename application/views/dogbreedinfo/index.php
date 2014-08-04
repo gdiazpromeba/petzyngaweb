@@ -91,7 +91,39 @@
             <?php echo $info->getTrainingText(); ?>
           </div>
 
-        </td></tr>                             
+        </td></tr>     
+        
+	    <?php
+	      if (!empty($shelters)){
+            echo "<tr><td>";
+            echo "<br/>";
+            echo "<div class='shelterDescriptionTitle'>Shelters devoted to this breed</div>";
+  
+            echo "<table class='sheltersPerBreed'>";
+            $keys = array_keys($shelters);
+            $index=0;
+            for ($row=0; $row <4 && $index < count($keys) ; $row++){
+            	echo "<tr> \n";
+            	for ($col=0; $col<3 && $index < count($keys) ; $col++){
+            		$arr=$shelters[$keys[$index]];
+            		echo "<td> \n";
+            		echo "  <a href='" . URL . "shelterusainfo/info/" . $arr['urlEncoded'] . "'>\n";
+            		echo "      <div class='pictureTitle'>" . $arr['name'] . "</div> \n";
+            		echo "  </a> \n";
+            		echo "</td> \n";
+            
+            		$index++;
+            	}
+            	echo "</tr> \n";
+            }
+            echo "</table>";
+          } 
+        ?>        
+        
+        
+        
+        
+                                
         </table>       
         <br/>
     <!--  </div>  -->

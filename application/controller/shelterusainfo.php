@@ -32,8 +32,6 @@ class ShelterUsaInfo extends Controller
     	//son pares id-nombre nada más, los convierto a beans 
     	$idNombres = $this->svcBreeds->selNombresPorShelter($info->getId());
     	
-    	echo "candidad de nombres " . count($idNombres) . "<br>";
-    	
     	$dogBreeds = array();
     	foreach($idNombres as $item){
     		$bean = $this->svcBreeds->obtiene($item['id']);

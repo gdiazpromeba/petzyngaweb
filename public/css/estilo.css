@@ -17,7 +17,7 @@ html, body {
 	border-style:solid;
 	text-align: center;
 	margin: 0 auto; 
-	height: 1240px;
+	height: 1318px;
 	position: relative;
 }
 
@@ -58,7 +58,7 @@ h1 {
 	padding: 20px;
 	float: left; 
 	background: #f7fafe;
-	height: 975px;
+	height: 1055px;
 }
 #right {
 	width: 786px;
@@ -312,6 +312,13 @@ img.breedImage{
 	height: 152px;
 	width: auto;
 }
+
+.sheltersPerBreed{
+	margin-top:10px;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
 
 
 		

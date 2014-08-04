@@ -35,7 +35,7 @@
               $address.=  ",  " . $shelter->getStateCode();
               $address.=  ",  " . $shelter->getZip();
               $address = str_replace(array("\r\n", "\n", "\r"), '<br/>', $address);
-              echo "[\"" .  $shelter->getName() . "\",\""   .  $address .  "\", "   . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", ". $shelter->getNumber() . "], \n";
+              echo "[\"" .  $shelter->getName() . "\",\""   .  $address .  "\", "   . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", '". $shelter->getUrlEncoded() . "'], \n";
             }              
           ?>
 		  ];		         		 

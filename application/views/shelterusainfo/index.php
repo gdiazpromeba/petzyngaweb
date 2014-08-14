@@ -3,7 +3,7 @@
     
  
         <?php 
-          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/" . $info->getLogoUrl());
+          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/usa/" . $info->getLogoUrl());
 
           if ($width>(2 * $height)){
             $estiloImagen="detailShelterAncha";
@@ -11,7 +11,7 @@
             $estiloImagen="detailShelter";
           }
           ?>
-          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/shelterLogos/" . $info->getLogoUrl() ?>'>
+          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/shelterLogos/usa/" . $info->getLogoUrl() ?>'>
       
     
     

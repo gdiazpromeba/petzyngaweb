@@ -1,18 +1,18 @@
 	<div id="busquedaShelters">
       <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
-	  <form name="frmBusqueda"  action="<?php echo URL . 'sheltersusa/index'  ?>" method="POST">
+	  <form name="frmBusqueda"  action="<?php echo URL . 'shelters/listing/' . $countryUrl . '/initial'  ?>" method="POST">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_SESSION['specialBreedId'])) echo "value='" . $_SESSION['specialBreedId'] . "'"; ?> />
 	    <table width="100%">
 	      <tr>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="usaShelterName">Name</label><input class="busquedaInput" type="text" name="usaShelterName"  <?php if (isset($_SESSION['usaShelterName'])) echo "value='" . $_SESSION['usaShelterName'] . "'"; ?> />
+	          <label class="labelBusqueda" for="shelterName">By Name</label><input class="shelterNameInput" type="text" name="shelterName"  <?php if (isset($_SESSION['shelterName'])) echo "value='" . $_SESSION['shelterName'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="usaZipCode">Zip</label><input class="busquedaInput" type="text" name="usaZipCode"  <?php if (isset($_SESSION['usaZipCode'])) echo "value='" . $_SESSION['usaZipCode'] . "'"; ?> />
+	          <label class="labelBusqueda" for="zipCode">By Zip Code</label><input class="busquedaInput" type="text" name="zipCode"  <?php if (isset($_SESSION['zipCode'])) echo "value='" . $_SESSION['zipCode'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-              <label class="labelBusqueda" for="dogBreedName">Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_SESSION['dogBreedName'])) echo "value='" . $_SESSION['dogBreedName'] . "'"; ?> />
+              <label class="labelBusqueda" for="dogBreedName">By Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_SESSION['dogBreedName'])) echo "value='" . $_SESSION['dogBreedName'] . "'"; ?> />
             </td>
           </tr>
           <tr>
@@ -34,10 +34,11 @@
         }
         
         function resetFrmBusqueda(){
-        	document.frmBusqueda.usaShelterName.value='';
-        	document.frmBusqueda.usaZipCode.value='';
+        	document.frmBusqueda.shelterName.value='';
+        	document.frmBusqueda.zipCode.value='';
         	document.frmBusqueda.dogBreedName.value='';
         	document.frmBusqueda.specialBreedId.value='';
+        	document.frmBusqueda.submit();
         }
         
         

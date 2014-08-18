@@ -27,13 +27,8 @@
           <?php 
             foreach ($shelters as $shelter){
               $legend= $shelter->getName() . "\n\n";
-              $address=$shelter->getStreetAddress();
-              if ((empty($address))){
-                 $address = 'PO Box ' + $shelter->getPoBox();
-              }
-              $address.=  "<br/>" . $shelter->getCityName();
-              $address.=  ",  " . $shelter->getStateCode();
-              $address.=  ",  " . $shelter->getZip();
+              $address=$shelter->get1stLine();
+              $address.=  "<br/>" . $shelter->get2ndLine();
               $address = str_replace(array("\r\n", "\n", "\r"), '<br/>', $address);
               echo "[\"" .  $shelter->getName() . "\",\""   .  $address .  "\", "   . $shelter->getLatitude()  . ", " . $shelter->getLongitude() . ", '". $shelter->getUrlEncoded() . "'], \n";
             }              
@@ -51,7 +46,7 @@
 		          var contentString  ="<div style='font-weight:bold'>" + locations[i][0] + "</div><br/>";
 		          contentString +="<div style='font-color:gray'>" + locations[i][1] + "</div>";
 		          contentString +="<br/>";
-		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelterusainfo/info/" + locations[i][4] + "'>Details</a> \n";
+		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelters/info/<?php echo $countryUrl; ?>/" + locations[i][4] + "'>Details</a> \n";
 	              infowindow.setContent(contentString);
 	              infowindow.open(map, marker);
 	            }
@@ -64,8 +59,8 @@
     </script>   
     
     
-    <script src="../jquery/external/jquery/jquery.js"></script>
-    <script src="../jquery/jquery-ui.js"></script>
+    <script src="../../../jquery/external/jquery/jquery.js"></script>
+    <script src="../../../jquery/jquery-ui.js"></script>
     <link href="<?php echo URL; ?>jquery/jquery-ui.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>jquery/jquery-ui.theme.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>jquery/jquery-ui.structure.css" rel="stylesheet"/>
@@ -99,7 +94,7 @@
     <div class="navigation-div">
        <span class="menuItem"><a href="<?php echo URL; ?>">HOME</a></span>
        <span class="menuItem"><a href="<?php echo URL; ?>dogbreeds/">DOG BREEDS</a></span>
-       <span class="menuItem"><a href="<?php echo URL; ?>sheltersusa/">SHELTERS</a></span>
+       <span class="menuItem"><a href="<?php echo URL; ?>shelters/countries">SHELTERS</a></span>
     </div>
 
     <?php include 'shelterLocations.php'?>

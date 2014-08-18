@@ -9,16 +9,16 @@
                  foreach ($shelters as $shelter){
                    echo "<tr> \n"; 
                    echo "  <td class='shelterContainer'>" . $shelter->getName() . "</td> \n";
-                   if (empty($usaZipCode)){
-                     echo "  <td class='locacion'>" . $shelter->getCityName() . ", " . $shelter->getStateName()  . "</td> \n";
+                   if (empty($zipCode)){
+                     echo "  <td class='locacion'>" . $shelter->get2ndLine() . "</td> \n";
                    }else{//muestra también la distancia
                    	echo "  <td><table> \n";
-                   	echo "    <tr><td class='locacion'>" . $shelter->getCityName() . ", " . $shelter->getStateName()  . "</td></tr> \n";
-                   	echo "    <tr><td class='distancia'>" .  round($shelter->getDistancia() * 0.621371192)  . " mi</td></tr> \n";
+                   	echo "    <tr><td class='locacion'>" .  $shelter->get2ndLine() . "</td></tr> \n";
+                   	echo "    <tr><td class='distancia'>" .  round($shelter->getDistancia() * $conversionFactor)  . " " . $distanceUnit . "</td></tr> \n";
                    	echo "  </table></td> \n";
                    }
                    
-                   echo "  <td>  <a class='btnMoreDetails w90' href='" . URL . "shelterusainfo/info/" . str_replace(" ", "_", $shelter->getUrlEncoded()) . "'>Details</a></td> \n";
+                   echo "  <td>  <a class='btnMoreDetails w90' href='" . URL . "shelters/info/" . $countryUrl . "/" . $shelter->getUrlEncoded(). "'>Details</a></td> \n";
                    echo "</tr> \n"; 
                  }
                ?>
@@ -27,11 +27,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_SESSION['hayAnterior']){
-          echo "  <a href='" . URL . "sheltersusa/anterior'> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='" . URL . "shelters/listing/" . $countryUrl . "/previous'> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_SESSION['haySiguiente']){
-          echo "  <a href='" . URL . "sheltersusa/siguiente'>  Next >> </a> \n";
+          echo "  <a href='" . URL . "shelters/listing/" . $countryUrl . "/next'>  Next >> </a> \n";
         }
         
       ?>

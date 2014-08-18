@@ -3,7 +3,7 @@
     
  
         <?php 
-          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/usa/" . $info->getLogoUrl());
+          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/" . $countryUrl . "/" . $info->getLogoUrl());
 
           if ($width>(2 * $height)){
             $estiloImagen="detailShelterAncha";
@@ -11,7 +11,7 @@
             $estiloImagen="detailShelter";
           }
           ?>
-          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/shelterLogos/usa/" . $info->getLogoUrl() ?>'>
+          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/shelterLogos/" . $countryUrl . "/" . $info->getLogoUrl() ?>'>
       
     
     
@@ -53,16 +53,10 @@
 			    }
 			  ?>
 			  <?php
-			    $address = $info->getStreetAddress();
-			    if (!empty($address)){
-			      echo $address ;
-			    }else{
-                  echo "PO Box " . $info->getPoBox();
-                }
+			    echo $info->get1stLine();
                 echo "<br/>";
-                echo $info->getCityName() . ", " . $info->getStateCode(). " " . $info->getZip();
+                echo $info->get2ndLine();
                 echo "<br/>";
-                
 			  ?>
 	    </div>
 	    
@@ -103,7 +97,7 @@
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='" . URL . "sheltersusa'> << Back to List </a> \n";
+	        echo "  <a href='" . URL . "shelters/listing/" . $countryUrl . "/list'> << Back to List </a> \n";
 	      ?>
         </span> 
       

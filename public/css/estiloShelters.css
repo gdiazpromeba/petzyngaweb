@@ -1,3 +1,11 @@
+.shelterNameInout{
+	font-size: 12px;
+	width: 9.7em;
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */	
+}
+
 table.sheltersTable {
 	margin-left:auto; 
     margin-right:auto;
@@ -151,6 +159,20 @@ width: 90px;
 .ui-menu .ui-menu-item {
     font-size: small;
     text-align: left;
+}
+
+img.menuCountries{
+	width: 150px;
+}
+
+div.itemMenuCountries{
+	text-align:center;
+	font-size: 80%;
+	margin: 0 auto;
+}
+
+a.noUnderline{
+	text-decoration: none; 
 }
 
 

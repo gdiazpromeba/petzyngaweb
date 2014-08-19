@@ -10,10 +10,10 @@
                    echo "<tr> \n"; 
                    echo "  <td class='shelterContainer'>" . $shelter->getName() . "</td> \n";
                    if (empty($zipCode)){
-                     echo "  <td class='locacion'>" . $shelter->get2ndLine() . "</td> \n";
+                     echo "  <td class='locacion'>" . $shelter->getAdminAreas() . "</td> \n";
                    }else{//muestra también la distancia
                    	echo "  <td><table> \n";
-                   	echo "    <tr><td class='locacion'>" .  $shelter->get2ndLine() . "</td></tr> \n";
+                   	echo "    <tr><td class='locacion'>" .  $shelter->getAdminAreas() . "</td></tr> \n";
                    	echo "    <tr><td class='distancia'>" .  round($shelter->getDistancia() * $conversionFactor)  . " " . $distanceUnit . "</td></tr> \n";
                    	echo "  </table></td> \n";
                    }

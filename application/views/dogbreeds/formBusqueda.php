@@ -4,10 +4,10 @@
 	    <table width="100%">
 	      <tr>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="nombreOParte">Breed name</label><input class="busquedaInput" type="text" name="nombreOParte"  <?php if (isset($_SESSION['nombreOParte'])) echo "value='" . $_SESSION['nombreOParte'] . "'"; ?> />
+	          <label class="labelBusqueda" for="nombreOParte">By name</label><input class="busquedaInput" type="text" name="nombreOParte"  <?php if (isset($_SESSION['nombreOParte'])) echo "value='" . $_SESSION['nombreOParte'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda">Initial</label>
+	          <label class="labelBusqueda">By letter</label>
 	          <select name="letraInicial" class="busqueda">
 	            <option value=""  <?php if ($_SESSION['letraInicial']=="") echo "selected='selected'"; ?> >All</option>
 	          <?php 

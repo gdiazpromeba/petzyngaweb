@@ -21,24 +21,24 @@
      </td>
    </tr>
    <tr>
-     <td colspan="3" align="center">
-       <table>
-         <tr>
-           <td>
-             <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/china/initial">
-               <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_china_menu.jpg"; ?>" />
-               <div class="itemMenuCountries">Dog Shelters in China</div>
-             </a>
-           </td>
-           <td width="100px"/>
-           <td>
-             <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/canada/initial">
-               <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_canada_menu.jpg"; ?>" />
-               <div class="itemMenuCountries">Dog Shelters in Canada</div>
-             </a>
-           </td>
-         </tr>
-      </table>
+   <tr>
+     <td>
+       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/china/initial">
+         <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_china_menu.jpg"; ?>" />
+         <div class="itemMenuCountries">Dog Shelters in China</div>
+       </a>
      </td>
-   </tr>
+      <td>
+        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/canada/initial">
+          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_canada_menu.jpg"; ?>" />
+          <div class="itemMenuCountries">Dog Shelters in Canada</div>
+        </a>
+      </td>
+      <td>
+        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/india/initial">
+          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_india_menu.jpg"; ?>" />
+          <div class="itemMenuCountries">Dog Shelters in India</div>
+        </a>
+      </td>
+    </tr>
  </table>

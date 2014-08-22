@@ -11,6 +11,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersChinaSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersUkSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersCanadaSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersIndiaSvcImpl.php';
 
 
 
@@ -47,6 +48,9 @@ class Shelters extends Controller{
     		case "canada":
     			$ctr=new SheltersList("canada", "km", 1, new SheltersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
+    		case "india":
+    			$ctr=new SheltersList("india", "km", 1, new SheltersIndiaSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
     	}
     	
     	if ($direccion=="previous"){
@@ -78,7 +82,9 @@ class Shelters extends Controller{
     		case "canada":
     			$ctr=new ShelterDetails("canada", new SheltersCanadaSvcImpl(), new DogBreedsSvcImpl());
     			break;
-    				 
+    		case "india":
+    			$ctr=new ShelterDetails("india", new SheltersIndiaSvcImpl(), new DogBreedsSvcImpl());
+    			break;
     	}
     	$ctr->info($urlEncoded);
     }

@@ -1,0 +1,56 @@
+.newsTitle2{
+	text-align: center;
+	color: white;
+	background-color: olive;
+	font-size: 18px;
+	font-family: "Oswald";
+	vertical-align: top;
+	display: inline;
+}
+
+.newsTitle {
+    text-align: left;
+    color: #1E6B88;
+    font-size: 18px;
+    font-family: "Oswald";
+}
+
+.newsSource {
+    text-align: left;
+    color: #1E6B88;
+    font-size: 12px;
+    font-family: "Oswald";
+}
+
+div.newsContainer{
+	text-align: left;
+	padding-top: 10px;
+	border-style: solid;
+	border-color: yellow;
+}
+
+div.newsContent{
+	text-align: justify;
+	font-size: 80%;
+	margin: 0 auto;
+	padding-top: 5px;
+	padding-left: 5px;
+	padding-right: 5px;
+	border-style: solid;
+	border-color: red;
+}
+
+img.newsPictureLeft{
+  padding: 10px;
+  float: left;
+  width: 380px;	
+}
+
+img.newsPictureRight{
+  padding: 10px;
+  float: right;
+  width: 380px;	
+}
+
+
+

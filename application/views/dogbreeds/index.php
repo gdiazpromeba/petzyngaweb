@@ -1,4 +1,4 @@
-<div id="right">
+<div class="right">
 
 	<?php include 'formBusqueda.php'?>
 

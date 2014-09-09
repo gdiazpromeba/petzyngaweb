@@ -52,17 +52,19 @@ h1 {
 	text-align: center;
 	background: #ff6600
 }
-#left {
+.left {
     top: 201px;
-	width: 175px;
-	padding: 20px;
+	width: 200px; 
+	padding: 5px;
 	float: left; 
-	background: #f7fafe;
-	height: 1055px;
-}
-#right {
-	width: 786px;
 	background: white;
+	height: 550px;
+	border-style:solid;
+	border-color:red;
+}
+.right {
+	/* width: 786px ; */
+    background: white;
 	margin-left: 215px;
     text-align:center;
 	

@@ -27,7 +27,7 @@ class Home extends Controller
         // load views. within the views we can echo out $songs and $amount_of_songs easily
         require 'application/views/home/header.php';
         require 'application/views/home/index.php';
-        require 'application/views/_templates/footer.php';
+        //require 'application/views/_templates/footer.php';
     }
     
     private function trataBean($bean, $indice){
@@ -39,7 +39,7 @@ class Home extends Controller
     	$method =  "getNews" . $indice . "Cut";
         $cutPos = $bean->$method();
         
-        $wcArr=str_word_count($newsText,1, "=.,;'ö\"_");
+        $wcArr=str_word_count($newsText,1, "><=.,;'ö\"_");
         
         $lastKey=null;
         $charIndex=0;

@@ -80,6 +80,7 @@ div.siteDescription{
 	letter-spacing:1px;
 }
 
+/** wrapper para los videos de youtube */
 .videowrapper {
     float: none;
     clear: both;
@@ -96,6 +97,12 @@ div.siteDescription{
     width: 100%;
     height: 100%;
 }
+
+table.homePicturesTable {
+	margin-left:auto; 
+    margin-right:auto;
+}
+
 
 
 

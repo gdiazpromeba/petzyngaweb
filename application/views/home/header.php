@@ -13,23 +13,6 @@
     <link href="<?php echo URL; ?>public/css/estiloNews.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloScriplets.css" rel="stylesheet">
     
-    <script src="jquery/external/jquery/jquery.js"></script>
-    <script src="jquery/jquery-ui.js"></script>
-    <link href="<?php echo URL; ?>jquery/jquery-ui.css" rel="stylesheet"/>
-    <link href="<?php echo URL; ?>jquery/jquery-ui.theme.css" rel="stylesheet"/>
-    <link href="<?php echo URL; ?>jquery/jquery-ui.structure.css" rel="stylesheet"/>    
-    
-    <script>
-      $(function() {
-        $( "#dogBreedNamePortlet" ).autocomplete({
-          source: Global.dirCms + "/svc/conector/dogBreeds.php/selNombres",
-          minLength: 2,
-          select: function( event, ui ) {
-              $("#dogBreedIdPortlet").val(ui.item.id);
-          }
-        });
-      });
-    </script>
 </head>
 <body>
 <!-- header -->
@@ -48,8 +31,8 @@
       
       <div class="portletLeft">
         Enter your ZIP code
-        <form action="">
-          <input class="busquedaZipPortlet" type="text" /><input type="submit" value="Go"/>
+        <form action="<?php echo URL; ?>shelters/listing/usa/initial" method="POST">
+          <input class="busquedaZipPortlet" name="zipCode" type="text" /><input type="submit" value="Go"/>
         </form>
         to find Dog Shelters near you!
       </div>
@@ -58,12 +41,11 @@
       
       <div class="portletLeft">
         Look for your favorite Dog Breed
-        <form action="">
-          <input class="busquedaInput" type="text" name="dogBreedNamePortlet" id="dogBreedNamePortlet"  />
+        <form action="<?php echo URL . 'dogbreeds/index'  ?>" method="POST">
+          <input class="busquedaInput" type="text" name="nombreOParte"  />
           <input type="submit" value="Go"/>
-          <input type="hidden" name="dogBreedIdPortlet" id="dogBreedIdPortlet"  />
         </form>
-        (just type the first few characters)
+        (just type the name, or a part of it)
       </div>
       
     </div><!--end left-->

@@ -6,6 +6,12 @@
 	box-sizing: border-box;         /* Opera/IE 8+ */	
 }
 
+table.countryPicturesTable {
+	margin-left:auto; 
+    margin-right:auto;
+    width: 80%;
+}
+
 table.sheltersTable {
 	margin-left:auto; 
     margin-right:auto;

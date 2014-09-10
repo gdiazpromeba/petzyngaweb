@@ -24,7 +24,7 @@ class Shelters extends Controller{
 	private static $tamPagina = 12;
 	
     public function countries(){
-    	require 'application/views/_templates/header.php';
+    	require 'application/views/shelters/header.php';
     	require 'application/views/shelters/countries.php';
     	require 'application/views/_templates/footer.php';
     }

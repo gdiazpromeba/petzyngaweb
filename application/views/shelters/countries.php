@@ -1,5 +1,5 @@
  <br/>
- <table class="picturesTable">
+ <table class="countryPicturesTable">
    <tr>
      <td style="vertical-align">
        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/usa/initial">

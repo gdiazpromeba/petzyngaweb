@@ -69,9 +69,6 @@
         	document.frmBusqueda.letraInicial.options[0].selected='selected';
         	document.frmBusqueda.selDogSize.options[0].selected='selected';
         	document.frmBusqueda.selDogFeeding.options[0].selected='selected';
-        	document.frmBusqueda.selAppartments.options[0].selected='selected';
-        	document.frmBusqueda.selKids.options[0].selected='selected';
-        	document.frmBusqueda.selUpkeep.options[0].selected='selected';
         	document.frmBusqueda.nombreOParte.value='';
         }
         

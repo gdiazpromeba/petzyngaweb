@@ -1,6 +1,6 @@
 <div class="right">
     <div class="siteDescription">
-      <div style="color:white;display:inline">Petzynga</div> is your #1 source for pet-related information. Check our extensive listings of <a href=#>Dog Shelters</a> 
+      <div style="color:white;display:inline">Petzynga</div> is your #1 source for pet-related information. Check our extensive listings of <a href="shelters/countries">Dog Shelters</a> 
       organized by country. Interested on a specific breed? Our <a href="/dogbreeds">Dog breed database</a> contains detailed 
       information on your dog upkeep, behavior, feeding habits, training tips and much more!
       <br/>
@@ -63,8 +63,8 @@
   </div>
     
     <div class="tituloSeccionNews">Featured Breeds</div>
-    <div>
-      <table class='picturesTable'>
+
+    <table class='homePicturesTable'>
         <tr>
           <td class='tdPictureContainer'>
             <a href='<?php echo URL;?>dogbreedinfo/info/"<?php echo str_replace(" ", "_", $bean->getDogBreed1Name()); ?>'>
@@ -91,8 +91,7 @@
             </a>
           </td>
         </tr>
-      </table>
-     </div> 
+    </table>
     
     <div id="footer">Copyright &copy; 2014 Petzynga </div>
 

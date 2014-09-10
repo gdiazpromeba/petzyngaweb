@@ -181,5 +181,10 @@ a.noUnderline{
 	text-decoration: none; 
 }
 
+.contenedorDetallesShelter {
+    background: white;
+    text-align:center;
+	
+}
 
 

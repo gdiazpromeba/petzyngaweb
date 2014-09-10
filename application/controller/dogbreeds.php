@@ -16,7 +16,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
  */
 class DogBreeds extends Controller{
 	private $svc;
-	private static $tamPagina = 12;
+	private static $tamPagina = 16;
 	
 	public function __construct(){
 		$this->svc = new DogBreedsSvcImpl();
@@ -236,7 +236,7 @@ class DogBreeds extends Controller{
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
     	 
-    	require 'application/views/_templates/header.php';
+    	require 'application/views/_templates/headerDogBreeds.php';
     	require 'application/views/dogbreeds/index.php';
     	require 'application/views/_templates/footer.php';  
     }

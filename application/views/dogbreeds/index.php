@@ -1,15 +1,15 @@
-<div class="right">
+<div class="rightDogBreeds">
 
 	<?php include 'formBusqueda.php'?>
 
-    <div>
+
               <table class="picturesTable">
                <?php
                  $keys = array_keys($dogBreeds);
                  $index=0; 
                  for ($row=0; $row <5 && $index < count($keys) ; $row++){
                    echo "<tr> \n"; 
-                   for ($col=0; $col<3 && $index < count($keys) ; $col++){
+                   for ($col=0; $col<4 && $index < count($keys) ; $col++){
                       $bean=$dogBreeds[$keys[$index]];
                       
                       echo "<td class='tdPictureContainer'> \n";
@@ -29,7 +29,7 @@
                  }
                ?>
               </table>
-    </div>
+              
     <span class="navegacionPaginas">
       <?php 
         if ($_SESSION['hayAnterior']){

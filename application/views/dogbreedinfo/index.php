@@ -1,4 +1,4 @@
-<div class="right">
+<div class="rightDogBreeds">
 
         <table class="tableFotoInfo">
           <tr><td class="pictureTitleInfo"><?php echo $info->getNombre(); ?></td></tr>  

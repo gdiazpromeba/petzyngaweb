@@ -26,7 +26,7 @@ class DogBreeds extends Controller{
     /**
      * PAGE: index
      * This method handles what happens when you move to http://dogbreeds
-     * Puede ser al principio de todo, o cuando se vuelve de un ítem en particular
+     * Puede ser al principio de todo, o cuando se vuelve de un Ã­tem en particular
      */
     public function index(){
     	session_start();
@@ -68,7 +68,7 @@ class DogBreeds extends Controller{
     		$nombreOParteSesion=$_SESSION['nombreOParte'];
     	}
     	 
-    	//si el nombreOParte cambió, la sesión debe reiniciarse
+    	//si el nombreOParte cambiÃ³, la sesiÃ³n debe reiniciarse
     	if (!is_null($nombreOPartePost)  && $nombreOPartePost!=$nombreOParteSesion){
     		session_unset();
     	}
@@ -96,7 +96,7 @@ class DogBreeds extends Controller{
     	}
     	    	
     	
-    	//si el selDogSize cambió, la sesión debe reiniciarse
+    	//si el selDogSize cambiÃ³, la sesiÃ³n debe reiniciarse
     	if (!is_null($selDogSizePost)  && $selDogSizePost!=$selDogSizeSesion){
     		session_unset();
     	}    
@@ -107,9 +107,9 @@ class DogBreeds extends Controller{
     		$selDogSize=$selDogSizeSesion;
     	}
     	
-    	$arrTamaños= $this->calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
+    	$arrTamaÃ±os= $this->calculaTamaÃ±os($selDogSize);
+    	$tamaÃ±oDesde=$arrTamaÃ±os[0];
+    	$tamaÃ±oHasta=$arrTamaÃ±os[1];
     	
      
         //selDogFeeding
@@ -126,7 +126,7 @@ class DogBreeds extends Controller{
         	$selDogFeedingSesion=$_SESSION['selDogFeeding'];
         }
         
-        //si el selDogFeeding cambió, la sesión debe reiniciarse
+        //si el selDogFeeding cambiÃ³, la sesiÃ³n debe reiniciarse
         if (!is_null($selDogFeedingPost)  && $selDogFeedingPost!=$selDogFeedingSesion){
         	session_unset();
         }
@@ -158,7 +158,7 @@ class DogBreeds extends Controller{
     	}
     	
     	 
-    	//si el selAppartments cambió, la sesión debe reiniciarse
+    	//si el selAppartments cambiÃ³, la sesiÃ³n debe reiniciarse
     	if (!is_null($selAppartmentsPost)  && $selAppartmentsPost!=$selAppartmentsSesion){
     		session_unset();
     	}
@@ -218,8 +218,8 @@ class DogBreeds extends Controller{
     	$upkeepHasta=$arrUpkeep[1];
     	
     	 
-   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
-    	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta);
+   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamaÃ±oDesde, $tamaÃ±oHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
+    	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamaÃ±oDesde, $tamaÃ±oHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta);
     	
     	$_SESSION['letraInicial']=$letraInicial;
     	$_SESSION['nombreOParte']=$nombreOParte;
@@ -257,15 +257,15 @@ class DogBreeds extends Controller{
     	$amountOfDogBreeds = $_SESSION['amountOfDogBreeds'];
     	 
     	
-    	$arrTamaños= $this->calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
+    	$arrTamaÃ±os= $this->calculaTamaÃ±os($selDogSize);
+    	$tamaÃ±oDesde=$arrTamaÃ±os[0];
+    	$tamaÃ±oHasta=$arrTamaÃ±os[1];
     	
     	$arrUpkeep= $this->calculaUpkeep($selUpkeep);
     	$upkeepDesde=$arrUpkeep[0];
     	$upkeepHasta=$arrUpkeep[1];
     	
-    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
+    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamaÃ±oDesde, $tamaÃ±oHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
 
     	$_SESSION['hayAnterior']= true;
     	$_SESSION['haySiguiente'] =($amountOfDogBreeds> ($start + self::$tamPagina));
@@ -292,15 +292,15 @@ class DogBreeds extends Controller{
     	$startAnterior = $_SESSION['start'];
     	$start =  $startAnterior - self::$tamPagina;
     
-    	$arrTamaños= $this->calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
+    	$arrTamaÃ±os= $this->calculaTamaÃ±os($selDogSize);
+    	$tamaÃ±oDesde=$arrTamaÃ±os[0];
+    	$tamaÃ±oHasta=$arrTamaÃ±os[1];
     	
     	$arrUpkeep= $this->calculaUpkeep($selUpkeep);
     	$upkeepDesde=$arrUpkeep[0];
     	$upkeepHasta=$arrUpkeep[1];
     	 
-    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
+    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamaÃ±oDesde, $tamaÃ±oHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
     
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] = true;
@@ -312,33 +312,33 @@ class DogBreeds extends Controller{
     
     }
     
-    private function calculaTamaños($selDogSize){
-    	$tamañoDesde=0;
-    	$tamañoHasta=100;
+    private function calculaTamaÃ±os($selDogSize){
+    	$tamaÃ±oDesde=0;
+    	$tamaÃ±oHasta=100;
     	 
     	switch($selDogSize){
     		case "large":
-    			$tamañoDesde=60;
-    			$tamañoHasta=60;
+    			$tamaÃ±oDesde=60;
+    			$tamaÃ±oHasta=60;
     			break;
     		case "medium":
-    			$tamañoDesde=50;
-    			$tamañoHasta=50;
+    			$tamaÃ±oDesde=50;
+    			$tamaÃ±oHasta=50;
     			break;
     		case "small":
-    			$tamañoDesde=30;
-    			$tamañoHasta=30;
+    			$tamaÃ±oDesde=30;
+    			$tamaÃ±oHasta=30;
     			break;
     		case "toy":
-    			$tamañoDesde=20;
-    			$tamañoHasta=20;
+    			$tamaÃ±oDesde=20;
+    			$tamaÃ±oHasta=20;
     			break;    			
     		default:
-    			$tamañoDesde=0;
-    			$tamañoHasta=100;
+    			$tamaÃ±oDesde=0;
+    			$tamaÃ±oHasta=100;
     			break;
     	}
-    	return array($tamañoDesde, $tamañoHasta);
+    	return array($tamaÃ±oDesde, $tamaÃ±oHasta);
     	    	
     }
     
@@ -361,6 +361,75 @@ class DogBreeds extends Controller{
     	}
     	return array($upkeepDesde, $upkeepHasta);
      }    
+     
+     /**
+      * PAGE: index
+      * This method handles what happens when you move to http://yourproject/songs/index
+      */
+     public function info($nombre)
+     {
+     	$nombre=str_replace("_", " ", $nombre);
+     	$info=$this->svc->obtienePorNombre($nombre);
+     
+     	$feedingArmado=$this->armaFeeding($info);
+     	 
+     	$shelters=$this->svc->selSheltersPorRaza($info->getId());
+     
+     	// load views. within the views we can echo out $songs and $amount_of_songs easily
+     	require 'application/views/_templates/headerDogBreeds.php';
+     	require 'application/views/dogbreedinfo/index.php';
+     	require 'application/views/_templates/footer.php';
+     }
+     
+     /**
+      * toma los valores de serving Min y Max
+      * @param unknown $info
+      */
+     private function armaFeeding($info){
+     	$min= $info->getServingMin();
+     	$max= $info->getServingMax();
+     
+     	if ($min!=$max){
+     		$res= $this->trataFracciones($min);
+     		$res .=" to " . $this->trataFracciones($max);
+     		$res .=" cups of quality dry food, twice a day";
+     	}else{
+     		$res= $this->trataFracciones($min);
+     		$res .=" cups of quality dry food, twice a day";
+     	}
+     	return $res;
+     }
+     
+     /**
+      * convierte el nï¿½mero decimal a una cadena con valor fraccionario
+      * @param unknown $numero
+      */
+     private function trataFracciones($numero){
+     	$intpart = floor( $numero ) ;
+     	$fraction = $numero - $intpart;
+     	$fraccionStr="";
+     	if ($fraction!=0){
+     		switch($fraction){
+     			case 0.5:
+     				$fraccionStr="Â½";
+     				break;
+     			case 0.25:
+     				$fraccionStr="Â¼";
+     				break;
+     			case 0.75:
+     				$fraccionStr="Â¾";
+     				break;
+     			default:
+     				$fraccionStr=(string)$fraction;
+     		}
+     	}
+     	 
+     	if ($intpart==0){
+     		return $fraccionStr;
+     	}else{
+     		return (string)$intpart . $fraccionStr;
+     	}
+     }     
     
     
 

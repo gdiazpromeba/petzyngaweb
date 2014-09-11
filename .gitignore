@@ -1,4 +1,4 @@
 .htaccess
-.settings/*
+.settings/**
 jquery/*
 public/img/*

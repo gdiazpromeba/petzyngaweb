@@ -29,5 +29,18 @@
     </div><!-- newsContainer -->
     
   <?php } ?>    
+  
+    <span class="navegacionPaginas">
+      <?php 
+        if ($_SESSION['hayAnterior']){
+          echo "  <a href='" . URL . "/latestnews/anterior'> << Previous </a> &nbsp;&nbsp;\n";
+        }
+        
+        if ($_SESSION['haySiguiente']){
+          echo "  <a href='" . URL . "/latestnews/siguiente'>  Next >> </a> \n";
+        }
+        
+      ?>
+    </span>  
 
 </div>   

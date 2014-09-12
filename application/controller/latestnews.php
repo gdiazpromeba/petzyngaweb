@@ -17,13 +17,13 @@ class LatestNews extends Controller{
     	session_start();
     	
     	$start=0;
-    	if (isset($_SESSION['start'])){
-    		$start=$_SESSION['start'];
+    	if (isset($_SESSION['newsStart'])){
+    		$start=$_SESSION['newsStart'];
     	}
     	
     	 
    	    $news=$this->svc->selTodos(null, $start, self::$tamPagina);
-    	$amountOfNews=$this->svc->selTodos(null, $start, self::$tamPagina);
+    	$amountOfNews=$this->svc->selTodosCuenta(null);
     	
     	foreach ($news as $bean){
     		$this->trataBean($bean);
@@ -32,8 +32,10 @@ class LatestNews extends Controller{
     	
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] =($amountOfNews > self::$tamPagina);
-    	$_SESSION['start'] = $start;
+    	$_SESSION['newsStart'] = $start;
     	$_SESSION['amountOfNews'] = $amountOfNews;
+    	
+//     	echo "amountOfNews=" . $amountOfNews . "  start = " . $start . " tampagina= " . self::$tamPagina . "\n";
     	
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
@@ -83,7 +85,7 @@ class LatestNews extends Controller{
     public function siguiente(){
     	session_start();    	
     	
-    	$startAnterior = $_SESSION['start'];
+    	$startAnterior = $_SESSION['newsStart'];
     	$start =  $startAnterior + self::$tamPagina;
     	$amountOfNews = $_SESSION['amountOfNews'];
     	 
@@ -96,9 +98,9 @@ class LatestNews extends Controller{
     	
     	$_SESSION['hayAnterior']= true;
     	$_SESSION['haySiguiente'] =($amountOfNews> ($start + self::$tamPagina));
-    	$_SESSION['start'] = $start;
+    	$_SESSION['newsStart'] = $start;
     	
-
+        echo "amountOfNews=" . $amountOfNews . "  start = " . $start . " tampagina= " . self::$tamPagina . "\n";
     	require 'application/views/_templates/header.php';
     	require 'application/views/news/list/index.php';
     	require 'application/views/_templates/footer.php';
@@ -107,7 +109,7 @@ class LatestNews extends Controller{
     public function anterior(){
     	session_start();
 
-    	$startAnterior = $_SESSION['start'];
+    	$startAnterior = $_SESSION['newsStart'];
     	$start =  $startAnterior - self::$tamPagina;
     
     	$news=$this->svc->selTodos(null, $start, self::$tamPagina);
@@ -118,7 +120,7 @@ class LatestNews extends Controller{
     	    
     	$_SESSION['hayAnterior']= $start > 0;
     	$_SESSION['haySiguiente'] = true;
-    	$_SESSION['start'] = $start;
+    	$_SESSION['newsStart'] = $start;
     	
     	require 'application/views/_templates/header.php';
     	require 'application/views/news/list/index.php';

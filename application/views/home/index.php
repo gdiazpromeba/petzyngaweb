@@ -10,7 +10,8 @@
     <div class="newsContainer">
       <div class="newsTitle">
         <?php
-          echo $bean->getNews1Title();
+          $hrefNews1= URL . "latestnews/info/" . $bean->getNews1UrlEncoded();
+          echo "<a href='" . $hrefNews1  . "'>" . $bean->getNews1Title() . "</a> \n";
          ?>
       </div><!-- title -->
       <div class="newsSource">
@@ -24,7 +25,7 @@
          ?>
          <div class="newsSource" style="display: inline">
            <?php
-            echo "Read more ...";
+            echo "<a href='" . $hrefNews1  . "'>Read more ...</a> \n";
            ?>
          </div><!-- el read more -->      
       </div><!-- newsContent -->
@@ -33,7 +34,8 @@
     <div class="newsContainer">
       <div class="newsTitle">
         <?php
-          echo $bean->getNews2Title();
+          $hrefNews2= URL . "latestnews/info/" . $bean->getNews2UrlEncoded();
+          echo "<a href='" . $hrefNews2  . "'>" . $bean->getNews2Title() . "</a> \n";
          ?>
       </div><!-- title -->
       <div class="newsSource">
@@ -47,7 +49,7 @@
          ?>
          <div class="newsSource" style="display: inline">
            <?php
-            echo "Read more ...";
+            echo "<a href='" . $hrefNews2  . "'>Read more ...</a> \n";
            ?>
          </div><!-- el read more -->      
       </div><!-- newsContent -->

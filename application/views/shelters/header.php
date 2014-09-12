@@ -17,8 +17,5 @@
     <div style="height:155px">
         <img src="<?php echo URL; ?>public/img/nuevologo_.jpg" />
     </div>
-    <div class="navigation-div">
-       <span class="menuItem"><a href="<?php echo URL; ?>">HOME</a></span>
-       <span class="menuItem"><a href="<?php echo URL; ?>dogbreeds/">DOG BREEDS</a></span>
-       <span class="menuItem"><a href="<?php echo URL; ?>shelters/countries">SHELTERS</a></span>
-    </div>
+    <?php include 'application/views/_templates/menu.php'?>
+    

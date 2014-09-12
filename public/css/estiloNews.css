@@ -41,7 +41,8 @@ div.newsContent{
 }
 
 img.newsPictureLeft{
-  padding-left: 10px;
+  padding-right: 5px;
+  padding-bottom: 5px;
   float: left;
   width: 180px;	
 }
@@ -99,6 +100,12 @@ div.siteDescription{
 table.homePicturesTable {
 	margin-left:auto; 
     margin-right:auto;
+}
+
+/* la pieza central, que contiene todasa las news */
+.centroNews {
+    background: none repeat scroll 0% 0% #FFF;
+    text-align: center;
 }
 
 

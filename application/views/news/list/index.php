@@ -1,11 +1,14 @@
 <div class="centroNews">
 
-<?php foreach ($news as $bean) { ?>
+<?php foreach ($news as $bean) { 
 
+    $href= URL . "latestnews/info/" . $bean->getUrlEncoded(); 
+    ?>
+    
     <div class="newsContainer">
       <div class="newsTitle">
         <?php
-          echo $bean->getNewsTitle();
+          echo "<a href='" . $href  . "'>" . $bean->getNewsTitle() . "</a> \n";
          ?>
       </div><!-- title -->
       <div class="newsSource">
@@ -19,7 +22,7 @@
          ?>
          <div class="newsSource" style="display: inline">
            <?php
-            echo "Read more ...";
+            echo "<a href='" . $href .  "'>Read more ...</a> \n";
            ?>
          </div><!-- el read more -->      
       </div><!-- newsContent -->

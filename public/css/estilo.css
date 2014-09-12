@@ -52,18 +52,17 @@ h1 {
 	text-align: center;
 	background: #ff6600
 }
-.left {
+.costado {
     top: 201px;
 	width: 200px; 
 	padding: 5px;
-	float: left; 
+	float: right; 
 	background: white;
-	height: 550px;
 }
-.right {
+
+.centro {
 	/* width: 786px ; */
     background: white;
-	margin-left: 215px;
     text-align:center;
 	
 }

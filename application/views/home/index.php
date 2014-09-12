@@ -1,4 +1,3 @@
-<div class="right">
     <div class="siteDescription">
       <div style="color:white;display:inline">Petzynga</div> is your #1 source for pet-related information. Check our extensive listings of <a href="shelters/countries">Dog Shelters</a> 
       organized by country. Interested on a specific breed? Our <a href="/dogbreeds">Dog breed database</a> contains detailed 
@@ -6,6 +5,33 @@
       <br/>
       Make sure to visit us regularly for news and funny facts on the dog world. 
     </div>
+
+
+<div class="centro">
+    <div class="costado">
+      
+      <div class="portletCostado">
+        Enter your ZIP code
+        <form action="<?php echo URL; ?>shelters/listing/usa/initial" method="POST">
+          <input class="busquedaZipPortlet" name="zipCode" type="text" /><input type="submit" value="Go"/>
+        </form>
+        to find Dog Shelters near you!
+      </div>
+
+      <br/>
+      
+      <div class="portletCostado">
+        Look for your favorite Dog Breed
+        <form action="<?php echo URL . 'dogbreeds/index'  ?>" method="POST">
+          <input class="busquedaInput" type="text" name="nombreOParte"  />
+          <input type="submit" value="Go"/>
+        </form>
+        (just type the name, or a part of it)
+      </div>
+      
+    </div><!--end costado-->    
+    
+    
     <div class="tituloSeccionNews">News</div>
     <div class="newsContainer">
       <div class="newsTitle">
@@ -54,7 +80,7 @@
          </div><!-- el read more -->      
       </div><!-- newsContent -->
     </div><!-- newsContainer -->
-</div>    
+    
     
   <div class="tituloSeccionNews">Videos of the week</div>
     <div class="videoWrapper">
@@ -97,5 +123,6 @@
     
     <div id="footer">Copyright &copy; 2014 Petzynga </div>
 
+</div><!-- de centro -->    
 
 

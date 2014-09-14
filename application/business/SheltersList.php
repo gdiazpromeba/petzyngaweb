@@ -34,6 +34,7 @@ class SheltersList {
 		unset($_SESSION['dogBreedName']);
 		unset($_SESSION['hayAnterior']);
 		unset($_SESSION['haySiguiente']);
+		unset($_SESSION['firstArea']);
 		$_SESSION['start']=0;
 		unset($_SESSION['amountOfShelters']);		
 		$this->lista();
@@ -159,6 +160,28 @@ class SheltersList {
     		$dogBreedName=$dogBreedNamePost;
     	}else if (!empty($dogBreedNameSesion)){
     		$dogBreedName=$dogBreedNameSesion;
+    	} 
+
+    	//firstArea
+    	$firstArea=null;
+    	$firstAreaPost=null;
+    	$firstAreaSession=null;
+    	 
+    	 
+    	if (isset($_POST['firstArea'])){
+    		$firstAreaPost=$_POST['firstArea'];
+    		session_unset();
+    	}
+    	 
+    	if (isset($_SESSION['firstArea'])){
+    		$firstAreaSesion=$_SESSION['firstArea'];
+    	}
+    	 
+    	 
+    	if (!is_null($firstAreaPost)){
+    		$firstArea=$firstAreaPost;
+    	}else if (!empty($firstAreaSesion)){
+    		$firstArea=$firstAreaSesion;
     	}    	
     	 
    	
@@ -179,9 +202,12 @@ class SheltersList {
     	}
     	$start=$_SESSION['start'];
     	 
-   	    $shelters=$this->svc->selTodosWeb($shelterName, $latitude, $longitude, $distance, $specialBreedId, $start, self::$tamPagina);
-    	$amountOfShelters=$this->svc->selTodosWebCuenta($shelterName, $latitude, $longitude, $distance, $specialBreedId);
     	
+    	$shelters=$this->svc->selTodosWeb($shelterName, $firstArea, $latitude, $longitude, $distance, $specialBreedId, $start, self::$tamPagina);
+    	$amountOfShelters=$this->svc->selTodosWebCuenta($shelterName, $firstArea, $latitude, $longitude, $distance, $specialBreedId);
+    	$firstAreas = $this->svc->selFirstAreas();
+    	
+    	$_SESSION['firstArea'] = $firstArea;
     	$_SESSION['zipCode']=$zipCode;
     	$_SESSION['shelterName']=$shelterName;
     	$_SESSION['distance']=$distance;

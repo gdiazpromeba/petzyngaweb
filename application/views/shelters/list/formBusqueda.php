@@ -14,9 +14,21 @@
 	        <td class="campoBusqueda">
               <label class="labelBusqueda" for="dogBreedName">By Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_SESSION['dogBreedName'])) echo "value='" . $_SESSION['dogBreedName'] . "'"; ?> />
             </td>
+	        <td class="campoBusqueda">
+              <label class="labelBusqueda" for="firstArea">By Location</label>
+              <select class="busquedaSelect" name="firstArea">
+              <?php 
+                foreach ($firstAreas as $area){
+                  $areaSelected =  isset($_REQUEST['firstArea']) && ($area['value'] == $_REQUEST['firstArea']);
+                  $selAttr=$areaSelected?" selected='selected' ":"";
+                  echo "<option value='" .  $area["value"] . "' ".  $selAttr .   ">" . $area["label"] . "</option> .\n";
+                }
+              ?>
+              </select>
+            </td>
           </tr>
           <tr>
-	      	<td align="right" colspan="3">
+	      	<td align="right" colspan="4">
               <input type="button" onClick="javascript: submitFrmBusqueda()" value="Search" class="busquedaBotones" />	      	  
 	      	  &nbsp;
 	          <input type="button" onclick="javascript: resetFrmBusqueda()" value="Reset" class="busquedaBotones" />
@@ -38,6 +50,7 @@
         	document.frmBusqueda.zipCode.value='';
         	document.frmBusqueda.dogBreedName.value='';
         	document.frmBusqueda.specialBreedId.value='';
+        	document.frmBusqueda.firstArea.value='';
         	document.frmBusqueda.submit();
         }
         

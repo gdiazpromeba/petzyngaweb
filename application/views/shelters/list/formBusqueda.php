@@ -1,22 +1,23 @@
 	<div id="busquedaShelters">
       <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
-	  <form name="frmBusqueda"  action="<?php echo URL . 'shelters/listing/' . $countryUrl . '/initial'  ?>" method="POST">
-	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_SESSION['specialBreedId'])) echo "value='" . $_SESSION['specialBreedId'] . "'"; ?> />
+	  <form name="frmBusqueda"  action="<?php echo URL . 'shelters/listing/' . $_REQUEST['country'] . '/initial'  ?>" method="POST">
+	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_REQUEST['specialBreedId'])) echo "value='" . $_REQUEST['specialBreedId'] . "'"; ?> />
+	    <input type="hidden" name="country" id="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
 	    <table width="100%">
 	      <tr>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="shelterName">By Name</label><input class="shelterNameInput" type="text" name="shelterName"  <?php if (isset($_SESSION['shelterName'])) echo "value='" . $_SESSION['shelterName'] . "'"; ?> />
+	          <label class="labelBusqueda" for="shelterName">By Name</label><input class="shelterNameInput" type="text" name="shelterName"  <?php if (isset($_REQUEST['shelterName'])) echo "value='" . $_REQUEST['shelterName'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="zipCode">By Zip Code</label><input class="busquedaInput" type="text" name="zipCode"  <?php if (isset($_SESSION['zipCode'])) echo "value='" . $_SESSION['zipCode'] . "'"; ?> />
+	          <label class="labelBusqueda" for="zipCode">By Zip Code</label><input class="busquedaInput" type="text" name="zipCode"  <?php if (isset($_REQUEST['zipCode'])) echo "value='" . $_REQUEST['zipCode'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-              <label class="labelBusqueda" for="dogBreedName">By Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_SESSION['dogBreedName'])) echo "value='" . $_SESSION['dogBreedName'] . "'"; ?> />
+              <label class="labelBusqueda" for="dogBreedName">By Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_REQUEST['dogBreedName'])) echo "value='" . $_REQUEST['dogBreedName'] . "'"; ?> />
             </td>
 	        <td class="campoBusqueda">
               <label class="labelBusqueda" for="firstArea">By Location</label>
-              <select class="busquedaSelect" name="firstArea">
+              <select class="busquedaSelect" name="firstArea" onchange="selectedFirstArea(this.options[this.selectedIndex].value)">
               <?php 
                 foreach ($firstAreas as $area){
                   $areaSelected =  isset($_REQUEST['firstArea']) && ($area['value'] == $_REQUEST['firstArea']);
@@ -26,6 +27,14 @@
               ?>
               </select>
             </td>
+          </tr>
+          <tr>
+            <td/><td/><td/>
+	        <td class="campoBusqueda">
+              <select class="busquedaSelect" name="secondArea"  id="secondArea" >
+              </select>
+            </td>
+            
           </tr>
           <tr>
 	      	<td align="right" colspan="4">

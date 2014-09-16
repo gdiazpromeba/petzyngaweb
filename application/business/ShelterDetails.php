@@ -18,6 +18,7 @@ class ShelterDetails {
     	
     	//razas relacionadas
     	//son pares id-nombre nada más, los convierto a beans 
+    	
     	$idNombres = $this->svcBreeds->selNombresPorShelter($info->getId());
     	
     	$dogBreeds = array();

@@ -1,7 +1,7 @@
 <div class="contenedorDetallesShelter">
 
     
- 
+        <br/>
         <?php 
           list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/" . $countryUrl . "/" . $info->getLogoUrl());
 
@@ -92,12 +92,26 @@
         ?> 
 	    
 		
+    <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
+    <form name="frmNavegacion" action=""" method="post">
+      <input type="hidden" name="start" value=<?php echo $_REQUEST['start']; ?> />
+      <input type="hidden" name="firstArea" value="<?php echo $_REQUEST['firstArea']; ?>" />      
+      <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />  
+      <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
+    </form>
+    <script type="text/javascript">
+      function navega(url){
+        document.frmNavegacion.action=url;
+        document.frmNavegacion.submit();
+      }
+    </script>		
+		
     
     
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='" . URL . "shelters/listing/" . $countryUrl . "/list'> << Back to List </a> \n";
+	        echo "  <a href='#' onclick=navega('" . URL . "shelters/listing/" . $countryUrl .  "/list')> << Back to List </a> \n";
 	      ?>
         </span> 
       

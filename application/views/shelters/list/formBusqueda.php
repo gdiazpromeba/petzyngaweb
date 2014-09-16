@@ -3,7 +3,8 @@
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
 	  <form name="frmBusqueda"  action="<?php echo URL . 'shelters/listing/' . $_REQUEST['country'] . '/initial'  ?>" method="POST">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_REQUEST['specialBreedId'])) echo "value='" . $_REQUEST['specialBreedId'] . "'"; ?> />
-	    <input type="hidden" name="country" id="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
+	    <input type="hidden" name="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
+	    <input type="hidden" name="start"  <?php echo "value='" . $_REQUEST['start'] . "'"; ?> />
 	    <table width="100%">
 	      <tr>
 	        <td class="campoBusqueda">
@@ -60,7 +61,8 @@
         	document.frmBusqueda.dogBreedName.value='';
         	document.frmBusqueda.specialBreedId.value='';
         	document.frmBusqueda.firstArea.value='';
-        	document.frmBusqueda.submit();
+        	document.frmBusqueda.secondArea.value='';
+        	//document.frmBusqueda.submit();
         }
         
         

@@ -105,7 +105,7 @@
 		          var contentString  ="<div style='font-weight:bold'>" + locations[i][0] + "</div><br/>";
 		          contentString +="<div style='font-color:gray'>" + locations[i][1] + "</div>";
 		          contentString +="<br/>";
-		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelters/info/<?php echo $_SESSION['country']; ?>/" + locations[i][4] + "'>Details</a> \n";
+		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelters/info/<?php echo $_REQUEST['country']; ?>/" + locations[i][4] + "'>Details</a> \n";
 	              infowindow.setContent(contentString);
 	              infowindow.open(map, marker);
 	            }

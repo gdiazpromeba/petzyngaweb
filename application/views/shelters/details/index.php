@@ -98,6 +98,7 @@
       <input type="hidden" name="firstArea" value="<?php echo $_REQUEST['firstArea']; ?>" />      
       <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />  
       <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
+      <input type="hidden" name="shelterName" value="<?php echo $_REQUEST['shelterName']; ?>" />
     </form>
     <script type="text/javascript">
       function navega(url){

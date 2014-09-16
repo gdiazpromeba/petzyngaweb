@@ -53,7 +53,8 @@ class SheltersList {
         $secondArea      = $this->recogeVariable("secondArea");
         
    	
-    	
+//     	echo " el countryUrl es = " . $this->countryUrl;
+        
     	$latitude = 0;
     	$longitude = 0;
     	//si el zipCode existe, transformarlo en latitud y longitud
@@ -70,10 +71,13 @@ class SheltersList {
     	}
     	$start=$_REQUEST['start'];
     	
-    	 
+    	
     	$shelters=$this->svc->selTodosWeb($shelterName, $firstArea, $secondArea, $latitude, $longitude, $distance, $specialBreedId, $start, self::$tamPagina);
     	$amountOfShelters=$this->svc->selTodosWebCuenta($shelterName, $firstArea, $secondArea, $latitude, $longitude, $distance, $specialBreedId);
     	$firstAreas = $this->svc->selFirstAreas();
+    	
+//     	echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId; 
+    	
     	
     	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
     	$_REQUEST['haySiguiente'] =($amountOfShelters > ($_REQUEST['start'] + self::$tamPagina));

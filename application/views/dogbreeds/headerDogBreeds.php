@@ -16,6 +16,5 @@
     <div style="height:155px">
         <img src="<?php echo URL; ?>public/img/nuevologo_.jpg" />
     </div>
-    
-    <?php include 'menu.php'?>
+    <?php include  'application/views/_templates/menu.php' ?>
     

@@ -3,6 +3,7 @@
 require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/beans/DogBreed.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/DogBreedsSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
 // header("Content-Type: text/plain; charset=utf-8");
 
 /**
@@ -23,294 +24,77 @@ class DogBreeds extends Controller{
 	}
 	
 	
-    /**
-     * PAGE: index
-     * This method handles what happens when you move to http://dogbreeds
-     * Puede ser al principio de todo, o cuando se vuelve de un ítem en particular
-     */
-    public function index(){
-    	session_start();
+	public function index(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		$_REQUEST['start']=0;
+		
+		$this->lista();
+	}
+	
+	
+    public function lista(){
     	
-    	//letra inicial
-    	$letraInicial=null;
-    	$letraInicialPost=null;
-    	$letraInicialSesion=null;
+    	$letraInicial         = $this->recogeVariable("letraInicial");
+    	$nombreOParte         = $this->recogeVariable("nombreOParte");
+    	$selDogSize           = $this->recogeVariable("selDogSize");
+    	$selDogFeeding        = $this->recogeVariable("selDogFeeding");
+    	$selUpkeep            = $this->recogeVariable("selUpkeep");
     	
-    	
-    	if (isset($_POST['letraInicial'])){
-    		$letraInicialPost=$_POST['letraInicial'];
-    		session_unset();
-    	}
-    	
-    	if (isset($_SESSION['letraInicial'])){
-    		$letraInicialSesion=$_SESSION['letraInicial'];
-    	}
-    	
-    	
-    	if (!is_null($letraInicialPost)){
-    		$letraInicial=$letraInicialPost;
-    	}else if (!empty($letraInicialSesion)){
-    		$letraInicial=$letraInicialSesion;
-    	}
-    	 
-    	
-    	//nombreOParte
-    	$nombreOParte=null;
-    	$nombreOPartePost=null;
-    	$nombreOParteSesion=null;
-    	 
-    	if (isset($_POST['nombreOParte'])){
-    		$nombreOPartePost=$_POST['nombreOParte'];
-    		session_unset();
-    	}
-    	 
-    	if (isset($_SESSION['nombreOParte'])){
-    		$nombreOParteSesion=$_SESSION['nombreOParte'];
-    	}
-    	 
-    	//si el nombreOParte cambió, la sesión debe reiniciarse
-    	if (!is_null($nombreOPartePost)  && $nombreOPartePost!=$nombreOParteSesion){
-    		session_unset();
-    	}
-    	
-    	if (!is_null($nombreOPartePost)){
-    		$nombreOParte=$nombreOPartePost;
-    	}else if (!empty($nombreOParteSesion)){
-    		$nombreOParte=$nombreOParteSesion;
-    	}    	
-   	
-    	
-    	//selDogSize
-    	$selDogSizePost=null;
-    	$selDogSizeSesion=null;
-    	$selDogSize=null;
-    	
-    	
-    	if (isset($_POST['selDogSize'])){
-    		$selDogSizePost=$_POST['selDogSize'];
-    		session_unset();
-    	}
-    	
-    	if (isset($_SESSION['selDogSize'])){
-    		$selDogSizeSesion=$_SESSION['selDogSize'];
-    	}
-    	    	
-    	
-    	//si el selDogSize cambió, la sesión debe reiniciarse
-    	if (!is_null($selDogSizePost)  && $selDogSizePost!=$selDogSizeSesion){
-    		session_unset();
-    	}    
-
-    	if (!is_null($selDogSizePost)){
-    		$selDogSize=$selDogSizePost;
-    	}else if (!empty($selDogSizeSesion)){
-    		$selDogSize=$selDogSizeSesion;
-    	}
     	
     	$arrTamaños= $this->calculaTamaños($selDogSize);
     	$tamañoDesde=$arrTamaños[0];
     	$tamañoHasta=$arrTamaños[1];
     	
-     
-        //selDogFeeding
-        $selDogFeeding=null;
-        $selDogFeedingPost=null;
-        $selDogFeedingSesion=null;
-        
-        if (isset($_POST['selDogFeeding'])){
-        	$selDogFeedingPost=$_POST['selDogFeeding'];
-        	session_unset();
-        }
-        
-        if (isset($_SESSION['selDogFeeding'])){
-        	$selDogFeedingSesion=$_SESSION['selDogFeeding'];
-        }
-        
-        //si el selDogFeeding cambió, la sesión debe reiniciarse
-        if (!is_null($selDogFeedingPost)  && $selDogFeedingPost!=$selDogFeedingSesion){
-        	session_unset();
-        }
-         
-        if (!is_null($selDogFeedingPost)){
-        	$selDogFeeding=$selDogFeedingPost;
-        }else if (!empty($selDogFeedingSesion)){
-        	$selDogFeeding=$selDogFeedingSesion;
-        }        
-    	
-    	$start=0;
-    	if (isset($_SESSION['start'])){
-    		$start=$_SESSION['start'];
-    	}
-    	
-    	//selAppartments
-    	$selAppartments=null;
-    	$selAppartmentsPost=null;
-    	$selAppartmentsSesion=null;
-    	 
-    	 
-    	if (isset($_POST['selAppartments'])){
-    		$selAppartmentsPost=$_POST['selAppartments'];
-    		session_unset();
-    	}
-    	 
-    	if (isset($_SESSION['selAppartments'])){
-    		$selAppartmentsSesion=$_SESSION['selAppartments'];
-    	}
-    	
-    	 
-    	//si el selAppartments cambió, la sesión debe reiniciarse
-    	if (!is_null($selAppartmentsPost)  && $selAppartmentsPost!=$selAppartmentsSesion){
-    		session_unset();
-    	}
-    	
-    	if (!is_null($selAppartmentsPost)){
-    		$selAppartments=$selAppartmentsPost;
-    	}else if (!empty($selDogSizeSesion)){
-    		$selAppartments=$selAppartmentsSesion;
-    	}  
-
-    	//selKids
-    	$selKids=null;
-    	$selKidsPost=null;
-    	$selKidsSesion=null;
-    	
-    	
-    	if (isset($_POST['selKids'])){
-    		$selKidsPost=$_POST['selKids'];
-    		session_unset();
-    	}
-    	
-    	if (isset($_SESSION['selKids'])){
-    		$selKidsSesion=$_SESSION['selKids'];
-    	}
-    	 
-    	 
-    	if (!is_null($selKidsPost)){
-    		$selKids=$selKidsPost;
-    	}else if (!empty($selKidsSesion)){
-    		$selKids=$selKidsSesion;
-    	}    	
-    	
-    	//selUpkeep
-    	$selUpkeep=null;
-    	$selUpkeepPost=null;
-    	$selUpkeepSesion=null;
-    	 
-    	 
-    	if (isset($_POST['selUpkeep'])){
-    		$selUpkeepPost=$_POST['selUpkeep'];
-    		session_unset();
-    	}
-    	 
-    	if (isset($_SESSION['selUpkeep'])){
-    		$selUpkeepSesion=$_SESSION['selUpkeep'];
-    	}
-    	
-    	
-    	if (!is_null($selUpkeepPost)){
-    		$selUpkeep=$selUpkeepPost;
-    	}else if (!empty($selUpkeepSesion)){
-    		$selUpkeep=$selUpkeepSesion;
-    	} 
-
     	$arrUpkeep= $this->calculaUpkeep($selUpkeep);
     	$upkeepDesde=$arrUpkeep[0];
     	$upkeepHasta=$arrUpkeep[1];
     	
-    	 
-   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
-    	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta);
     	
-    	$_SESSION['letraInicial']=$letraInicial;
-    	$_SESSION['nombreOParte']=$nombreOParte;
-    	$_SESSION['selDogSize']=$selDogSize;
-    	$_SESSION['selDogFeeding']=$selDogFeeding;
-    	$_SESSION['selAppartments']=$selAppartments;
-    	$_SESSION['selKids']=$selKids;
-    	$_SESSION['selUpkeep']=$selUpkeep;
-    	$_SESSION['hayAnterior']= $start > 0;
-    	$_SESSION['haySiguiente'] =($amountOfDogBreeds> self::$tamPagina);
-    	$_SESSION['start'] = $start;
-    	$_SESSION['amountOfDogBreeds'] = $amountOfDogBreeds;
+    	if (RequestUtils::notSetOrEmpty('start')){
+    		$_REQUEST['start']=0;
+    	}
+    	$start=$_REQUEST['start'];
+    	
+
+    	 
+   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
+    	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta);
+    	
+    	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
+    	$_REQUEST['haySiguiente'] =($amountOfDogBreeds > ($_REQUEST['start'] + self::$tamPagina));
     	
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
-//     	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
+//     	echo "hayAnterior=" . $_REQUEST['hayAnterior'] . " haySiguiente=" . $_REQUEST['haySiguiente'] .   " amountOfDogBreeds=" . $amountOfDogBreeds .  " <br/>";
     	 
     	require 'application/views/_templates/headerDogBreeds.php';
     	require 'application/views/dogbreeds/index.php';
     	require 'application/views/_templates/footer.php';  
     }
     
+    private function recogeVariable ($varName){
+    	$ret=null;
+    	if (isset($_REQUEST[$varName])){
+    		$ret=$_REQUEST[$varName];
+    	}
+    	
+    	$_REQUEST[$varName]=$ret;
+    	
+    	return $ret;
+    }
+    
     
     public function siguiente(){
-    	session_start();    	
-    	
-    	$letraInicial  = $_SESSION['letraInicial'];
-    	$nombreOParte = $_SESSION['nombreOParte'];
-    	$selDogSize = $_SESSION['selDogSize'];
-    	$selDogFeeding = $_SESSION['selDogFeeding'];
-    	$selAppartments = $_SESSION['selAppartments'];
-    	$selKids = $_SESSION['selKids'];
-    	$selUpkeep = $_SESSION['selUpkeep'];
-    	$startAnterior = $_SESSION['start'];
-    	$start =  $startAnterior + self::$tamPagina;
-    	$amountOfDogBreeds = $_SESSION['amountOfDogBreeds'];
-    	 
-    	
-    	$arrTamaños= $this->calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
-    	
-    	$arrUpkeep= $this->calculaUpkeep($selUpkeep);
-    	$upkeepDesde=$arrUpkeep[0];
-    	$upkeepHasta=$arrUpkeep[1];
-    	
-    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
-
-    	$_SESSION['hayAnterior']= true;
-    	$_SESSION['haySiguiente'] =($amountOfDogBreeds> ($start + self::$tamPagina));
-    	$_SESSION['start'] = $start;
-    	
-//     	    	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
-//     	    	echo "appartments=" . $selAppartments . " kids=" . $selKids .   " upkeep=" . $selUpkeep .  " <br/>";
-
-    	require 'application/views/_templates/header.php';
-    	require 'application/views/dogbreeds/index.php';
-    	require 'application/views/_templates/footer.php';
+    	$_REQUEST['start'] = $_REQUEST['start'] + self::$tamPagina;
+    	$this->lista();
     }
     
     public function anterior(){
-    	session_start();
-    	 
-    	$letraInicial  = $_SESSION['letraInicial'];
-    	$nombreOParte = $_SESSION['nombreOParte'];
-    	$selDogSize = $_SESSION['selDogSize'];
-    	$selDogFeeding = $_SESSION['selDogFeeding'];
-    	$selAppartments = $_SESSION['selAppartments'];
-    	$selKids = $_SESSION['selKids'];
-    	$selUpkeep = $_SESSION['selUpkeep'];
-    	$startAnterior = $_SESSION['start'];
-    	$start =  $startAnterior - self::$tamPagina;
-    
-    	$arrTamaños= $this->calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
-    	
-    	$arrUpkeep= $this->calculaUpkeep($selUpkeep);
-    	$upkeepDesde=$arrUpkeep[0];
-    	$upkeepHasta=$arrUpkeep[1];
-    	 
-    	$dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, $selAppartments, $selKids, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
-    
-    	$_SESSION['hayAnterior']= $start > 0;
-    	$_SESSION['haySiguiente'] = true;
-    	$_SESSION['start'] = $start;
-    	
-    	require 'application/views/_templates/header.php';
-    	require 'application/views/dogbreeds/index.php';
-    	require 'application/views/_templates/footer.php';
-    
+    	$_REQUEST['start']= $_REQUEST['start']- self::$tamPagina;;
+    	$this->lista();
     }
+
     
     private function calculaTamaños($selDogSize){
     	$tamañoDesde=0;

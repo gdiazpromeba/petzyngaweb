@@ -112,7 +112,7 @@
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='#' onclick=navega('" . URL . "shelters/listing/" . $countryUrl .  "/list')> << Back to List </a> \n";
+	        echo "  <a href='' onclick=navega('" . URL . "shelters/listing/" . $countryUrl .  "/list')> << Back to List </a> \n";
 	      ?>
         </span> 
       

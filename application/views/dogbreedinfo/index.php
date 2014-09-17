@@ -120,17 +120,33 @@
           } 
         ?>        
         
-        
+    <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
+    <form name="frmNavegacion" action="" method="post">
+      <input type="hidden" name="start" value="<?php echo $_REQUEST['start']; ?>" />
+      <input type="hidden" name="letraInicial" value="<?php echo $_REQUEST['letraInicial']; ?>" />      
+      <input type="hidden" name="nombreOParte" value="<?php echo $_REQUEST['nombreOParte']; ?>" />
+      <input type="hidden" name="selDogSize" value="<?php echo $_REQUEST['selDogSize']; ?>" />
+      <input type="hidden" name="selDogFeeding" value="<?php echo $_REQUEST['selDogFeeding']; ?>" />
+      <input type="hidden" name="selUpkeep" value="<?php echo $_REQUEST['selUpkeep']; ?>" />
+    </form>
+    <script type="text/javascript">
+      function navega(url){
+        document.frmNavegacion.action=url;
+        document.frmNavegacion.submit();
+      }
+    </script>        
         
         
                                 
         </table>       
         <br/>
     <!--  </div>  -->
+    
     <span class="navegacionPaginas">
-	    <?php 
-	      echo "  <a href='" . URL . "/dogbreeds'> << Back to List </a> \n";
-	    ?>
-    </span>
+	  <?php 
+	      echo "  <a href='#' onclick=navega('" . URL .  "dogbreeds')> << Back to List </a> \n";
+	  ?>
+    </span> 
+      
             
 </div>

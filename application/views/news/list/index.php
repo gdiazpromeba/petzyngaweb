@@ -1,14 +1,24 @@
 <div class="centroNews">
 
-<?php foreach ($news as $bean) { 
+    <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
+    <form name="frmNavegacion" action="" method="post">
+      <input type="hidden" name="start" value="<?php echo $_REQUEST['start']; ?>" />
+      <input type="hidden" name="tituloEncoded" value="<?php echo $bean->getUrlEncoded(); ?>" />
+    </form>
+    <script type="text/javascript">
+      function navega(url){
+        document.frmNavegacion.action=url;
+        document.frmNavegacion.submit();
+      }
+    </script>
 
-    $href= URL . "latestnews/info/" . $bean->getUrlEncoded(); 
-    ?>
+
+<?php foreach ($news as $bean) { ?>
     
     <div class="newsContainer">
       <div class="newsTitle">
         <?php
-          echo "<a href='" . $href  . "'>" . $bean->getNewsTitle() . "</a> \n";
+          echo "<a href='#' onclick=navega('" .  URL . "latestnews/info/')>" . $bean->getNewsTitle() . "</a> \n";
          ?>
       </div><!-- title -->
       <div class="newsSource">
@@ -22,7 +32,7 @@
          ?>
          <div class="newsSource" style="display: inline">
            <?php
-            echo "<a href='" . $href .  "'>Read more ...</a> \n";
+            echo "<a href='#' onclick=navega('" .  URL . "latestnews/info/')>Read more ...</a> \n";
            ?>
          </div><!-- el read more -->      
       </div><!-- newsContent -->
@@ -32,15 +42,15 @@
   
     <span class="navegacionPaginas">
       <?php 
-        if ($_SESSION['hayAnterior']){
-          echo "  <a href='" . URL . "/latestnews/anterior'> << Previous </a> &nbsp;&nbsp;\n";
+        if ($_REQUEST['hayAnterior']){
+          echo "  <a href='#' onclick=navega('" . URL . "latestnews/previous')> << Previous </a> &nbsp;&nbsp;\n";
         }
         
-        if ($_SESSION['haySiguiente']){
-          echo "  <a href='" . URL . "/latestnews/siguiente'>  Next >> </a> \n";
+        if ($_REQUEST['haySiguiente']){
+          echo "  <a href='#' onclick=navega('" . URL . "latestnews/next')>  Next >> </a> \n";
         }
         
       ?>
-    </span>  
+    </span> 
 
 </div>   

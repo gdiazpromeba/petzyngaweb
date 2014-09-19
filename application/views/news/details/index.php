@@ -33,7 +33,7 @@
     
     <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='#' onclick=navega('" . URL . "latestnews/listing')> << Back to List </a> \n";
+	        echo "  <a href='#' onclick=navega('" . URL . "latestnews/listing/list')> << Back to List </a> \n";
 	      ?>
     </span>      
 

@@ -21,34 +21,48 @@ class LatestNews extends Controller{
 		}
 		$_REQUEST['start']=0;
 	
-		$this->listing();
+		$this->lista();
+	}	
+	
+	private function lista(){
+		 
+		if (RequestUtils::notSetOrEmpty('start')){
+			$_REQUEST['start']=0;
+		}
+		$start=$_REQUEST['start'];
+	
+	
+		$news=$this->svc->selTodos(null, $start, self::$tamPagina);
+		$amountOfNews=$this->svc->selTodosCuenta(null);
+		 
+		foreach ($news as $bean){
+			$this->trataBean($bean);
+		}
+		 
+		$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
+		$_REQUEST['haySiguiente'] =($amountOfNews > ($_REQUEST['start'] + self::$tamPagina));
+		 
+		 
+		//     	echo "amountOfNews=" . $amountOfNews . "  start = " . $start . " tampagina= " . self::$tamPagina . "\n";
+		 
+		require 'application/views/_templates/header.php';
+		require 'application/views/news/list/index.php';
+		require 'application/views/_templates/footer.php';
 	}	
 	
 	
-    public function listing(){
-    	
-    	if (RequestUtils::notSetOrEmpty('start')){
-    		$_REQUEST['start']=0;
+    public function listing($direccion){
+     	switch ($direccion){
+    		case "list":
+    			$this->lista();
+    			break;
+    		case "next": 
+    			$this->siguiente();
+    			break;
+    		case "previous":
+    			$this->anterior();
+    			break;
     	}
-    	$start=$_REQUEST['start'];    	
-
-    	 
-   	    $news=$this->svc->selTodos(null, $start, self::$tamPagina);
-    	$amountOfNews=$this->svc->selTodosCuenta(null);
-    	
-    	foreach ($news as $bean){
-    		$this->trataBean($bean);
-    	}
-    	
-    	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
-    	$_REQUEST['haySiguiente'] =($amountOfNews > ($_REQUEST['start'] + self::$tamPagina));    	
-    	
-    	
-//     	echo "amountOfNews=" . $amountOfNews . "  start = " . $start . " tampagina= " . self::$tamPagina . "\n";
-    	
-    	require 'application/views/_templates/header.php';
-    	require 'application/views/news/list/index.php';
-    	require 'application/views/_templates/footer.php';  
     }
     
     private function trataBean($bean){
@@ -63,21 +77,20 @@ class LatestNews extends Controller{
     	$bean->setNewsText($newsText);
     }
     
-    public function previous(){
+    private function anterior(){
     	$_REQUEST['start'] = $_REQUEST['start'] - self::$tamPagina;
-    	$this->listing();
+    	$this->lista();
     }
     
-    public function next(){
+    private function siguiente(){
     	$_REQUEST['start']= $_REQUEST['start'] + self::$tamPagina;;
-    	$this->listing();
+    	$this->lista();
     }    
 
 
     
 
-     public function info(){
-     	$urlEncoded = $_REQUEST['tituloEncoded'];
+     public function info($urlEncoded){
      	$bean=$this->svc->obtienePorUrlEncoded($urlEncoded);
      	
      	NewsUtils::reemplazoImagenes($bean, $GLOBALS['dirAplicacion']);

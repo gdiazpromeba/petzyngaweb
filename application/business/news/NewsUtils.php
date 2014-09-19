@@ -6,18 +6,19 @@
   	* devuelve las primeras "posicionPalabra" palabras de un texto de estilo HTML
   	*/
   	public static function cortaPorPalabra($texto, $posicionPalabra){
-  		$wcArr=str_word_count($texto,1, "><=.,;'ö\"_");
+  		$wcArr=str_word_count($texto,2, "1234567890,_<>.'=/ö");
   		$lastKey=null;
-  		$charIndex=0;
+  		$cuentaPalabras = 0;
   		foreach (array_keys($wcArr) as $key){
-  			$charIndex += strlen($wcArr[$key]) + 1;
-  			if ($key >= $posicionPalabra){
+  			$cuentaPalabras++;
+  			if ($cuentaPalabras >= $posicionPalabra){
   				$lastKey=$key;
   				break;
   			}
+  			
   		}
   		if ($lastKey!=null){
-  			$texto = substr($texto, 0, $charIndex);
+  			$texto = substr($texto, 0, $lastKey);
   		}
   		return $texto;
   	}

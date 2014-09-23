@@ -126,6 +126,7 @@ foreach ($beans as $bean){
 	$res .= construyeUnidad($url, $lastMod, "monthly", 0.5);
 }
 
+
 //news
 $res .= "<!-- news    -->   \n";
 $svc = new NewsSvcImpl();
@@ -136,7 +137,6 @@ foreach ($beans as $bean){
 	$url= $rootUrl . "latestnews/info/" . $bean->getUrlEncoded() ;
 	$res .= construyeUnidad($url, $lastMod, "monthly", 0.5);
 }
-
 
 
 $res .="</urlset>";

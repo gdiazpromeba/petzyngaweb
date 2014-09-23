@@ -30,11 +30,11 @@
 
   //local
   $GLOBALS['debug'] = true;
-  global $raiz; $raiz = 'C:/xampp/htdocs/petzyngaweb';
+  $GLOBALS['pathWeb'] = 'C:/xampp/htdocs/petzyngaweb';
+  $GLOBALS['pathCms'] = 'C:/xampp/htdocs/petzyngacms';
   global $usuario; $usuario ='almarlam_gonzalo';
   global $clave; $clave ='manuela';
   global $baseDeDatos; $baseDeDatos ='petzynga';
-  $GLOBALS['raizCms'] ='C:/xampp/htdocs/petzyngacms';
   $GLOBALS['dirWeb'] ='/petzyngaweb';
   $GLOBALS['dirAplicacion'] ='/petzyngacms';
   $GLOBALS['host'] ='localhost';

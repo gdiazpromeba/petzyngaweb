@@ -3,7 +3,7 @@
     
         <br/>
         <?php 
-          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['raizCms'] .  "/resources/images/shelterLogos/" . $countryUrl . "/" . $info->getLogoUrl());
+          list($width, $height, $type, $attr) = getimagesize( $GLOBALS['pathCms'] .  "/resources/images/shelterLogos/" . $countryUrl . "/" . $info->getLogoUrl());
 
           if ($width>(2 * $height)){
             $estiloImagen="detailShelterAncha";

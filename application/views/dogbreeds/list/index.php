@@ -4,7 +4,7 @@
 
 <div class="rightDogBreeds">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
-    <form name="frmNavegacion" action="" method="post">
+    <form name="frmNavegacion" action="get" >
       <input type="hidden" name="start" value="<?php echo RequestUtils::getValue('start'); ?>" />
       <input type="hidden" name="letraInicial" value="<?php echo RequestUtils::getValue('letraInicial'); ?>" />      
       <input type="hidden" name="nombreOParte" value="<?php echo RequestUtils::getValue('nombreOParte'); ?>" />
@@ -32,7 +32,7 @@
                       
                       echo "<td class='tdPictureContainer'> \n";
                       echo "<div class='pictureContainer'> \n";
-                      echo "    <a href='#' onclick=navega('" . URL . "dogbreeds/info/" . str_replace(" ", "_", $bean->getNombre()) . "')> \n";
+                      echo "    <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/info/" . str_replace(" ", "_", $bean->getNombre()) . "')> \n";
                       echo "      <table class='pictureInternalTable'> \n";
                       echo "        <tr><td class='pictureTitle'>" . $bean->getNombre() . "</td></tr> \n";
                       echo "        <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";
@@ -51,11 +51,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=navega('" . URL . "/dogbreeds/anterior') > << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/anterior') > << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=navega('" . URL . "/dogbreeds/siguiente') >  Next >> </a> \n";
+          echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/siguiente') >  Next >> </a> \n";
         }
         
       ?>

@@ -1,6 +1,6 @@
 	<div id="busqueda">
 	  <div class="tituloBusqueda">Filter your DOG BREED search</div>
-	  <form name="frmBusqueda"  action="<?php echo URL . 'dogbreeds/index'  ?>" method="POST">
+	  <form name="frmBusqueda"  action="<?php echo URL . 'dogbreeds/index'  ?>" method="get">
 	    <table width="100%">
 	      <tr>
 	        <td class="campoBusqueda">

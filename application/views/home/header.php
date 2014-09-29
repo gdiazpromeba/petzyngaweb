@@ -14,7 +14,7 @@
     <link href="<?php echo URL; ?>public/css/estiloPortlets.css" rel="stylesheet">
     
 </head>
-<body>
+<body <?php if ($GLOBALS['debug']) echo "style='background-color:#C2A4CB'"; ?>>
 <!-- header -->
 <div id="container">
     <!-- Info -->

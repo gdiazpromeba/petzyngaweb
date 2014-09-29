@@ -10,7 +10,7 @@
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloNews.css" rel="stylesheet">
 </head>
-<body>
+<body <?php if ($GLOBALS['debug']) echo "style='background-color:#C2A4CB'"; ?>>
 <!-- header -->
 <div id="container">
     <!-- Info -->

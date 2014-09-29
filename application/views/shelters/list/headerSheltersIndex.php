@@ -143,7 +143,7 @@
 </style>     
    
 </head>
-<body onload="checkSecondArea()">
+<body onload="checkSecondArea()" <?php if ($GLOBALS['debug']) echo "style='background-color:#C2A4CB'"; ?>>
 <!-- header -->
 <div id="container">
     <!-- Info -->

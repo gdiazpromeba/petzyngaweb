@@ -12,9 +12,10 @@
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloNews.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloPortlets.css" rel="stylesheet">
+    <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
     
 </head>
-<body <?php if ($GLOBALS['env']=="qa") echo "style='background-color:#C2A4CB'"; ?>>
+<body>
 <!-- header -->
 <div id="container">
     <!-- Info -->

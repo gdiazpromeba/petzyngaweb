@@ -9,6 +9,8 @@
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet"/>
+    <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
+    
     <!--  google maps -->
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp"></script>
     <?php require_once 'configJs.php';?> 
@@ -143,7 +145,7 @@
 </style>     
    
 </head>
-<body onload="checkSecondArea()" <?php if ($GLOBALS['debug']) echo "style='background-color:#C2A4CB'"; ?>>
+<body onload="checkSecondArea()">
 <!-- header -->
 <div id="container">
     <!-- Info -->

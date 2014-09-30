@@ -7,9 +7,11 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
-    <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet"/>
+    <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
+    
 </head>
-<body <?php if ($GLOBALS['env']=="qa") echo "style='background-color:#C2A4CB'"; ?>>
+<body>
 <!-- header -->
 <div id="container">
     <!-- Info -->

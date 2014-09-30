@@ -4,6 +4,7 @@
 //servidor live
 
 // $GLOBALS['debug'] = false;
+// $GLOBALS['env'] = 'live';
 // global $usuario; $usuario ='petzynga_gonzalo';
 // global $clave; $clave ='manuela';
 // global $baseDeDatos; $baseDeDatos ='petzynga_live';
@@ -16,6 +17,7 @@
 
 //servidor qa
 //  $GLOBALS['debug'] = false;
+//  $GLOBALS['env'] = 'qa';
 //  global $usuario; $usuario ='petzynga_gonzalo';
 //    global $clave; $clave ='manuela';
 //    global $baseDeDatos; $baseDeDatos ='petzynga_cmsqa';
@@ -30,6 +32,7 @@
 
   //local
   $GLOBALS['debug'] = true;
+  $GLOBALS['env'] = 'local';
   $GLOBALS['pathWeb'] = 'C:/xampp/htdocs/petzyngaweb';
   $GLOBALS['pathCms'] = 'C:/xampp/htdocs/petzyngacms';
   global $usuario; $usuario ='almarlam_gonzalo';

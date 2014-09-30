@@ -13,7 +13,7 @@
     
     
 </head>
-<body <?php if ($GLOBALS['debug']) echo "style='background-color:#C2A4CB'"; ?>>
+<body <?php if ($GLOBALS['env']=="qa") echo "style='background-color:#C2A4CB'"; ?>>
 <!-- header -->
 <div id="container">
     <!-- Info -->

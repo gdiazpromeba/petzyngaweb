@@ -312,6 +312,16 @@ img.breedImage{
     margin-right:auto;
 }
 
+div.descriptiveParagraph2{
+	text-align: center;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: #dddddd;
+    border-radius: 25px;
+    margin: 10px;
+    padding: 10px;
+}
+
 
 
 		

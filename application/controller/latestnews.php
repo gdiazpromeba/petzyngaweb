@@ -45,7 +45,7 @@ class LatestNews extends Controller{
 		 
 		//     	echo "amountOfNews=" . $amountOfNews . "  start = " . $start . " tampagina= " . self::$tamPagina . "\n";
 		 
-		require 'application/views/_templates/header.php';
+		require 'application/views/news/header.php';
 		require 'application/views/news/list/index.php';
 		require 'application/views/_templates/footer.php';
 	}	

@@ -42,3 +42,8 @@
       </td>
     </tr>
  </table>
+ <br/>
+ <div class="descriptiveParagraph2">
+   Search, locate, and contact Dog Shelters around the wolrd!<br/>
+   Clicking on any country brings a search page where you can find shelters by name, geographical proximity, or dog breed. 
+ </div>

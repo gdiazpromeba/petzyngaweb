@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
+    <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet"/>
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
     

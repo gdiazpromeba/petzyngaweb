@@ -1,4 +1,7 @@
 <div class="rightDogBreeds">
+        <div class="descriptiveParagraph2">
+          <?php echo $info->getHeaderText(); ?>
+        </div>
 
         <table class="tableFotoInfo">
           <tr><td class="pictureTitleInfo"><?php echo $info->getNombre(); ?></td></tr>  

@@ -21,7 +21,15 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
   	 		$res = $bean->getText();
   	 	}
   	 	return $res;
-    }  	 
+    }  	
+
+    public static function purge(){
+      if (!empty(Resources::$cache)){
+    	Resources::$cache->clean();
+    	echo "nothing cached at the moment!";
+      }
+      echo "caché cleaned!";
+    }
 	 
   }
 ?>

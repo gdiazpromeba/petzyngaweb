@@ -10,12 +10,16 @@ class SheltersList {
 	private $countryUrl;
 	private $distanceUnit;
 	private $conversionFactor;
+	private $headerTextKey;
+	private $headerTitleKey;
 	
 
-	public function __construct($countryUrl, $distanceUnit, $conversionFactor, $svc, $svcZips){
+	public function __construct($countryUrl, $headerTitleKey, $headerTextKey, $distanceUnit, $conversionFactor, $svc, $svcZips){
 		$this->svc = $svc;
 		$this->svcZips = $svcZips;
 		$this->countryUrl = $countryUrl;
+		$this->headerTitleKey = $headerTitleKey;
+		$this->headerTextKey = $headerTextKey;
 		$this->distanceUnit = $distanceUnit;
 		$this->conversionFactor = $conversionFactor;
 	}
@@ -86,6 +90,8 @@ class SheltersList {
     	$_REQUEST['country'] = $this->countryUrl;
     	$distanceUnit= $this->distanceUnit;
     	$conversionFactor= $this->conversionFactor;
+    	$headerTitleKey = $this->headerTitleKey;
+    	$headerTextKey = $this->headerTextKey;
     	require 'application/views/shelters/list/headerSheltersIndex.php';
     	require 'application/views/shelters/list/index.php';
     	require 'application/views/_templates/footer.php';  

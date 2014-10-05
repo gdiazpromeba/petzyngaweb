@@ -1,10 +1,8 @@
-    <div class="siteDescription">
-      <div style="color:white;display:inline">Petzynga</div> is your #1 source for pet-related information. Check our extensive listings of <a href="shelters/countries">Pet Shelters</a> 
-      organized by country. Interested on a specific breed? Our <a href="/dogbreeds">Dog breed database</a> contains detailed 
-      information on your dog upkeep, behavior, feeding habits, training tips and much more!
-      <br/>
-      Make sure to visit us regularly for news and funny facts on the pet world. 
-    </div>
+<?php require_once 'utils/Resources.php';?>
+
+<div class="siteDescription">
+      <?php echo Resources::getText('home_page_content'); ?>
+</div>
 
 
 <div class="centro">

@@ -2,3 +2,4 @@
 .settings/**
 jquery/*
 public/img/*
+cache.storage.localhost/**

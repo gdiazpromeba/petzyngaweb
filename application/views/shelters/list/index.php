@@ -1,3 +1,4 @@
+ <?php require_once 'utils/Resources.php';?>
 <div id="columnaListaShelters">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">
@@ -16,7 +17,11 @@
       }
     </script>
 
-
+    <div class="descriptiveParagraph2">
+      <b><?php echo Resources::getText($headerTitleKey); ?></b>
+      <br/>
+      <?php echo Resources::getText($headerTextKey); ?>
+    </div>
 	<?php include 'formBusqueda.php'?>
 
     <div>

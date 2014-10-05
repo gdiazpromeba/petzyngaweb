@@ -43,6 +43,6 @@
   $GLOBALS['host'] ='localhost';
   $GLOBALS['pathWeb'] = 'C:/xampp/htdocs/petzyngaweb';
   $GLOBALS['pathCms'] = 'C:/xampp/htdocs/petzyngacms';
-  
-    
+  //require_once 'utils/Resources.php';
+
 ?>

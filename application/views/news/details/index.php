@@ -17,7 +17,7 @@
       
     <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
     <form name="frmNavegacion" action=""" method="post">
-      <input type="hidden" name="start" value=<?php echo $_REQUEST['start']; ?> />
+      <input type="hidden" name="start" value="<?php echo RequestUtils::getValue('start'); ?>" />
     </form>
     <script type="text/javascript">
       function navega(url){
@@ -31,9 +31,17 @@
       
     </div><!-- newsContainer -->
     
-    <span class="navegacionPaginas">
-	      <?php 
-	        echo "  <a href='#' onclick=navega('" . URL . "latestnews/listing/list')> << Back to List </a> \n";
-	      ?>
-    </span>      
+    <!-- if "start" is empty, it means that we are coming from thr front page -->
+    <?php
+     $start=RequestUtils::getValue('start');
+     if (empty($start)){?>
+      <span class="navegacionPaginas">
+	    <a href='#' onclick=navega('<?php echo URL ?>')> << Back to Home Page </a>
+      </span>      
+    <?php }else{ ?> 
+      <span class="navegacionPaginas">
+        <a href='#' onclick=navega('<?php echo URL ?>latestnews/listing/list')> << Back to List </a>
+      </span>      
+    <?php }?> 
+    
 

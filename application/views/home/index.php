@@ -93,7 +93,7 @@
     <table class='homePicturesTable'>
         <tr>
           <td class='tdPictureContainer'>
-            <a href='<?php echo URL;?>dogbreedinfo/info/"<?php echo str_replace(" ", "_", $bean->getDogBreed1Name()); ?>'>
+            <a href='<?php echo URL;?>dogbreeds/info/<?php echo str_replace(" ", "_", $bean->getDogBreed1Name()); ?>'>
               <table class='pictureInternalTable'>
                 <tr><td class='pictureTitle'><?php echo $bean->getDogBreed1Name(); ?></td></tr>
                 <tr><td><img class='breedImage' src='<?php  echo $GLOBALS['dirAplicacion']; ?>/resources/images/breeds/<?php echo $bean->getDogBreed1Picture(); ?>'></td></tr>
@@ -101,7 +101,7 @@
             </a>
           </td>
           <td class='tdPictureContainer'>
-            <a href='<?php echo URL;?>dogbreedinfo/info/"<?php echo str_replace(" ", "_", $bean->getDogBreed2Name()); ?>'>
+            <a href='<?php echo URL;?>dogbreeds/info/<?php echo str_replace(" ", "_", $bean->getDogBreed2Name()); ?>'>
               <table class='pictureInternalTable'>
                 <tr><td class='pictureTitle'><?php echo $bean->getDogBreed2Name(); ?></td></tr>
                 <tr><td><img class='breedImage' src='<?php  echo $GLOBALS['dirAplicacion']; ?>/resources/images/breeds/<?php echo $bean->getDogBreed2Picture(); ?>'></td></tr>
@@ -109,7 +109,7 @@
             </a>
           </td>
           <td class='tdPictureContainer'>
-            <a href='<?php echo URL;?>dogbreedinfo/info/"<?php echo str_replace(" ", "_", $bean->getDogBreed3Name()); ?>'>
+            <a href='<?php echo URL;?>dogbreeds/info/<?php echo str_replace(" ", "_", $bean->getDogBreed3Name()); ?>'>
               <table class='pictureInternalTable'>
                 <tr><td class='pictureTitle'><?php echo $bean->getDogBreed3Name(); ?></td></tr>
                 <tr><td><img class='breedImage' src='<?php  echo $GLOBALS['dirAplicacion']; ?>/resources/images/breeds/<?php echo $bean->getDogBreed3Picture(); ?>'></td></tr>

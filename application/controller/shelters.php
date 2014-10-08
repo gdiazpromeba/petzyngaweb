@@ -34,22 +34,22 @@ class Shelters extends Controller{
     	$ctrl=null;
     	switch ($country){
     		case "usa":
-    			$ctr=new SheltersList("usa",  "dog_shelters_in_usa_title", "dog_shelters_in_usa_content", "mi", 0.621371192, new SheltersUsaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("usa",  "shelters_in_usa_title", "shelters_in_usa_content", "mi", 0.621371192, new SheltersUsaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     		case "uk":
-    			$ctr=new SheltersList("uk", "dog_shelters_in_uk_title", "dog_shelters_in_uk_content",  "km", 1, new SheltersUkSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("uk", "shelters_in_uk_title", "shelters_in_uk_content",  "km", 1, new SheltersUkSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     		case "china":
-    			$ctr=new SheltersList("china", "dog_shelters_in_china_title", "dog_shelters_in_china_content", "km", 1, new SheltersChinaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("china", "shelters_in_china_title", "shelters_in_china_content", "km", 1, new SheltersChinaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     		case "japan":
-    			$ctr=new SheltersList("japan", "dog_shelters_in_japan_title", "dog_shelters_in_japan_content", "km", 1, new SheltersJapanSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("japan", "shelters_in_japan_title", "shelters_in_japan_content", "km", 1, new SheltersJapanSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     		case "canada":
-    			$ctr=new SheltersList("canada", "dog_shelters_in_canada_title", "dog_shelters_in_canada_content", "km", 1, new SheltersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("canada", "shelters_in_canada_title", "shelters_in_canada_content", "km", 1, new SheltersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     		case "india":
-    			$ctr=new SheltersList("india", "dog_shelters_in_india_title", "dog_shelters_in_india_content", "km", 1, new SheltersIndiaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$ctr=new SheltersList("india", "shelters_in_india_title", "shelters_in_india_content", "km", 1, new SheltersIndiaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
     	}
     	

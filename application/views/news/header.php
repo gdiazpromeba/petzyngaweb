@@ -12,6 +12,7 @@
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
 </head>
 <body>
+<?php include $GLOBALS['pathWeb'] . '/application/views/_templates/analyticstracking.php' ?>
 <!-- header -->
 <div id="container">
     <!-- Info -->

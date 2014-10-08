@@ -146,6 +146,7 @@
    
 </head>
 <body onload="checkSecondArea()">
+<?php include $GLOBALS['pathWeb'] . '/application/views/_templates/analyticstracking.php' ?>
 <!-- header -->
 <div id="container">
     <!-- Info -->

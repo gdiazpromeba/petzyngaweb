@@ -1,5 +1,6 @@
 <?php
 
+
 require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/shelters/SheltersList.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/shelters/ShelterDetails.php';
@@ -13,6 +14,8 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersCanadaSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/SheltersIndiaSvcImpl.php';
 
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/Resources.php';
+
 
 
 
@@ -24,6 +27,18 @@ class Shelters extends Controller{
 	private static $tamPagina = 12;
 	
     public function countries(){
+    	
+    	//pupulate the amount of shelters per country
+    	$shelterCount=Resources::get("shelter_count_per_country");
+    	if (empty($shelterCount)){
+    	  $svc = new SheltersUsaSvcImpl(); $shelterCount["usa"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new SheltersCanadaSvcImpl(); $shelterCount["canada"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new SheltersUkSvcImpl(); $shelterCount["uk"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new SheltersJapanSvcImpl(); $shelterCount["japan"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new SheltersChinaSvcImpl(); $shelterCount["china"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new SheltersIndiaSvcImpl(); $shelterCount["india"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  Resources::set("shelter_count_per_country", $shelterCount);
+    	}
     	require 'application/views/shelters/header.php';
     	require 'application/views/shelters/countries.php';
     	require 'application/views/_templates/footer.php';

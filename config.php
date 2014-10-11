@@ -44,5 +44,12 @@
   $GLOBALS['pathWeb'] = 'C:/xampp/htdocs/petzyngaweb';
   $GLOBALS['pathCms'] = 'C:/xampp/htdocs/petzyngacms';
   //require_once 'utils/Resources.php';
+  
+  //cache
+  require_once("utils/phpfastcache/phpfastcache.php");
+  phpFastCache::setup("storage","file");
+  phpFastCache::setup("path", $GLOBALS['pathWeb']);       	
+  //$cache = phpFastCache();
+  
 
 ?>

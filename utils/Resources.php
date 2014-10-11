@@ -1,35 +1,65 @@
 <?php
-include("utils/phpfastcache/phpfastcache.php");
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/TextResourcesSvcImpl.php';
 
   class Resources{
   	
-   private static $cache;
-
+   private static $DIA = 86400;
   	 
-   public static function getText($key){
-       if (empty(Resources::$cache)){
-         phpFastCache::setup("storage","files");
-         phpFastCache::setup("path", $GLOBALS['pathWeb']);       	
-       	 Resources::$cache=phpFastCache();
-       }
-       $res = Resources::$cache->get($key); 
+   private static function getTextWithoutParameters($key){
+       $res=__c()->get($key); 
   	   if ($res==null){
   	 		$svc = new TextResourcesSvcImpl();
   	 		$bean = $svc->obtienePorKey($key);
-  	 		Resources::$cache->set($key, $bean->getText(), 120);
+  	 		__c()->set($key, $bean->getText(), Resources::$DIA);
   	 		$res = $bean->getText();
   	 	}
   	 	return $res;
     }  	
 
     public static function purge(){
-      if (!empty(Resources::$cache)){
-    	Resources::$cache->clean();
-    	echo "nothing cached at the moment!";
-      }
+      __c()->clean();
       echo "caché cleaned!";
     }
+    
+    /*
+     * same as getKey, but with parameter replacements.  "blah blah {1} blah"
+    */
+    public static function getText(){
+    	$args=func_get_args();
+    	$res = Resources::getTextWithoutParameters($args[0]);
+    	if (count($args>1)){
+    	  for ($i=1; $i< func_num_args(); $i++){
+    		$token="{". $i . "}";
+    		$res = str_replace($token, func_get_arg($i),  $res);
+    	  }
+    	}
+    	return $res;
+    }
+    
+    /*
+     * almacena cualquier cosa en el caché, especialmente objetos
+    */
+    public static function set($key, $object){
+//       echo "*******************************************************<br/>";
+//       echo "before" . var_dump($cache); 
+      __c()->set($key, $object, Resources::$DIA);
+//       echo "*******************************************************<br/>";
+//       echo "after" . var_dump($cache); 
+    }
+    
+    /*
+     * obtiene cualquier cosa del caché, si está. De lo cotrario devuelve null
+    */
+    public static function get($key){
+//       if ( __c()->isExisting($key)){
+        return __c()->get($key);
+//       }else{
+//       	return null;
+//       }
+    }
+    
+    
+    
 	 
   }
 ?>

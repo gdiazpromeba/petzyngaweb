@@ -1,4 +1,5 @@
  <?php require_once 'utils/Resources.php';?>
+ <div class="descriptiveParagraph2A"><?php echo Resources::getTeasers('adopt_responsibly'); ?></div>
  <br/>
  <table class="countryPicturesTable">
    <tr>

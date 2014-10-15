@@ -58,6 +58,25 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 //       }
     }
     
+    /*
+     * Obtiene un array de teasers, y de él un elemento al azar
+    */
+    public static function getTeasers($key){
+       $arr=__c()->get($key); 
+  	   if ($arr==null){
+  	 		$svc = new TextResourcesSvcImpl();
+  	 		$arr = $svc->selTeasers($key);
+  	 		__c()->set($key, $arr, Resources::$DIA);
+  	 	}
+  	 	$index=rand(0, count($arr)-1);
+  	 	$arrIndexed=array_values($arr);
+  	 	$bean = $arrIndexed[$index];
+  	 	$result =  $bean->getText();
+  	 	return $result;
+    }     
+    
+    
+    
     
     
 	 

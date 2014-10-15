@@ -1,10 +1,12 @@
+<?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petzynga</title>
-    <meta name="description" content="">
+    <meta name="description" content="<?php echo Resources::getText($metaDescriptionKey); ?>" />
+    <meta name="keywords" content="<?php echo Resources::getText($metaKeywordsKey); ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet"/>

@@ -8,6 +8,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/ZipsGenericoSvcImpl.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersUsaSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersCanadaSvcImpl.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/Resources.php';
 
@@ -27,6 +28,7 @@ class Breeders extends Controller{
     	$breederCount=Resources::get("breeder_count_per_country");
     	if (empty($shelterCount)){
     	  $svc = new BreedersUsaSvcImpl(); $shelterCount["usa"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new BreedersCanadaSvcImpl(); $shelterCount["canada"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
 
     	  Resources::set("breeder_count_per_country", $shelterCount);
     	}
@@ -43,6 +45,11 @@ class Breeders extends Controller{
     			$ctr=new BreedersList("usa",  "breeders_in_usa_title", "breeders_in_usa_content", "meta_description_breeders_usa", "meta_keywords_breeders_usa", 
     			 "mi", 0.621371192, new BreedersUsaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
+    		case "canada":
+    			$ctr=new BreedersList("canada",  "breeders_in_canada_title", "breeders_in_canada_content", "meta_description_breeders_canada", "meta_keywords_breeders_canada", 
+    			 "km", 1, new BreedersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
+    			
     	}
     	
     	if ($direccion=="previous"){
@@ -62,6 +69,10 @@ class Breeders extends Controller{
     		case "usa":
     			$ctr=new BreederDetails("usa", new BreedersUsaSvcImpl(), new DogBreedsSvcImpl());
     			break;
+    		case "canada":
+    			$ctr=new BreederDetails("canada", new BreedersCanadaSvcImpl(), new DogBreedsSvcImpl());
+    			break;
+    			
     	}
     	$ctr->info($urlEncoded);
     }

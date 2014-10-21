@@ -1,9 +1,9 @@
  <?php require_once 'utils/Resources.php';?>
- <table border="1" style="padding:5px;">
+ <table border="0" style="padding:5px;">
    <tr>
      <td colspan="4" style="text-align: left">
-       <span style="font-family: Oswald; font-color:olive; font-size:16px;margin:5px;">Responsible Breeders</span>
-       <div style="text-align:justify;font-size:small;padding:5px" ><?php echo Resources::getText('responsible_breeders'); ?></div>
+       <span class="tituloBreeders">Responsible Breeders</span>
+       <div class="textoBreeders"><?php echo Resources::getText('responsible_breeders'); ?></div>
      </td>
    </tr>
    <tr>
@@ -22,15 +22,32 @@
        </a>
      </td>
      <td colspan="2" rowspan="2" style="text-align: left">
-       <span style="font-family: Oswald; font-color:olive; font-size:16px;margin:5px;">Beware of "Puppy Mills"</span>
-       <div style="text-align:justify;font-size:small;padding:5px" ><?php echo Resources::getText('puppy_mill_warning_1'); ?></div>
+       <span class="tituloBreeders">Beware of "Puppy Mills"</span>
+       <div class="textoBreeders"><?php echo Resources::getText('puppy_mill_warning_1'); ?></div>
      </td>
    </tr>
    <tr>
      <td colspan="2" style="text-align: left">
-       <span style="font-family: Oswald; font-color:olive; font-size:16px;margin:5px">See through the sales pitch</span>
-       <div style="text-align:justify;font-size:small;padding:5px"><?php echo Resources::getText('puppy_mill_warning_2'); ?></div>
+       <span class="tituloBreeders">See through the sales pitch</span>
+       <div class="textoBreeders"><?php echo Resources::getText('puppy_mill_warning_2'); ?></div>
      </td>
     </tr>
+   <tr>
+     <td colspan="4" style="text-align: center">
+       <table width="100%">
+         <tr>
+           <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/china_map_menu_outline.gif"; ?>" /></td>
+           <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/uk_map_menu_outline.jpg"; ?>" /></td>
+           <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/india_map_menu_outline.jpg"; ?>" /></td>
+           <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/japan_map_menu_outline.jpg"; ?>" /></td>
+         </tr>
+         <tr>
+           <td colspan="4" style="text-align: center">More countries coming soon ...</td>
+         </tr>  
+       </table>
+     </td>
+    </tr>
+    
+    
  </table>
  <br/>

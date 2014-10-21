@@ -11,6 +11,7 @@
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
+    <link href="<?php echo URL; ?>public/css/estiloBreeders.css" rel="stylesheet">
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
 </head>
 <body>

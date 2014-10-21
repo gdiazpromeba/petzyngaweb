@@ -99,6 +99,7 @@
       <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />  
       <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
       <input type="hidden" name="breederName" value="<?php echo $_REQUEST['breederName']; ?>" />
+      <input type="hidden" name="country" value="<?php echo $_REQUEST['country']; ?>" />
     </form>
     <script type="text/javascript">
       function navega(url){
@@ -112,7 +113,7 @@
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='' onclick=navega('" . URL . "breeders/listing/" . $countryUrl .  "/list')> << Back to List </a> \n";
+	        echo "  <a href='#' onclick=navega('" . URL . "breeders/listing/" . $_REQUEST['country'] .  "/list')> << Back to List </a> \n";
 	      ?>
         </span> 
       

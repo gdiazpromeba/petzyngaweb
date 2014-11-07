@@ -25,7 +25,7 @@
         //html('Please wait... <img src="image/loading.gif" />');
 		$.ajax({
 		     type: "POST",
-		     url: Global.dirCms + "/svc/conector/areas.php/selSegundasAreas",
+		     url: Global.dirCms + "/svc/conector/areas.php/selSegundasAreasBreeders",
 		     data: dataString,
 		     cache: false,
 		     success: function(result){

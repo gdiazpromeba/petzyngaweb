@@ -9,6 +9,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersUsaSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersCanadaSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersUkSvcImpl.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/Resources.php';
 
@@ -29,6 +30,7 @@ class Breeders extends Controller{
     	if (empty($shelterCount)){
     	  $svc = new BreedersUsaSvcImpl(); $shelterCount["usa"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
     	  $svc = new BreedersCanadaSvcImpl(); $shelterCount["canada"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new BreedersUkSvcImpl(); $shelterCount["uk"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
 
     	  Resources::set("breeder_count_per_country", $shelterCount);
     	}
@@ -49,7 +51,11 @@ class Breeders extends Controller{
     			$ctr=new BreedersList("canada",  "breeders_in_canada_title", "breeders_in_canada_content", "meta_description_breeders_canada", "meta_keywords_breeders_canada", 
     			 "km", 1, new BreedersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
     			break;
-    			
+    	   case "uk":
+    			$ctr=new BreedersList("uk",  "breeders_in_uk_title", "breeders_in_uk_content", "meta_description_breeders_uk", "meta_keywords_breeders_uk",
+    			"km", 1, new BreedersUkSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
+    				 
     	}
     	
     	if ($direccion=="previous"){
@@ -72,7 +78,10 @@ class Breeders extends Controller{
     		case "canada":
     			$ctr=new BreederDetails("canada", new BreedersCanadaSvcImpl(), new DogBreedsSvcImpl());
     			break;
-    			
+    		case "uk":
+    			$ctr=new BreederDetails("uk", new BreedersUkSvcImpl(), new DogBreedsSvcImpl());
+    			break;
+    				 
     	}
     	$ctr->info($urlEncoded);
     }

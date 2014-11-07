@@ -1,5 +1,5 @@
  <?php require_once 'utils/Resources.php';?>
- <table border="0" style="padding:5px;">
+ <table border="1" style="padding:5px;">
    <tr>
      <td colspan="4" style="text-align: left">
        <span class="tituloBreeders">Responsible Breeders</span>
@@ -33,11 +33,17 @@
      </td>
     </tr>
    <tr>
-     <td colspan="4" style="text-align: center">
+     <td>
+       <a class="noUnderline" href="<?php echo URL; ?>breeders/listing/uk/initial">
+         <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/uk_map_menu_outline.jpg"; ?>" />
+         <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_the_uk'); ?></div>
+         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $shelterCount["uk"]); ?></div>
+       </a>
+     </td>
+     <td colspan="3" style="text-align: center">
        <table width="100%">
          <tr>
            <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/china_map_menu_outline.gif"; ?>" /></td>
-           <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/uk_map_menu_outline.jpg"; ?>" /></td>
            <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/india_map_menu_outline.jpg"; ?>" /></td>
            <td><img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/japan_map_menu_outline.jpg"; ?>" /></td>
          </tr>

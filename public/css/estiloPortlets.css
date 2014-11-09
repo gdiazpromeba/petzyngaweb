@@ -1,5 +1,5 @@
 div.portletCostado{
-  font-family: 'Oswald', arial, serif;
+  font-family: 'Dosis', arial, serif;
   font-size: 14px;
   width: 100%;
   vertical-align:top;
@@ -11,18 +11,6 @@ div.portletCostado{
   padding-bottom: 10px;
   background: #f7fafe;
   	
-  /*
-  border: 1px solid gray;	
-  border-radius: 5px;
-  border: 1px solid gray;
-  font: normal 1.5em auto;
-  font-family: 'Oswald';
-  padding: 0.1em;
-  box-shadow: 0 0 10px gray inset;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  */
 }
 
 .busquedaZipPortlet{

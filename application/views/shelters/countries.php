@@ -1,7 +1,11 @@
  <?php require_once 'utils/Resources.php';?>
- <div class="descriptiveParagraph2A"><?php echo Resources::getTeasers('adopt_responsibly'); ?></div>
- <br/>
+  <br/>
  <table class="countryPicturesTable">
+   <tr>
+     <td colspan="4">
+       <div class="descriptiveParagraph2"><?php echo Resources::getText('animal_shelter_countries_list_content'); ?></div>
+     </td>
+   </td>
    <tr>
      <td style="vertical-align">
        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/usa/initial">
@@ -24,8 +28,10 @@
          <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["japan"]); ?></div>
        </a>
      </td>
+     <td rowspan="2" style="width:200px">
+        <div class="textoBreeders"><?php echo Resources::getTeasers('adopt_responsibly'); ?></div>
+     </td>  
    </tr>
-   <tr>
    <tr>
      <td>
        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/china/initial">
@@ -51,4 +57,4 @@
     </tr>
  </table>
  <br/>
- <div class="descriptiveParagraph2"><?php echo Resources::getText('animal_shelter_countries_list_content'); ?></div>
+ 

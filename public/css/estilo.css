@@ -1,8 +1,8 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
+@import url(http://fonts.googleapis.com/css?family=Dosis);
 
 html, body {
 	margin: 0;
-	font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
+	font: 100% "Dosis", Arial, Helvetica, sans-serif;
 	color: #000;
 	background: #ccccff;
 	text-align: center;
@@ -12,12 +12,11 @@ html, body {
 #container {
 	margin: 20px auto;
 	background: white;
-	width: 1000px;
+	width: 1100px;
 	border-width: 1px;
 	border-style:solid;
 	text-align: center;
 	margin: 0 auto; 
-	height: 1318px;
 	position: relative;
 }
 
@@ -26,25 +25,26 @@ html, body {
 }
 
 .navigation-div{
-  font-family: 'Oswald', arial, serif;
+  font-family: 'Dosis', arial, serif;
   font-size: 16px;
   height: 50px;
   background-color: olive;
   width: 100%;
-  vertical-align:top;
+  display:table;
 }
-
 .navigation-div a:link, .navigation-div a:visited {
     text-decoration: none;
     color:white;
 }
 
 span.menuItem { 
-	display:inline-block; 
-	padding-top:10px;
+	display:table-cell;
+	vertical-align:middle; 
 	padding-left:15px;
 	padding-right:15px;
+    letter-spacing:1.6px;
 }
+
 
 h1 {
 	line-height: 75px;
@@ -70,9 +70,8 @@ h1 {
 #footer {
 	color: white;
 	background-color: olive;
-    width:  999px;
+    width:  100%;
     margin: 0 auto;
-    position: absolute; bottom: 0;
 }
 
 h2, h3, footer p {
@@ -114,7 +113,7 @@ h2, h3, footer p {
 
 .tituloBusqueda{
 	height: 26px;
-	font-family:Oswald;
+	font-family:Dosis;
 	font-size: 14px;
 	color: white;
 	background-color: olive;
@@ -151,7 +150,7 @@ td.pictureTitle{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 div.pictureContainer{
@@ -165,7 +164,7 @@ span.navegacionPaginas{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 /* form de búsqueda */
@@ -185,7 +184,7 @@ td.submitButtons{
   border-radius: 5px;
   border: 1px solid gray;
   font: normal 1.5em auto; /* 24px, or 16px x 1.5 */
-  font-family: 'Oswald';
+  font-family: 'Dosis';
   padding: 0.1em;
   box-shadow: 0 0 10px gray inset;
   -webkit-box-sizing: border-box;
@@ -201,7 +200,7 @@ td.submitButtons{
 }
 
 #contactform .formcolumn label, #contactform .formcolumn fieldset{
-font: 1.2em Oswald; /* font size is 12.8px, or 16 x 0.8 */
+font: 1.2em Dosis; /* font size is 12.8px, or 16 x 0.8 */
 display: inline-block;
 margin-top: 2em;
 margin-bottom: 3px;
@@ -229,7 +228,7 @@ td.featureTitle{
 	vertical-align: middle;
 	color: #1e6b88;
 	font-size: 14px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	height: 30px;
 	width:150px;
 }
@@ -265,7 +264,7 @@ div.textTitle{
 	text-align: left;
 	color: #1e6b88;
 	font-size: 15px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 table.tableFotoInfo{
@@ -297,7 +296,7 @@ img.estrellas{
 	color: white;
 	background-color: olive;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	vertical-align: top;
 }
 
@@ -327,10 +326,19 @@ div.descriptiveParagraph2A{
 	padding-top: 10px;
 	padding-bottom: 10px;
 	color:white;
-	background: olive;
     border-radius: 25px;
     margin: 10px;
     padding: 10px;
+}
+
+div.siteDescription{
+	text-align: center;
+	padding: 5px;
+	margin: 5px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	/* background-color: #ea9a3e; */
+	background-color: #eeb94d;
 }
 
 

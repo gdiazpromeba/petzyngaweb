@@ -84,7 +84,7 @@ class BreedersList {
     	$amountOfShelters=$this->svc->selTodosWebCuenta($breederName, $firstArea, $secondArea, $latitude, $longitude, $distance, $specialBreedId);
     	$firstAreas = $this->svc->selFirstAreas();
     	
-     	echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId; 
+     	//echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId; 
     	
     	
     	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);

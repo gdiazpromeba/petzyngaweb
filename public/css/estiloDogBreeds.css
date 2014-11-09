@@ -1,67 +1,3 @@
-@import url(http://fonts.googleapis.com/css?family=Oswald);
-
-html, body {
-	margin: 0;
-	font: 100% "Trebuchet MS", Arial, Helvetica, sans-serif;
-	color: #000;
-	background: #ccccff;
-	text-align: center;
-}
-
-
-#container {
-	margin: 20px auto;
-	background: white;
-	width: 1000px;
-	border-width: 1px;
-	border-style:solid;
-	text-align: center;
-	margin: 0 auto; 
-	height: 1318px;
-	position: relative;
-}
-
-#logoContainer{
-	height: 155px;
-}
-
-.navigation-div{
-  font-family: 'Oswald', arial, serif;
-  font-size: 16px;
-  height: 50px;
-  background-color: olive;
-  width: 100%;
-  vertical-align:top;
-}
-
-.navigation-div a:link, .navigation-div a:visited {
-    text-decoration: none;
-    color:white;
-}
-
-span.menuItem { 
-	display:inline-block; 
-	padding-top:10px;
-	padding-left:15px;
-	padding-right:15px;
-}
-
-h1 {
-	line-height: 75px;
-	margin: 0;
-	text-align: center;
-	background: #ff6600
-}
-.left {
-    top: 201px;
-	width: 200px; 
-	padding: 5px;
-	float: left; 
-	background: white;
-	height: 550px;
-	border-style:solid;
-	border-color:red;
-}
 
 .rightDogBreeds {
     background: white;
@@ -72,19 +8,6 @@ h1 {
 
 
 
-#footer {
-	color: white;
-	background-color: olive;
-    width:  999px;
-    margin: 0 auto;
-    position: absolute; bottom: 0;
-}
-
-h2, h3, footer p {
-	line-height: 45px;
-	margin: 0;
-	text-align: center;
-}
 
 #busqueda {
     top: 201px;
@@ -115,7 +38,7 @@ h2, h3, footer p {
 
 .tituloBusqueda{
 	height: 26px;
-	font-family:Oswald;
+	font-family:Dosis;
 	font-size: 14px;
 	color: white;
 	background-color: olive;
@@ -144,7 +67,6 @@ table.picturesTable {
 	margin-left:auto; 
     margin-right:auto;
     top: 265px;
-    width: 770px;
 }
 
 
@@ -161,7 +83,7 @@ td.pictureTitle{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 div.pictureContainer{
@@ -175,7 +97,7 @@ span.navegacionPaginas{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 /* form de búsqueda */
@@ -195,7 +117,7 @@ td.submitButtons{
   border-radius: 5px;
   border: 1px solid gray;
   font: normal 1.5em auto; /* 24px, or 16px x 1.5 */
-  font-family: 'Oswald';
+  font-family: 'Dosis';
   padding: 0.1em;
   box-shadow: 0 0 10px gray inset;
   -webkit-box-sizing: border-box;
@@ -211,7 +133,7 @@ td.submitButtons{
 }
 
 #contactform .formcolumn label, #contactform .formcolumn fieldset{
-font: 1.2em Oswald; /* font size is 12.8px, or 16 x 0.8 */
+font: 1.2em Dosis; /* font size is 12.8px, or 16 x 0.8 */
 display: inline-block;
 margin-top: 2em;
 margin-bottom: 3px;
@@ -239,7 +161,7 @@ td.featureTitle{
 	vertical-align: middle;
 	color: #1e6b88;
 	font-size: 14px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	height: 30px;
 	width:150px;
 }
@@ -275,7 +197,7 @@ div.textTitle{
 	text-align: left;
 	color: #1e6b88;
 	font-size: 15px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 }
 
 table.tableFotoInfo{
@@ -307,12 +229,12 @@ img.estrellas{
 	color: white;
 	background-color: olive;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	vertical-align: top;
 }
 
 img.breedImage{
-	height: 152px;
+	height: 172px;
 	width: auto;
 }
 

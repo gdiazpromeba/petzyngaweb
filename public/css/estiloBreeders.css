@@ -1,14 +1,13 @@
 @CHARSET "UTF-8";
 
 .tituloBreeders{
-	font-family: Oswald; 
-	font-color:olive; 
-	font-size:16px;
+	font-family: Dosis; 
+	color: olive; 
+	font-size:large;
 	margin:5px;
 }
 
 .textoBreeders{
 	text-align:justify;
-	font-size:small;
 	padding:8px;
 }

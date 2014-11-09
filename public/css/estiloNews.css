@@ -3,7 +3,7 @@
 	color: white;
 	background-color: olive;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	vertical-align: top;
 	display: inline;
 }
@@ -12,7 +12,7 @@
     text-align: left;
     color: #1E6B88;
     font-size: 18px;
-    font-family: "Oswald";
+    font-family: "Dosis";
     padding-right: 5px;
     padding-left: 5px;
 }
@@ -21,7 +21,7 @@
     text-align: left;
     color: #1E6B88;
     font-size: 12px;
-    font-family: "Oswald";
+    font-family: "Dosis";
     padding-left: 5px;
 }
 
@@ -37,7 +37,6 @@ div.newsContainer{
 
 div.newsContent{
 	text-align: justify;
-	font-size: 80%;
 	margin: 0 auto;
 	padding-top: 5px;
 	padding-left: 5px;
@@ -59,19 +58,11 @@ img.newsPictureRight{
 }
 
 
-div.siteDescription{
-	text-align: center;
-	padding: 5px;
-	margin: 5px;
-	padding-top: 5px;
-	padding-bottom: 5px;
-	/* background-color: #ea9a3e; */
-	background-color: #eeb94d;
-}
+
 
 .tituloSeccionNews{
 	height: 26px;
-	font-family:Oswald;
+	font-family:Dosis;
 	font-size: 14px;
 	color: white;
 	background-color: olive;

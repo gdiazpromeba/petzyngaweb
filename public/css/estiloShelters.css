@@ -10,7 +10,7 @@
 table.countryPicturesTable {
 	margin-left:auto; 
     margin-right:auto;
-    width: 80%;
+    width: 100%;
 }
 
 table.sheltersTable {
@@ -83,20 +83,17 @@ width: 90px;
 	width: 310px;
 	float: left; 
 	background: white;
-	height: 975px;
 }
 
 #containerMapaShelters {
 	position:relative;
 	top: 25px;
 	background: #f7fafe;
-	height: 840px;
 	margin-left:10px;
 }
 
 
 #columnaListaShelters {
-	width: 686px;
 	background: white;
 	margin-left: 315px;
     text-align:middle;
@@ -127,7 +124,7 @@ width: 90px;
 	color: white;
 	background-color: olive;
 	font-size: 18px;
-	font-family: "Oswald";
+	font-family: "Dosis";
 	vertical-align: top;
 	padding-left: 15px;
 	padding-right: 15px;
@@ -141,7 +138,6 @@ width: 90px;
 	padding-right:25px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	font-size: 80%;
 	width: 80%;
 	margin: 0 auto;
 }

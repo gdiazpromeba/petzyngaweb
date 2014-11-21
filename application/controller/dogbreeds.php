@@ -102,7 +102,7 @@ class DogBreeds extends Controller{
      	$shelters=$this->svc->selSheltersPorRaza($info->getId());
      
      	// load views. within the views we can echo out $songs and $amount_of_songs easily
-     	require 'application/views/dogbreeds/headerDogBreeds.php';
+     	require 'application/views/dogbreeds/details/headerDogBreedDetail.php';
      	require 'application/views/dogbreeds/details/index.php';
      	require 'application/views/_templates/footer.php';
      }

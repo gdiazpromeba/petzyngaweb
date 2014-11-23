@@ -27,6 +27,8 @@
 		     type: "POST",
 		     url: Global.dirCms + "/svc/conector/areas.php/selSegundasAreas",
 		     data: dataString,
+		     username: 'nina',
+		     password: 'nina',
 		     cache: false,
 		     success: function(result){
 		       //$("#"+loadType+"_loader").hide();
@@ -131,6 +133,9 @@
       $(function() {
         $( "#dogBreedName" ).autocomplete({
           source: Global.dirCms + "/svc/conector/dogBreeds.php/selNombres",
+          'beforeSend': function(xhr) {
+        	  xhr.setRequestHeader("Authentication", "Basic " + encodeBase64('nina' + ":" + 'nina')); 
+          },
           minLength: 2,
           select: function( event, ui ) {
               $("#specialBreedId").val(ui.item.id);

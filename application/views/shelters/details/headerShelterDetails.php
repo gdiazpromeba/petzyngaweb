@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Petzynga</title>
-    <meta name="description" content="">
+    <meta name="description" content="<?php echo $info->getMetaDescripcion(); ?>" />
+    <meta name="keywords" content="<?php echo $info->getMetaKeywords();  ?>" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- css -->
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">

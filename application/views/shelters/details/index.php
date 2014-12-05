@@ -1,3 +1,5 @@
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php'; ?>
+
 <div class="contenedorDetallesShelter">
 
     
@@ -94,11 +96,11 @@
 		
     <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
     <form name="frmNavegacion" action=""" method="post">
-      <input type="hidden" name="start" value=<?php echo $_REQUEST['start']; ?> />
-      <input type="hidden" name="firstArea" value="<?php echo $_REQUEST['firstArea']; ?>" />      
-      <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />  
-      <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
-      <input type="hidden" name="shelterName" value="<?php echo $_REQUEST['shelterName']; ?>" />
+      <input type="hidden" name="start" value="<?php echo RequestUtils::getValue('start'); ?>" />
+      <input type="hidden" name="firstArea" value="<?php echo RequestUtils::getValue('firstArea'); ?>" />      
+      <input type="hidden" name="secondArea" value="<?php echo RequestUtils::getValue('secondArea'); ?>" />  
+      <input type="hidden" name="zipCode" value="<?php echo RequestUtils::getValue('zipCode'); ?>" />
+      <input type="hidden" name="shelterName" value="<?php echo RequestUtils::getValue('shelterName'); ?>" />
     </form>
     <script type="text/javascript">
       function navega(url){

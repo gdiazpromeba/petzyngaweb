@@ -110,7 +110,7 @@
             	for ($col=0; $col<3 && $index < count($keys) ; $col++){
             		$arr=$shelters[$keys[$index]];
             		echo "<td> \n";
-            		echo "  <a href='" . URL . "shelterusainfo/info/" . $arr['urlEncoded'] . "'>\n";
+            		echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "/shelters/info/usa/" . $arr['urlEncoded'] . "')>\n";
             		echo "      <div class='pictureTitle'>" . $arr['name'] . "</div> \n";
             		echo "  </a> \n";
             		echo "</td> \n";

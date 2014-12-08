@@ -94,34 +94,60 @@
             <?php echo $info->getTrainingText(); ?>
           </div>
 
-        </td></tr>     
+        </td></tr>    
+        </table> 
+        
+        <br/>
         
 	    <?php
 	      if (!empty($shelters)){
-            echo "<tr><td>";
             echo "<br/>";
+            echo "<div style='width:45%;display:inline-block'>";
             echo "<div class='pictureTitleInfo'>Shelters devoted to this breed</div>";
   
             echo "<table class='sheltersPerBreed'>";
             $keys = array_keys($shelters);
             $index=0;
             for ($row=0; $row <4 && $index < count($keys) ; $row++){
+                $arr=$shelters[$keys[$index]];
             	echo "<tr> \n";
-            	for ($col=0; $col<3 && $index < count($keys) ; $col++){
-            		$arr=$shelters[$keys[$index]];
-            		echo "<td> \n";
-            		echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "/shelters/info/usa/" . $arr['urlEncoded'] . "')>\n";
-            		echo "      <div class='pictureTitle'>" . $arr['name'] . "</div> \n";
-            		echo "  </a> \n";
-            		echo "</td> \n";
-            
-            		$index++;
-            	}
+            	echo "<td> \n";
+            	echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "/shelters/info/usa/" . $arr['urlEncoded'] . "')>\n";
+            	echo "      <div class='pictureTitle'>" . $arr['name'] . "</div> \n";
+            	echo "  </a> \n";
+            	echo "</td> \n";
             	echo "</tr> \n";
+            	$index++;
+            }
+            echo "</table>"; 
+            echo "</div>";
+          } 
+        ?>   
+        
+
+        <?php
+	      if (!empty($forums)){
+            echo "<div style='width:45%;display:inline-block'>";
+            echo "<div class='pictureTitleInfo'>Web Forums about this breed</div>";
+  
+            echo "<table class='sheltersPerBreed'>";
+            $keys = array_keys($forums);
+            $index=0;
+            for ($row=0; $row <4 && $index < count($keys) ; $row++){
+                $arr=$forums[$keys[$index]];
+            	echo "<tr> \n";
+            	echo "<td> \n";
+            	echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "forums/info/" . $arr['encodedName'] . "')>\n";
+            	echo "      <div class='pictureTitle'>" . $arr['name'] . "</div> \n";
+            	echo "  </a> \n";
+            	echo "</td> \n";
+            	echo "</tr> \n";
+            	$index++;
             }
             echo "</table>";
+            echo "</div>";
           } 
-        ?>        
+        ?>              
         
     <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">

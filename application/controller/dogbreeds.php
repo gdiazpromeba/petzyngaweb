@@ -3,6 +3,7 @@
 require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/beans/DogBreed.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/DogBreedsSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/PetForumsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/dogbreeds/DogBreedUtils.php';
 // header("Content-Type: text/plain; charset=utf-8");
@@ -18,10 +19,12 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/busi
  */
 class DogBreeds extends Controller{
 	private $svc;
+	private $svcForums;
 	private static $tamPagina = 16;
 	
 	public function __construct(){
 		$this->svc = new DogBreedsSvcImpl();
+		$this->svcForums = new PetForumsSvcImpl();
 	}
 	
 	
@@ -100,6 +103,8 @@ class DogBreeds extends Controller{
      	$feedingArmado=DogBreedUtils::armaFeeding($info);
      	 
      	$shelters=$this->svc->selSheltersPorRaza($info->getId());
+     	
+     	$forums=$this->svcForums->selForumsByBreed($info->getId());
      
      	// load views. within the views we can echo out $songs and $amount_of_songs easily
      	require 'application/views/dogbreeds/details/headerDogBreedDetail.php';

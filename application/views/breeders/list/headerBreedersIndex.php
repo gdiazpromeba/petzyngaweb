@@ -133,9 +133,11 @@
       $(function() {
         $( "#dogBreedName" ).autocomplete({
           source: Global.dirCms + "/svc/conector/dogBreeds.php/selNombres",
-          'beforeSend': function(xhr) {
-        	  xhr.setRequestHeader("Authentication", "Basic " + encodeBase64('nina' + ":" + 'nina')); 
-          },
+          username: 'nina',
+          password: 'nina',
+//           'beforeSend': function(xhr) {
+//         	  //xhr.setRequestHeader("Authentication", "nina:nina")); 
+//           },
           minLength: 2,
           select: function( event, ui ) {
               $("#specialBreedId").val(ui.item.id);

@@ -11,7 +11,7 @@ require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersUkSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersIndiaSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersChinaSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/NewsSvcImpl.php';
-
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.php';
 
 
 function escribeArchivo($nombreArchivo, $contenido){
@@ -122,7 +122,7 @@ $svc = new DogBreedsSvcImpl();
 $beans = $svc->selecciona(null, null, null, null, null, null, null, null,  null, 0, 100000);
 $res .= "<!-- dog breeds listing   -->   \n";
 foreach ($beans as $bean){
-	$url= $rootUrl . "dogbreeds/info/" . str_replace(" ", "_", $bean->getNombre() ) ;
+	$url= $rootUrl . "dogbreeds/info/" . UrlUtils::codifica($bean->getNombre());
 	$res .= construyeUnidad($url, $lastMod, "monthly", 0.5);
 }
 

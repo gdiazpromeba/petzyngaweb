@@ -5,6 +5,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/beans/Dog
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/DogBreedsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/PetForumsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/dogbreeds/DogBreedUtils.php';
 // header("Content-Type: text/plain; charset=utf-8");
 
@@ -97,7 +98,7 @@ class DogBreeds extends Controller{
  
      public function info($nombre)
      {
-     	$nombre=str_replace("_", " ", $nombre);
+     	$nombre=UrlUtils::decodifica($nombre);
      	$info=$this->svc->obtienePorNombre($nombre);
      
      	$feedingArmado=DogBreedUtils::armaFeeding($info);

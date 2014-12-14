@@ -96,10 +96,8 @@ class DogBreeds extends Controller{
     
      
  
-     public function info($nombre)
-     {
-     	$nombre=UrlUtils::decodifica($nombre);
-     	$info=$this->svc->obtienePorNombre($nombre);
+     public function info($nombreCodificado){
+     	$info=$this->svc->obtienePorNombreCodificado($nombreCodificado);
      
      	$feedingArmado=DogBreedUtils::armaFeeding($info);
      	 

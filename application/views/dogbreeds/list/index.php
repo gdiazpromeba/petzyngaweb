@@ -1,6 +1,5 @@
 <?php 
   require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
-  require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.php';
 ?>
 
 <div class="rightDogBreeds">
@@ -33,7 +32,7 @@
                       
                       echo "<td class='tdPictureContainer'> \n";
                       echo "<div class='pictureContainer'> \n";
-                      echo "    <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/info/" . UrlUtils::codifica($bean->getNombre()) . "')> \n";
+                      echo "    <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/info/" .  $bean->getNameEncoded() . "')> \n";
                       echo "      <table class='pictureInternalTable'> \n";
                       echo "        <tr><td class='pictureTitle'>" . $bean->getNombre() . "</td></tr> \n";
                       echo "        <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";

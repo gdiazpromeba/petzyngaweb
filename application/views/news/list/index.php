@@ -9,6 +9,16 @@
         document.frmNavegacion.action=url;
         document.frmNavegacion.submit();
       }
+
+      function navegaSigAnt(url, sentido){
+    	  var inp = document.createElement("input");
+    	  inp.setAttribute("type", "hidden");
+    	  inp.setAttribute("name", "navegacion");
+    	  inp.setAttribute("value", sentido);
+          document.frmNavegacion.appendChild(inp);
+          document.frmNavegacion.action=url;
+          document.frmNavegacion.submit();
+      }      
     </script>
 
 
@@ -39,17 +49,18 @@
     
   <?php } ?>    
   
+
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=navega('" . URL . "latestnews/listing/previous')> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "latestnews/listing', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=navega('" . URL . "latestnews/listing/next')>  Next >> </a> \n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "latestnews/listing', 'siguiente')\">  Next >> </a> \n";
         }
         
       ?>
-    </span> 
+    </span>      
 
 </div>   

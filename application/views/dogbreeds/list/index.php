@@ -4,7 +4,7 @@
 
 <div class="rightDogBreeds">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
-    <form name="frmNavegacion" action="get" >
+    <form name="frmNavegacion" method="post" >
       <input type="hidden" name="start" value="<?php echo RequestUtils::getValue('start'); ?>" />
       <input type="hidden" name="letraInicial" value="<?php echo RequestUtils::getValue('letraInicial'); ?>" />      
       <input type="hidden" name="nombreOParte" value="<?php echo RequestUtils::getValue('nombreOParte'); ?>" />
@@ -17,6 +17,17 @@
         document.frmNavegacion.action=url;
         document.frmNavegacion.submit();
       }
+
+      function navegaSigAnt(url, sentido){
+    	  var inp = document.createElement("input");
+    	  inp.setAttribute("type", "hidden");
+    	  inp.setAttribute("name", "navegacion");
+    	  inp.setAttribute("value", sentido);
+          document.frmNavegacion.appendChild(inp);
+          document.frmNavegacion.action=url;
+          document.frmNavegacion.submit();
+      }
+      
     </script>
 	<?php include 'formBusqueda.php'?>
 
@@ -51,11 +62,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/anterior') > << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='javascript:void(0)' onclick=\"navegaSigAnt('" . URL . "dogbreeds', 'anterior')\" > << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/siguiente') >  Next >> </a> \n";
+          echo "  <a href='javascript:void(0)' onclick=\"navegaSigAnt('" . URL . "dogbreeds', 'siguiente')\" >  Next >> </a> \n";
         }
         
       ?>

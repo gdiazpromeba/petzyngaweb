@@ -33,13 +33,29 @@ class DogBreeds extends Controller{
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();
 		}
-		$_REQUEST['start']=0;
-		
+	
 		$this->lista();
 	}
 	
 	
     public function lista(){
+    	
+    	if (RequestUtils::notSetOrEmpty('start')){
+    		$start=0;
+    	}else{
+    		$start = $_REQUEST['start'];
+    	}
+    	
+        if (!RequestUtils::notSetOrEmpty('navegacion')){
+    		$navegacion=$_REQUEST['navegacion'];
+    		if ($navegacion=="siguiente"){
+    			$start = $start + self::$tamPagina;
+    		}else if ($navegacion=="anterior"){
+    			$start= $start - self::$tamPagina;;
+    		}
+    	}
+    	$_REQUEST['start']=$start;
+    	
     	
     	$letraInicial         = RequestUtils::getValue("letraInicial");
     	$nombreOParte         = RequestUtils::getValue("nombreOParte");
@@ -57,18 +73,15 @@ class DogBreeds extends Controller{
     	$upkeepHasta=$arrUpkeep[1];
     	
     	
-    	if (RequestUtils::notSetOrEmpty('start')){
-    		$_REQUEST['start']=0;
-    	}
-    	$start=$_REQUEST['start'];
+
     	
 
     	 
    	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
     	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta);
     	
-    	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
-    	$_REQUEST['haySiguiente'] =($amountOfDogBreeds > ($_REQUEST['start'] + self::$tamPagina));
+    	$_REQUEST['hayAnterior']= ($start  > 0);
+    	$_REQUEST['haySiguiente'] =($amountOfDogBreeds > ($start + self::$tamPagina));
     	
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "hayAnterior=" . $_REQUEST['hayAnterior'] . " haySiguiente=" . $_REQUEST['haySiguiente'] .   " amountOfDogBreeds=" . $amountOfDogBreeds .  " <br/>";
@@ -79,16 +92,7 @@ class DogBreeds extends Controller{
     }
     
     
-    
-    public function siguiente(){
-    	$_REQUEST['start'] = $_REQUEST['start'] + self::$tamPagina;
-    	$this->lista();
-    }
-    
-    public function anterior(){
-    	$_REQUEST['start']= $_REQUEST['start']- self::$tamPagina;;
-    	$this->lista();
-    }
+
 
     
 

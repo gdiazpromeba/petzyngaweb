@@ -13,8 +13,10 @@
   	 }
   	 
      public static function notSetOrEmpty($paramName){
-  		if (!isset($_REQUEST[$paramName])  || empty($_REQUEST[$paramName]) ){
-  			true;
+     	if (!isset($_REQUEST[$paramName])){
+  			return true;
+  		}else if (empty($_REQUEST[$paramName]) ){
+  			return true;  			
   		}else{
   			return false;
   		}

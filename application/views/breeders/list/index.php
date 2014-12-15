@@ -15,6 +15,16 @@
         document.frmNavegacion.action=url;
         document.frmNavegacion.submit();
       }
+
+      function navegaSigAnt(url, sentido){
+    	  var inp = document.createElement("input");
+    	  inp.setAttribute("type", "hidden");
+    	  inp.setAttribute("name", "navegacion");
+    	  inp.setAttribute("value", sentido);
+          document.frmNavegacion.appendChild(inp);
+          document.frmNavegacion.action=url;
+          document.frmNavegacion.submit();
+      }       
     </script>
 
     <div class="descriptiveParagraph2">
@@ -49,11 +59,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=navega('" . URL . "breeders/listing/" . $_REQUEST['country'] . "/previous')> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/listing/" . $_REQUEST['country'] . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=navega('" . URL . "breeders/listing/" . $_REQUEST['country'] . "/next')>  Next >> </a> \n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/listing/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
         }
         
       ?>

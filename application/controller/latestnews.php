@@ -51,18 +51,17 @@ class LatestNews extends Controller{
 	}	
 	
 	
-    public function listing($direccion){
-     	switch ($direccion){
-    		case "list":
-    			$this->lista();
-    			break;
-    		case "next": 
+    public function listing(){
+        if (!RequestUtils::notSetOrEmpty('navegacion')){
+    		$navegacion=$_REQUEST['navegacion'];
+    		if ($navegacion=="siguiente"){
     			$this->siguiente();
-    			break;
-    		case "previous":
+    		}else if ($navegacion=="anterior"){
     			$this->anterior();
-    			break;
-    	}
+    		}
+    	}else{
+    	  $this->lista();
+    	}	
     }
     
     private function trataBean($bean){

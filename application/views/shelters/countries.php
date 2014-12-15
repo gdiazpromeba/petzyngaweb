@@ -8,21 +8,21 @@
    </td>
    <tr>
      <td style="vertical-align">
-       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/usa/initial">
+       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/usa">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_usa_menu.png"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_the_usa'); ?></div>
          <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["usa"]); ?></div>
        </a>
      </td>
      <td>
-       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/uk/initial">
+       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/uk">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_uk_menu.png"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_the_uk'); ?></div>
          <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["uk"]); ?></div>
        </a>
      </td>
      <td>
-       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/japan/initial">
+       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/japan">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_japan_menu.jpg"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_japan'); ?></div>
          <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["japan"]); ?></div>
@@ -34,21 +34,21 @@
    </tr>
    <tr>
      <td>
-       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/china/initial">
+       <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/china">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_china_menu.jpg"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_china'); ?></div>
          <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["china"]); ?></div>
        </a>
      </td>
       <td>
-        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/canada/initial">
+        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/canada">
           <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_canada_menu.jpg"; ?>" />
           <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_canada'); ?></div>
           <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["canada"]); ?></div>
         </a>
       </td>
       <td>
-        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/india/initial">
+        <a class="noUnderline" href="<?php echo URL; ?>shelters/listing/india">
           <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/icono_mapa_india_menu.jpg"; ?>" />
           <div class="itemMenuCountries"><?php echo Resources::getText('pet_shelters_in_india'); ?></div>
           <div class="itemMenuCountries"><?php echo Resources::getText('number_shelters_available', $shelterCount["india"]); ?></div>

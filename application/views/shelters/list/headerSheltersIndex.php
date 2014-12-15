@@ -124,8 +124,8 @@
     </script>   
     
     
-    <script src="../../../jquery/external/jquery/jquery.js"></script>
-    <script src="../../../jquery/jquery-ui.js"></script>
+    <script src="../../jquery/external/jquery/jquery.js"></script>
+    <script src="../../jquery/jquery-ui.js"></script>
     <link href="<?php echo URL; ?>jquery/jquery-ui.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>jquery/jquery-ui.theme.css" rel="stylesheet"/>
     <link href="<?php echo URL; ?>jquery/jquery-ui.structure.css" rel="stylesheet"/>

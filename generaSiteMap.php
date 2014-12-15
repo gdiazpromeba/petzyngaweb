@@ -11,6 +11,7 @@ require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersUkSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersIndiaSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/SheltersChinaSvcImpl.php';
 require_once $GLOBALS['pathCms'] . '/svc/impl/NewsSvcImpl.php';
+require_once $GLOBALS['pathCms'] . '/svc/impl/PetForumsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.php';
 
 
@@ -50,17 +51,17 @@ $res .= construyeUnidad($url, $lastMod, "yearly", 1);
 // secondary pages
 //   shelters' countries 
 $res .= "<!-- Initial dog shelters of every country listing  -->   \n";
-$url= $rootUrl . "shelters/listing/usa/initial";
+$url= $rootUrl . "shelters/listing/usa";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/uk/initial";
+$url= $rootUrl . "shelters/listing/uk";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/japan/initial";
+$url= $rootUrl . "shelters/listing/japan";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/china/initial";
+$url= $rootUrl . "shelters/listing/china";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/canada/initial";
+$url= $rootUrl . "shelters/listing/canada";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/india/initial";
+$url= $rootUrl . "shelters/listing/india";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
 //  dog breeds
 $url= $rootUrl . "dogbreeds/siguiente";
@@ -135,6 +136,15 @@ $url= $rootUrl . "latestnews/list";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
 foreach ($beans as $bean){
 	$url= $rootUrl . "latestnews/info/" . $bean->getUrlEncoded() ;
+	$res .= construyeUnidad($url, $lastMod, "monthly", 0.5);
+}
+
+//forums
+$res .= "<!-- forums   -->   \n";
+$svc = new PetForumsSvcImpl();
+$beans =  $svc->selTodos(null, 0, 10000);
+foreach ($beans as $bean){
+	$url= $rootUrl . "forums/info/" . $bean->getEncodedName() ;
 	$res .= construyeUnidad($url, $lastMod, "monthly", 0.5);
 }
 

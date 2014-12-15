@@ -12,6 +12,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/BreedersUkSvcImpl.php';
 
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/Resources.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
 
 
 
@@ -40,7 +41,7 @@ class Breeders extends Controller{
     }
     
     
-    public function listing($country, $direccion){
+    public function listing($country){
     	$ctrl=null;
     	switch ($country){
     		case "usa":
@@ -58,12 +59,13 @@ class Breeders extends Controller{
     				 
     	}
     	
-    	if ($direccion=="previous"){
-    	  $ctr->anterior();
-    	}else if ($direccion=="next"){
-    	  $ctr->siguiente();
-    	}else if ($direccion=="list"){
-    	  	$ctr->lista();    	  
+        if (!RequestUtils::notSetOrEmpty('navegacion')){
+    		$navegacion=$_REQUEST['navegacion'];
+    		if ($navegacion=="siguiente"){
+    			$ctr->siguiente();
+    		}else if ($navegacion=="anterior"){
+    			$ctr->anterior();
+    		}
     	}else{
     	  $ctr->inicia();
     	}

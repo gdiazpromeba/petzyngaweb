@@ -2,62 +2,24 @@
 
 <div class="siteDescription">
       <?php echo Resources::getText('home_page_content'); ?>
+      
+      <div style="float:right;padding-right:3px">
+        <img src="public/img/look_for_me.gif" style="width:150px"/>
+        <form action="<?php echo URL . 'dogbreeds/index'  ?>" method="POST" name="frmLookForMe">
+          <input class="busquedaInput" type="text" name="lookForMe" id="lookForMe"  style="color: gray;width:180px" placeholder="(e.g. Labrador)"/>
+          <input type="hidden" name="dogBreedInLookForMe" id="dogBreedInLookForMe"/>
+          <input type="button" value="Go" onclick="javascript:submitLookForMe()"/>
+        </form>
+      </div> 
 </div>
 
 
 <div class="centro">
     
-    <div class="tituloSeccionNews">News</div>
-    <div class="newsContainer">
-      <div class="newsTitle">
-        <?php
-          $hrefNews1= URL . "latestnews/info/" . $bean->getNews1UrlEncoded();
-          echo "<a href='" . $hrefNews1  . "'>" . $bean->getNews1Title() . "</a> \n";
-         ?>
-      </div><!-- title -->
-      <div class="newsSource">
-        <?php
-          echo $bean->getNews1Source();
-         ?>
-      </div><!-- Source -->
-      <div class="newsContent">
-        <?php
-          echo $bean->getNews1Text();
-         ?>
-         <div class="newsSource" style="display: inline">
-           <?php
-            echo "<a href='" . $hrefNews1  . "'>Read more ...</a> \n";
-           ?>
-         </div><!-- el read more -->      
-      </div><!-- newsContent -->
-    </div><!-- newsContainer -->
-    
-    <div class="newsContainer">
-      <div class="newsTitle">
-        <?php
-          $hrefNews2= URL . "latestnews/info/" . $bean->getNews2UrlEncoded();
-          echo "<a href='" . $hrefNews2  . "'>" . $bean->getNews2Title() . "</a> \n";
-         ?>
-      </div><!-- title -->
-      <div class="newsSource">
-        <?php
-          echo $bean->getNews2Source();
-         ?>
-      </div><!-- Source -->
-      <div class="newsContent">
-        <?php
-          echo $bean->getNews2Text();
-         ?>
-         <div class="newsSource" style="display: inline">
-           <?php
-            echo "<a href='" . $hrefNews2  . "'>Read more ...</a> \n";
-           ?>
-         </div><!-- el read more -->      
-      </div><!-- newsContent -->
-    </div><!-- newsContainer -->
+ 
     
     
-  <div class="tituloSeccionNews">Videos of the week</div>
+  <div class="tituloSeccion">Videos of the week</div>
     <div class="videoWrapper">
       <div style="height:6px"/>&nbsp;</div>
       <iframe width='297' height='221' src='http://www.youtube.com/embed/<?php echo $bean->getVideo1Url();?>' frameborder='0' allowfullscreen></iframe>
@@ -65,7 +27,7 @@
       <iframe width='297' height='221' src='http://www.youtube.com/embed/<?php echo $bean->getVideo3Url();?>' frameborder='0' allowfullscreen></iframe>
   </div>
     
-    <div class="tituloSeccionNews">Featured Breeds</div>
+    <div class="tituloSeccion">Featured Breeds</div>
 
     <table class='homePicturesTable'>
         <tr>

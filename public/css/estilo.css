@@ -332,14 +332,29 @@ div.descriptiveParagraph2A{
 }
 
 div.siteDescription{
-	text-align: center;
-	padding: 5px;
-	margin: 5px;
+	background-image: url('../img/fondo_home_descripcion.jpg');
+	font-size:18px;
+	text-align: left;
+	height:350px;
 	padding-top: 5px;
 	padding-bottom: 5px;
+	padding-left: 5px;
 	/* background-color: #ea9a3e; */
 	background-color: #eeb94d;
 }
+
+.tituloSeccion{
+	height: 26px;
+	padding-left:10px;'
+	font-family:Dosis;
+	font-size: 16px;
+	color: white;
+	background-color: olive;
+	padding-top:2px;
+	text-align:left;
+	letter-spacing:1px;
+}
+
 
 
 

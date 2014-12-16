@@ -151,12 +151,12 @@
         
     <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">
-      <input type="hidden" name="start" value="<?php echo $_REQUEST['start']; ?>" />
-      <input type="hidden" name="letraInicial" value="<?php echo $_REQUEST['letraInicial']; ?>" />      
-      <input type="hidden" name="nombreOParte" value="<?php echo $_REQUEST['nombreOParte']; ?>" />
-      <input type="hidden" name="selDogSize" value="<?php echo $_REQUEST['selDogSize']; ?>" />
-      <input type="hidden" name="selDogFeeding" value="<?php echo $_REQUEST['selDogFeeding']; ?>" />
-      <input type="hidden" name="selUpkeep" value="<?php echo $_REQUEST['selUpkeep']; ?>" />
+      <input type="hidden" name="start" value="<?php echo RequestUtils::getValue('start'); ?>" />
+      <input type="hidden" name="letraInicial" value="<?php echo RequestUtils::getValue('letraInicial'); ?>" />      
+      <input type="hidden" name="nombreOParte" value="<?php echo RequestUtils::getValue('nombreOParte'); ?>" />
+      <input type="hidden" name="selDogSize" value="<?php echo RequestUtils::getValue('selDogSize'); ?>" />
+      <input type="hidden" name="selDogFeeding" value="<?php echo RequestUtils::getValue('selDogFeeding'); ?>" />
+      <input type="hidden" name="selUpkeep" value="<?php echo RequestUtils::getValue('selUpkeep'); ?>" />
     </form>
     <script type="text/javascript">
       function navega(url){

@@ -38,6 +38,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.p
  $updSql="UPDATE DOG_BREEDS SET NAME_ENCODED=? WHERE DOG_BREED_ID=?";
  seleccionaYActualiza($selSql, $updSql, $db_connection);
  
+ 
  //breeders usa
  echo "breeders usa ...";
  $selSql="SELECT ID, NAME, URL_ENCODED FROM BREEDERS_USA";
@@ -110,7 +111,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.p
  $updSql="UPDATE PET_FORUMS SET ENCODED_NAME=? WHERE FORUM_ID=?";
  seleccionaYActualiza($selSql, $updSql, $db_connection);
  
- 
+
  
  
 

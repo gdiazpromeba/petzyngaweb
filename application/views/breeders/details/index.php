@@ -11,7 +11,7 @@
             $estiloImagen="detailShelter";
           }
           ?>
-          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/breederLogos/" . $countryUrl . "/" . $info->getLogoUrl() ?>'>
+          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/breederLogos/" . $countryUrl . "/" . $info->getLogoUrl() ?>' alt="<?php echo $info->getName(); ?>" >
       
     
     
@@ -116,7 +116,8 @@
 	        echo "  <a href='#' onclick=navega('" . URL . "breeders/listing/" . $_REQUEST['country'] .  "/list')> << Back to List </a> \n";
 	      ?>
         </span> 
-      
+        <br/>
+        <br/>      
     
 
   

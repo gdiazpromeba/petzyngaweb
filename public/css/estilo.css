@@ -45,13 +45,18 @@ span.menuItem {
     letter-spacing:1.6px;
 }
 
-
-h1 {
-	line-height: 75px;
-	margin: 0;
-	text-align: center;
-	background: #ff6600
+/* lo mismo que menuItem, para que haya algo de h1 */
+h1 { 
+	font-family: 'Dosis', arial, serif;
+	font-size: 16px;
+	font-weight: normal;
+	display:table-cell;
+	vertical-align:middle; 
+	padding-left:15px;
+	padding-right:15px;
+    letter-spacing:1.6px;
 }
+
 .costado {
     top: 201px;
 	width: 200px; 

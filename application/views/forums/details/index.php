@@ -11,7 +11,7 @@
             $estiloImagen="detailShelter";
           }
           ?>
-          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/forumLogos/" . $info->getPictureUrl() ?>'>
+          <img class="<?php echo $estiloImagen; ?>"  src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/forumLogos/" . $info->getPictureUrl() ?>' alt="<?php echo $info->getName(); ?>">
       
     
     

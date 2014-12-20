@@ -46,7 +46,7 @@
                       echo "    <a href='javascript:void(0)' onclick=navega('" . URL . "dogbreeds/info/" .  $bean->getNameEncoded() . "')> \n";
                       echo "      <table class='pictureInternalTable'> \n";
                       echo "        <tr><td class='pictureTitle'>" . $bean->getNombre() . "</td></tr> \n";
-                      echo "        <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";
+                      echo "        <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "' alt='" . $bean->getNombre() . "'></td></tr>";
                       echo "      </table> \n";
                       echo "    </a> \n";
                       echo "</div>";

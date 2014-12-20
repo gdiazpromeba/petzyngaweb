@@ -5,7 +5,7 @@
 
         <table class="tableFotoInfo">
           <tr><td class="pictureTitleInfo"><?php echo $info->getNombre(); ?></td></tr>  
-          <tr><td><img class="infoDetail" src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/breeds/" . $info->getPictureUrl() ?>'></td></tr>
+          <tr><td><img class="infoDetail" src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/breeds/" . $info->getPictureUrl() ?>' alt="<?php echo $info->getNombre(); ?>"></td></tr>
           <tr><td class="mainFeatures"><?php echo   $info->getMainFeatures() . "!"?></td></tr>
           <tr><td class="mainFeatures"><?php echo  "Watch a <a target='_blank' href='http://www.youtube.com/watch?v=" . $info->getVideoUrl() . "'"?> >Video</td></tr>
         </table>
@@ -28,7 +28,7 @@
 
           <div class="textTitle" >
             <span class="infoTextTitle">How friendly are they?</span>
-            <img style="height:20px;" src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_" . $info->getFriendlyRank() . ".jpg"; ?>'>
+            <img style="height:20px;" src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_" . $info->getFriendlyRank() . ".jpg"; ?>'">
           </div>
           <div class="infoText">
             <?php echo $info->getFriendlyText(); ?>

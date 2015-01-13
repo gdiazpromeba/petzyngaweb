@@ -79,7 +79,7 @@ td.tdPictureContainer{
 	align: center;
 }
 
-td.pictureTitle{
+.pictureTitle{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
@@ -243,6 +243,46 @@ img.breedImage{
     margin-left:auto; 
     margin-right:auto;
 }
+
+.winRankLine{
+	display: table;
+	text-align: left;
+	color: #1e6b88;
+	font-size: 15px;
+	font-family: "Dosis";
+	height: 35px;	
+
+}
+
+.winRankImg{
+  padding-top:15px;
+  height: 20px;
+  vertical-align:middle;
+  display:table-cell;	
+
+}
+
+.winRankText{
+  display:table-cell;
+  vertical-align:middle;
+  width:230px;
+  padding-left:5px;
+}
+
+.winRankButton {
+  width: 87px;
+  height: 30px;
+  background-color: beige;
+  moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border: 1px solid gray;
+  padding: 5px;
+  cursor: pointer; 
+  cursor: hand;
+}
+
+
+
 
 
 

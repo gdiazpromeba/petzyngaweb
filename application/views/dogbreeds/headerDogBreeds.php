@@ -13,6 +13,11 @@
     <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet"/>
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
     
+    <script src="jquery/external/jquery/jquery.js"></script>
+    
+    
+    
+    
 </head>
 <body>
 <?php include $GLOBALS['pathWeb'] . '/application/views/_templates/analyticstracking.php' ?>

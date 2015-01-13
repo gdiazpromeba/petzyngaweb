@@ -175,6 +175,8 @@
 	  <?php 
 	      echo "  <a href='#' onclick=navega('" . URL .  "dogbreeds')> << Back to List </a> \n";
 	  ?>
+	  <br/>
+	  <br/>
     </span> 
       
             

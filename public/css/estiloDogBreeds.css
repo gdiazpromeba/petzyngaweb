@@ -1,9 +1,7 @@
 
-.rightDogBreeds {
+.containerDogBreeds {
     background: white;
     text-align:center;
-    padding-left: 10px;
-    padding-right: 10px;
 }
 
 
@@ -110,6 +108,13 @@ td.submitButtons{
 	padding-right:10px;
 }
 
+.stickitColumna{
+  -moz-box-shadow: 10px 10px 5px #888;
+  -webkit-box-shadow: 10px 10px 5px #888;
+  box-shadow: 10px 10px 5px #888;
+  padding:10px;
+  text-align:justify
+}
 
 
 
@@ -279,6 +284,24 @@ img.breedImage{
   padding: 5px;
   cursor: pointer; 
   cursor: hand;
+}
+
+div.pictureContainerAlpha{
+	text-align:center;
+	align:center;
+	margin: 0 auto;
+}
+
+img.breedImageAlpha{
+	height: 120px;
+	width: auto;
+}
+
+.pictureTitleAlpha{
+	text-align: center;
+	color: #1e6b88;
+	font-size: 12px;
+	font-family: "Dosis";
 }
 
 

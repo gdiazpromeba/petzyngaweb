@@ -34,11 +34,11 @@ class DogBreeds extends Controller{
 			session_start();
 		}
 	
-		$this->lista();
+		$this->listaAlfa();
 	}
 	
 	
-    public function lista(){
+    public function advancedSearch(){
     	
     	if (RequestUtils::notSetOrEmpty('start')){
     		$start=0;
@@ -71,12 +71,7 @@ class DogBreeds extends Controller{
     	$arrUpkeep= DogBreedUtils::calculaUpkeep($selUpkeep);
     	$upkeepDesde=$arrUpkeep[0];
     	$upkeepHasta=$arrUpkeep[1];
-    	
-    	
-
-    	
-
-    	 
+	 
    	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
     	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta);
     	
@@ -89,6 +84,31 @@ class DogBreeds extends Controller{
     	require 'application/views/dogbreeds/headerDogBreeds.php';
     	require 'application/views/dogbreeds/list/index.php';
     	require 'application/views/_templates/footer.php';  
+    }
+    
+    public function listaAlfa(){
+    	 
+    	$dogBreeds=$this->svc->selecciona(null, null, null, null, null, null, null, null, null, 0, 10000);
+    	$amountOfDogBreeds=$this->svc->seleccionaCuenta(null, null, null, null, null, null, null, null, null);
+    	 
+    	//     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
+    	//     	echo "hayAnterior=" . $_REQUEST['hayAnterior'] . " haySiguiente=" . $_REQUEST['haySiguiente'] .   " amountOfDogBreeds=" . $amountOfDogBreeds .  " <br/>";
+    
+    	//create a map with initials=>array of breeds
+    	$mapLetras=array();
+    	foreach ($dogBreeds as $breed){
+    		$initial= substr(ucfirst($breed->getNombre()), 0, 1);
+    		if (!isset($mapLetras[$initial])){
+    			$mapLetras[$initial]=array();
+    		}
+    		$mapLetras[$initial][]=$breed;
+    	}
+    	
+    	$arrayLetras=array_keys($mapLetras);
+    	
+    	require 'application/views/dogbreeds/alphaList/header.php';
+    	require 'application/views/dogbreeds/alphaList/index.php';
+    	require 'application/views/_templates/footer.php';
     }
     
     

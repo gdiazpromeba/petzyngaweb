@@ -13,7 +13,7 @@
     <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet"/>
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
     
-    <script src="<?php echo URL; ?>/jquery/external/jquery/jquery.js"></script>
+    <script src="jquery/external/jquery/jquery.js"></script>
     
     
     

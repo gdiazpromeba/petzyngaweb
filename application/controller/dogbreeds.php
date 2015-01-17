@@ -34,7 +34,7 @@ class DogBreeds extends Controller{
 			session_start();
 		}
 	
-		$this->listaAlfa();
+		$this->alphabeticalSearch();
 	}
 	
 	
@@ -86,7 +86,7 @@ class DogBreeds extends Controller{
     	require 'application/views/_templates/footer.php';  
     }
     
-    public function listaAlfa(){
+    public function alphabeticalSearch(){
     	 
     	$dogBreeds=$this->svc->selecciona(null, null, null, null, null, null, null, null, null, 0, 10000);
     	$amountOfDogBreeds=$this->svc->seleccionaCuenta(null, null, null, null, null, null, null, null, null);
@@ -106,8 +106,8 @@ class DogBreeds extends Controller{
     	
     	$arrayLetras=array_keys($mapLetras);
     	
-    	require 'application/views/dogbreeds/alphaList/header.php';
-    	require 'application/views/dogbreeds/alphaList/index.php';
+    	require 'application/views/dogbreeds/alphalist/header.php';
+    	require 'application/views/dogbreeds/alphalist/index.php';
     	require 'application/views/_templates/footer.php';
     }
     

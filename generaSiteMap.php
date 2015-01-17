@@ -64,8 +64,11 @@ $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
 $url= $rootUrl . "shelters/listing/india";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
 //  dog breeds
-$url= $rootUrl . "dogbreeds/siguiente";
+$url= $rootUrl . "dogbreeds/alphabeticalSearch";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "dogbreeds/advancedSearch";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+
 
 
 //páginas individuales de detalle de shelter

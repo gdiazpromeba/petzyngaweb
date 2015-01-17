@@ -360,6 +360,33 @@ div.siteDescription{
 	letter-spacing:1px;
 }
 
+.columnLeft{
+	order:1;
+	flex-grow:1;
+	flex-shrink:1;
+	width:120px;
+	/* border-style:solid; */
+	/*  border-color:red; */
+}
+
+.columnRight{
+	order:3;
+	flex-grow:1;
+	flex-shrink:1;
+	width:130px;
+	/* border-style:solid;  */
+	/*  border-color:red; */
+	padding-right:10px;
+	/* más ancha y con padding a la derecha para compensar la sombra de los stickits*/
+}
+
+.columnCenter{
+	order:2;
+	flex-grow:2;
+	width:500px;
+}
+
+
 
 
 

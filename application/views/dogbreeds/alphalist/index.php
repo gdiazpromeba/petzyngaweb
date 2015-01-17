@@ -3,7 +3,7 @@
   require_once 'configJs.php';
 ?>
 
-<div class="containerDogBreeds">
+<div style="display:flex;justify-content:center">
     <script type="text/javascript">
       var ultimoNombreCodificado;
     
@@ -61,40 +61,42 @@
       
     </script>
     
-       <div id="columLeft" style="float:left;width:20%;">
+      <div id="columLeft" class="columnLeft">
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_01'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_02'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_03'); ?></div>
        </div>
-       <div id="columLeft" style="float:right;width:20%;padding-left:20px">
+       <div id="columLeft" class="columnRight">
          <div class="stickitColumna"><?php echo Resources::getText('col_der_01'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_der_02'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_der_03'); ?></div>
        </div>
-       <div id="columnCenter style="display:inline-block;width:60%>
-               <div id="arrayLetrasTop" style="display:table;padding-left:35px;width:550px">
+
+       <div id="columnCenter"  class="columnCenter">
+         <div id="arrayLetrasTop" style="width:550px;margin-left:50px;display:table;">
+           <div style='display:table-cell;width:120px;padding-right:10px'>
+              <br/><a name='SelectInitial'>Select by letter</a>
+            </div>
+            <div style="display:table-cell;width:400px;">
+                <br/>       
                 <?php
-                  echo"  <div style='display:table-cell'><br/><a style='display:inline-block' name='SelectInitial'>Select by letter</a></div>";
-                  echo "   <div style='display:table-cell'>";
-                  echo "     <br/>" ;
                   foreach ($arrayLetras as $letter){
-                  	 echo "  <div style='display:table-cell;padding:5px'>";
+                  	 echo "  <div style='display:table-cell;padding-right:10px'>";
                   	 echo"     <a href='#" . $letter . "'>" . $letter . "</a>";
                   	 echo "  </div>";
                   }
                   echo "     <div style='text-align:left;padding-top:10px'>";
                   echo "       <a href='" . URL . "dogbreeds/advancedSearch' >Advanced Search</a>"; 
                   echo "     </div>";
-                  echo "   </div>";
-                  echo "  </div>";
                  ?>
-              </div>
-
-              <table class="picturesTable" >
+            </div>
+         </div><!-- arrayLetrasTop -->
+         
+         <table class="picturesTable" >
                <?php
                  $cols=3;
                  $index=0; 
@@ -127,9 +129,9 @@
                    }
                  }
                ?>
-              </table>
-              
-              <div id="ventanita"  style="display: none; position:fixed;left:50%;top:50%;  zindex:9999; transform: translate(-50%, -50%); background-color:white; width:690px; padding: 20px; ">
+         </table>   
+         
+         <div id="ventanita"  style="display: none; position:fixed;left:50%;top:50%;  zindex:9999; transform: translate(-50%, -50%); background-color:white; width:690px; padding: 20px; ">
                 <img class='breedImage' id="ventanitaImg" style=" width:467px;height:350px;g;float:left" >
                 <div id="derecha" style="width:200px;float:right;">
                   <div id="derechaTitulo" class='pictureTitle' style="margin-bottom: 20px"></div>
@@ -159,7 +161,8 @@
                   <div class="winRankButton"  id="cierraVentanita"  style="position:absolute;top:320px;right:130px;padding-top:10px;width:50px" >Close</div>       
                   <div id="moreDetails" class="winRankButton"  style="position:absolute;top:320px;right:20px;padding-top:10px;width:80px">More Details</div>
                 </div>                 
-              </div>
-     </div><!-- columnCenter -->              
-        
+         </div>               
+          
+       </div><!-- columnCenter -->   
+       
 </div>

@@ -1,7 +1,8 @@
 
 .containerDogBreeds {
     background: white;
-    text-align:center;
+
+
 }
 
 
@@ -10,7 +11,7 @@
 #busqueda {
     top: 201px;
     left: 215px;
-    width: 770px;
+    width: 550px;
 	margin-left:auto; 
     margin-right:auto;  
     margin-top: 25px;  

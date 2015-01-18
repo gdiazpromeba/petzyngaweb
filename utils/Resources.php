@@ -4,6 +4,25 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
   class Resources{
   	
    private static $DIA = 86400;
+   
+
+
+   /**
+    * encuentra expresiones entre corchetes dentro de la cadena, 
+    * (por ejemplo, "blah blah [dirWeb] blah") y las reemplaza por el valor de esa variable en el array $GLOBALS
+    * (por ejemplo "blah blah https://localhost/petzyngaweb blah").
+    * @param unknown $siteString
+    * @return mixed
+    */
+   private static function replaceWithGLobals($siteString){
+   	 preg_match('/(\[[^]]*?[^]]*?\])/m', $siteString, $matches);
+   	 foreach ($matches as $match){
+   	 	$key = trim($match, '[]');
+   		$siteString = str_replace($match, $GLOBALS[$key], $siteString);
+   	 }
+   	 return $siteString;
+   }
+    
   	 
    private static function getTextWithoutParameters($key){
        $res=__c()->get($key); 
@@ -13,6 +32,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/
   	 		__c()->set($key, $bean->getText(), Resources::$DIA);
   	 		$res = $bean->getText();
   	 	}
+  	 	$res = Resources::replaceWithGLobals($res);
   	 	return $res;
     }  	
 

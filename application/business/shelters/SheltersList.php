@@ -29,7 +29,7 @@ class SheltersList {
 	}
 	
 	
-	public function inicia(){
+	public function iniciaAvanzada(){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();
 		}
@@ -37,8 +37,16 @@ class SheltersList {
 		$_REQUEST['country']=$this->countryUrl;
 		
 		
-		$this->lista();
+		$this->listaAvanzada();
 	}
+	
+	public function iniciaRegional(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		$_REQUEST['country']=$this->countryUrl;
+		$this->listaRegional();
+	}	
 	
     
     private function recogeVariable ($varName){
@@ -50,8 +58,38 @@ class SheltersList {
     	
     	return $ret;
     }
+    
+    public function listaRegional(){
+    	 
+    	$shelters=$this->svc->selTodosWeb(null, null, null, 0, 0, null, null, 0, 10000);
+    	$amountOfShelters=$this->svc->selTodosWebCuenta(null, null, null, 0, 0, null, null);
+    	$firstAreas = $this->svc->selFirstAreas();
+
+    	//create a map with areas=>array of shelters
+    	$mapAreas=array();
+    	foreach ($shelters as $shelter){
+    		if (!isset($mapAreas[$shelter->getAdminArea1()])){
+    			$mapAreas[$shelter->getAdminArea1()]=array();
+    		}
+    		$mapAreas[$shelter->getAdminArea1()][]=$shelter;
+    	}
+    	 
+    	$arrayAreas=array_keys($mapAreas);    
+    	sort($arrayAreas);	
+    	 
+    	 
+    
+    	$_REQUEST['country'] = $this->countryUrl;
+    	$headerTitleKey = $this->headerTitleKey;
+    	$headerTextKey = $this->headerTextKey;
+    	$metaDescriptionKey = $this->metaDescriptionKey;
+    	$metaKeywordsKey = $this->metaKeywordsKey;
+    	require 'application/views/shelters/regionallist/header.php';
+    	require 'application/views/shelters/regionallist/index.php';
+    	require 'application/views/_templates/footer.php';
+    }    
 	
-    public function lista(){
+    public function listaAvanzada(){
     	$zipCode         = $this->recogeVariable("zipCode");
     	$shelterName     = $this->recogeVariable("shelterName"); 
     	$distance        = $this->recogeVariable("distance");
@@ -106,12 +144,12 @@ class SheltersList {
     
     public function siguiente(){
     	$_REQUEST['start'] = $_REQUEST['start'] + self::$tamPagina;
-    	$this->lista();
+    	$this->listaAvanzada();
     }
     
     public function anterior(){
     	$_REQUEST['start']= $_REQUEST['start']- self::$tamPagina;;
-    	$this->lista();
+    	$this->listaAvanzada();
     }
     
 

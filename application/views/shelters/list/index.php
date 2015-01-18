@@ -34,6 +34,11 @@
       <?php echo Resources::getText($headerTextKey); ?>
     </div>
 	<?php include 'formBusqueda.php'?>
+    <div style='text-align:left;padding-left:60px;display:block;border-style:solid;border-color:red'>
+      <?php  echo"<a href='" . URL . "shelters/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
+    </div>	
+    <br/>
+    <br/>
 
     <div>
    
@@ -60,11 +65,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/listing/" . $_REQUEST['country']  . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/advancedList/" . $_REQUEST['country']  . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/listing/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/advancedList/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
         }
         
       ?>

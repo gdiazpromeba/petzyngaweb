@@ -61,14 +61,14 @@
       
     </script>
     
-      <div id="columLeft" class="columnLeft">
+      <div  class="columnLeft">
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_01'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_02'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_izq_03'); ?></div>
        </div>
-       <div id="columLeft" class="columnRight">
+       <div  class="columnRight">
          <div class="stickitColumna"><?php echo Resources::getText('col_der_01'); ?></div>
          <br/>
          <div class="stickitColumna"><?php echo Resources::getText('col_der_02'); ?></div>
@@ -96,7 +96,7 @@
             </div>
          </div><!-- arrayLetrasTop -->
          
-         <table class="picturesTable" >
+         <table class="picturesTable"  >
                <?php
                  $cols=3;
                  $index=0; 

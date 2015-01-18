@@ -16,12 +16,13 @@ table.countryPicturesTable {
 table.sheltersTable {
 	margin-left:auto; 
     margin-right:auto;
-    border-style:solid;
-    border-width: 1px;
     top: 265px;
     left: 265px;    
     width: 670px;
 }
+
+
+
 
 td.shelterContainer{
 	height: 53px;

@@ -1,7 +1,7 @@
 	<div id="busquedaShelters">
       <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
 	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
-	  <form name="frmBusqueda"  method="post" action="<?php echo URL . 'shelters/listing/' . $_REQUEST['country'] . '/initial'  ?>" method="get">
+	  <form name="frmBusqueda"  method="post" action="<?php echo URL . 'shelters/advancedList/' . $_REQUEST['country'] . '/initial'  ?>" method="get">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_REQUEST['specialBreedId'])) echo "value='" . $_REQUEST['specialBreedId'] . "'"; ?> />
 	    <input type="hidden" name="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
 	    <input type="hidden" name="start"  <?php echo "value='" . $_REQUEST['start'] . "'"; ?> />

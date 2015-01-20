@@ -394,6 +394,21 @@ div.siteDescription{
   text-align:justify
 }
 
+table.regionalTable {
+	margin-left:auto; 
+    margin-right:auto;
+    top: 265px;
+    left: 265px;    
+    width: 670px;
+}
+
+#columnaCentralAvanzada {
+	background: white;
+	margin-left: 315px;
+    text-align:middle;
+	
+}
+
 
 
 

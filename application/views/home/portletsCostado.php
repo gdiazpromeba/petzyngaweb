@@ -1,5 +1,5 @@
-<?php
-  <div class="costado">
+
+<div class="costado">
       
   
       <div class="portletCostado">
@@ -21,5 +21,4 @@
         (just type the name, or a part of it)
       </div>
       
-    </div>
- ?>
+</div>

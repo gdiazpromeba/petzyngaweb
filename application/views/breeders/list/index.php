@@ -1,5 +1,5 @@
  <?php require_once 'utils/Resources.php';?>
-<div id="columnaListaShelters">
+<div id="columnaCentralAvanzada">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">
       <input type="hidden" name="start" value="<?php echo $_REQUEST['start']; ?>" />
@@ -33,10 +33,12 @@
       <?php echo Resources::getText($headerTextKey); ?>
     </div>
 	<?php include 'formBusqueda.php'?>
-
+    <div style='text-align:left;padding-left:60px;display:block;'>
+      <?php  echo"<a href='" . URL . "breeders/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
+    </div>	
     <div>
    
-              <table class="sheltersTable">
+              <table class="regionalTable">
                <?php
                  foreach ($breeders as $breeder){
                    echo "<tr> \n"; 
@@ -59,11 +61,11 @@
     <span class="navegacionPaginas">
       <?php 
         if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/listing/" . $_REQUEST['country'] . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/advancedList/" . $_REQUEST['country'] . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
         }
         
         if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/listing/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
+          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "breeders/advancedList/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
         }
         
       ?>

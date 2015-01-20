@@ -41,7 +41,7 @@ class Breeders extends Controller{
     }
     
     
-    public function listing($country){
+    public function regionalList($country){
     	$ctrl=null;
     	switch ($country){
     		case "usa":
@@ -58,8 +58,28 @@ class Breeders extends Controller{
     			break;
     				 
     	}
-    	
-        if (!RequestUtils::notSetOrEmpty('navegacion')){
+    	$ctr->iniciaRegional();
+    }
+    
+    public function advancedList($country){
+    	$ctrl=null;
+    	switch ($country){
+    		case "usa":
+    			$ctr=new BreedersList("usa",  "breeders_in_usa_title", "breeders_in_usa_content", "meta_description_breeders_usa", "meta_keywords_breeders_usa",
+    			"mi", 0.621371192, new BreedersUsaSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
+    		case "canada":
+    			$ctr=new BreedersList("canada",  "breeders_in_canada_title", "breeders_in_canada_content", "meta_description_breeders_canada", "meta_keywords_breeders_canada",
+    			"km", 1, new BreedersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
+    		case "uk":
+    			$ctr=new BreedersList("uk",  "breeders_in_uk_title", "breeders_in_uk_content", "meta_description_breeders_uk", "meta_keywords_breeders_uk",
+    			"km", 1, new BreedersUkSvcImpl(), new ZipsGenericoSvcImpl());
+    			break;
+    				
+    	}
+    	 
+    	if (!RequestUtils::notSetOrEmpty('navegacion')){
     		$navegacion=$_REQUEST['navegacion'];
     		if ($navegacion=="siguiente"){
     			$ctr->siguiente();
@@ -67,9 +87,9 @@ class Breeders extends Controller{
     			$ctr->anterior();
     		}
     	}else{
-    	  $ctr->inicia();
+    		$ctr->iniciaAvanzada();
     	}
-    }
+    }    
     
     public function info($country, $urlEncoded){
     	$ctrl=null;

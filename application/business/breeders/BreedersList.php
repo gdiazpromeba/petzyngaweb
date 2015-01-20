@@ -29,7 +29,7 @@ class BreedersList {
 	}
 	
 	
-	public function inicia(){
+	public function iniciaAvanzada(){
 		if (session_status() == PHP_SESSION_NONE) {
 			session_start();
 		}
@@ -37,8 +37,19 @@ class BreedersList {
 		$_REQUEST['country']=$this->countryUrl;
 		
 		
-		$this->lista();
+		$this->listaAvanzada();
 	}
+	
+	public function iniciaRegional(){
+		if (session_status() == PHP_SESSION_NONE) {
+			session_start();
+		}
+		$_REQUEST['start']=0;
+		$_REQUEST['country']=$this->countryUrl;
+	
+	
+		$this->listaRegional();
+	}	
 	
     
     private function recogeVariable ($varName){
@@ -51,18 +62,48 @@ class BreedersList {
     	return $ret;
     }
 	
-    public function lista(){
+    public function listaRegional(){
+    	$breeders=$this->svc->selTodosWeb(null, null, null, 0, 0, null, null, 0, 10000);
+    	$amountOfShelters=$this->svc->selTodosWebCuenta(null, null, null, 0, 0, null, null);
+    	$firstAreas = $this->svc->selFirstAreas();
+    	
+     	//echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId; 
+    	
+    	//create a map with areas=>array of shelters
+    	$mapAreas=array();
+    	foreach ($breeders as $breeder){
+    		if (!isset($mapAreas[$breeder->getAdminArea1()])){
+    			$mapAreas[$breeder->getAdminArea1()]=array();
+    		}
+    		$mapAreas[$breeder->getAdminArea1()][]=$breeder;
+    	}
+    	
+    	$arrayAreas=array_keys($mapAreas);
+    	sort($arrayAreas);
+    	
+    	
+    	$_REQUEST['country'] = $this->countryUrl;
+    	$headerTitleKey = $this->headerTitleKey;
+    	$headerTextKey = $this->headerTextKey;
+    	$metaDescriptionKey = $this->metaDescriptionKey;
+    	$metaKeywordsKey = $this->metaKeywordsKey;
+    	require 'application/views/breeders/regionallist/header.php';
+    	require 'application/views/breeders/regionallist/index.php';
+    	require 'application/views/_templates/footer.php';  
+    }
+    
+    public function listaAvanzada(){
     	$zipCode         = $this->recogeVariable("zipCode");
-    	$breederName     = $this->recogeVariable("breederName"); 
+    	$breederName     = $this->recogeVariable("breederName");
     	$distance        = $this->recogeVariable("distance");
-        $specialBreedId  = $this->recogeVariable("specialBreedId");    	
-        $dogBreedName    = $this->recogeVariable("dogBreedName");
-        $firstArea       = $this->recogeVariable("firstArea");
-        $secondArea      = $this->recogeVariable("secondArea");
-        
-   	
-//     	echo " el countryUrl es = " . $this->countryUrl;
-        
+    	$specialBreedId  = $this->recogeVariable("specialBreedId");
+    	$dogBreedName    = $this->recogeVariable("dogBreedName");
+    	$firstArea       = $this->recogeVariable("firstArea");
+    	$secondArea      = $this->recogeVariable("secondArea");
+    
+    
+    	//     	echo " el countryUrl es = " . $this->countryUrl;
+    
     	$latitude = 0;
     	$longitude = 0;
     	//si el zipCode existe, transformarlo en latitud y longitud
@@ -72,25 +113,25 @@ class BreedersList {
     		$latitude= $zipBean->getLatitude();
     		$longitude = $zipBean->getLongitude();
     	}
-    	
-    	
+    	 
+    	 
     	if (!isset($_REQUEST['start'])){
     		$_REQUEST['start']=0;
     	}
     	$start=$_REQUEST['start'];
-    	
-    	
+    	 
+    	 
     	$breeders=$this->svc->selTodosWeb($breederName, $firstArea, $secondArea, $latitude, $longitude, $distance, $specialBreedId, $start, self::$tamPagina);
     	$amountOfShelters=$this->svc->selTodosWebCuenta($breederName, $firstArea, $secondArea, $latitude, $longitude, $distance, $specialBreedId);
     	$firstAreas = $this->svc->selFirstAreas();
-    	
-     	//echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId; 
-    	
-    	
+    	 
+    	//echo "firstArea=" . $firstArea . " secondArea=" . $secondArea . " amount=" . $amountOfShelters . "  specialBreedId=" . $specialBreedId;
+    	 
+    	 
     	$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
     	$_REQUEST['haySiguiente'] =($amountOfShelters > ($_REQUEST['start'] + self::$tamPagina));
-    	
     	 
+    
     	$_REQUEST['country'] = $this->countryUrl;
     	$distanceUnit= $this->distanceUnit;
     	$conversionFactor= $this->conversionFactor;
@@ -100,8 +141,8 @@ class BreedersList {
     	$metaKeywordsKey = $this->metaKeywordsKey;
     	require 'application/views/breeders/list/headerBreedersIndex.php';
     	require 'application/views/breeders/list/index.php';
-    	require 'application/views/_templates/footer.php';  
-    }
+    	require 'application/views/_templates/footer.php';
+    }    
     
     
     public function siguiente(){

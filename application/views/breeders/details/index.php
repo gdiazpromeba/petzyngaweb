@@ -113,7 +113,7 @@
         <br/>
         <span class="navegacionPaginas">
 	      <?php 
-	        echo "  <a href='#' onclick=navega('" . URL . "breeders/listing/" . $_REQUEST['country'] .  "/list')> << Back to List </a> \n";
+	        echo "  <a href='#' onclick=navega('" . URL . "breeders/regionalList/" . $_REQUEST['country'] .  "/list')> << Back to List </a> \n";
 	      ?>
         </span> 
         <br/>

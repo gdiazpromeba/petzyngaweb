@@ -13,13 +13,7 @@ table.countryPicturesTable {
     width: 100%;
 }
 
-table.sheltersTable {
-	margin-left:auto; 
-    margin-right:auto;
-    top: 265px;
-    left: 265px;    
-    width: 670px;
-}
+
 
 
 
@@ -94,12 +88,7 @@ width: 90px;
 }
 
 
-#columnaListaShelters {
-	background: white;
-	margin-left: 315px;
-    text-align:middle;
-	
-}
+
 
 #busquedaShelters{
     top: 201px;

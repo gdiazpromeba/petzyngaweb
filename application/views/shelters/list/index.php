@@ -1,5 +1,5 @@
  <?php require_once 'utils/Resources.php';?>
-<div id="columnaListaShelters">
+<div id="columnaCentralAvanzada">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">
       <input type="hidden" name="start" value="<?php echo $_REQUEST['start']; ?>" />
@@ -42,7 +42,7 @@
 
     <div>
    
-              <table class="sheltersTable">
+              <table class="regionalTable">
                <?php
                  foreach ($shelters as $shelter){
                    echo "<tr> \n"; 

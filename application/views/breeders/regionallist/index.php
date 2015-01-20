@@ -1,5 +1,4 @@
  <?php require_once 'utils/Resources.php';?>
- 
 <div style="display:flex;justify-content:center">
     <!-- pequeño form y javascript para invocar la pantalla de detalle con un parámetro "start" como post -->
     <form name="frmNavegacion" action="" method="post">
@@ -7,7 +6,7 @@
       <input type="hidden" name="firstArea" value="<?php echo $_REQUEST['firstArea']; ?>" />      
       <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />
       <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
-      <input type="hidden" name="shelterName" value="<?php echo $_REQUEST['shelterName']; ?>" />
+      <input type="hidden" name="breederName" value="<?php echo $_REQUEST['breederName']; ?>" />
       <input type="hidden" name="country" value="<?php echo $_REQUEST['country']; ?>" />
       
     </form>
@@ -25,10 +24,9 @@
           document.frmNavegacion.appendChild(inp);
           document.frmNavegacion.action=url;
           document.frmNavegacion.submit();
-      }      
-      
+      }       
     </script>
-
+    
     <div class="columnLeft">
       <div class="stickitColumna"><?php echo Resources::getText("india_no_kill_tradition"); ?></div>
       <div class="stickitColumna"><?php echo Resources::getText("peta_position_on_no_kill"); ?></div>
@@ -36,7 +34,7 @@
     <div class="columnRight">
       <div class="stickitColumna"><?php echo Resources::getText("mspca_angell"); ?></div>
       <div class="stickitColumna"><?php echo Resources::getText("saluki"); ?></div>
-    </div>
+    </div>    
 
     <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
 	  
@@ -55,7 +53,7 @@
                   echo "  </div>";
                   echo "  <br/>";
                   echo "  <div style='text-align:left;padding-top:10px;'>";
-                  echo "       <a href='" . URL . "shelters/advancedList/" . $_REQUEST['country'] .  "'>Advanced Search</a>"; 
+                  echo "       <a href='" . URL . "breeders/advancedList/" . $_REQUEST['country'] .  "'>Advanced Search</a>"; 
                   echo "  </div>";
                  ?>
             </div>
@@ -63,7 +61,7 @@
       <br/>
       <br/>
       <br/>
-      <table class="regionalTable"  border="1" style="border-collapse:collapse;" cellpadding="0" cellspacing="0" summary="">
+      <table class="regionalTable">
                <?php
                  $cols =3;
                  foreach ($arrayAreas as $area){
@@ -75,18 +73,18 @@
                    echo "<tr><td>";
                    echo "  <table width='100%'  border='1' style='border-collapse:collapse;' cellpadding='0' cellspacing='0' summary=''>\n";
                    $index=0;
-                   $sheltersArea=$mapAreas[$area];
-                   $filas=floor(count($sheltersArea) / $cols);
-                   if (($filas * $cols)<count($sheltersArea)) $filas++;
+                   $breedersArea=$mapAreas[$area];
+                   $filas=floor(count($breedersArea) / $cols);
+                   if (($filas * $cols)<count($breedersArea)) $filas++;
                    for ($i=0; $i<$filas; $i++){
                    	echo "  <tr> \n";
                    	for ($e=0; $e<$cols; $e++){
-                   		if ($index>=count($sheltersArea)) break;
-                   		$bean=$sheltersArea[$index];
+                   		if ($index>=count($breedersArea)) break;
+                   		$bean=$breedersArea[$index];
                    		$index++;
                    		echo "<td class='tdPictureContainer'> \n";
                    		echo "      <div data-nombreCodificado='" .  $bean->getUrlEncoded() . "'/>";
-                   		echo "      <a href='javascript:void(0)' onclick=navega('" . URL . "shelters/info/"  . $_REQUEST['country'] . "/" . $bean->getUrlEncoded() . "')> \n";
+                   		echo "      <a href='javascript:void(0)' onclick=navega('" . URL . "breeders/info/"  . $_REQUEST['country'] . "/" . $bean->getUrlEncoded() . "')> \n";
                    		echo "      <table class='pictureInternalTable'> \n";
                    		echo "        <tr><td class='pictureTitleAlpha'>" . $bean->getName() . "</td></tr> \n";
                    		echo "      </table> \n";
@@ -99,7 +97,7 @@
                    echo "</td></tr>";
                  }
                ?>
-      </table>        
-
+      </table>
     </div><!-- columnCenter -->
 </div>
+

@@ -51,18 +51,34 @@ $res .= construyeUnidad($url, $lastMod, "yearly", 1);
 // secondary pages
 //   shelters' countries 
 $res .= "<!-- Initial dog shelters of every country listing  -->   \n";
-$url= $rootUrl . "shelters/listing/usa";
+//regional
+$url= $rootUrl . "shelters/regionallist/usa";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/uk";
+$url= $rootUrl . "shelters/regionallist/uk";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/japan";
+$url= $rootUrl . "shelters/regionallist/japan";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/china";
+$url= $rootUrl . "shelters/regionallist/china";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/canada";
+$url= $rootUrl . "shelters/regionallist/canada";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
-$url= $rootUrl . "shelters/listing/india";
+$url= $rootUrl . "shelters/regionallist/india";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+//advanced
+$url= $rootUrl . "shelters/advancedList/usa";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "shelters/advancedList/uk";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "shelters/advancedList/japan";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "shelters/advancedList/china";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "shelters/advancedList/canada";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+$url= $rootUrl . "shelters/advancedList/india";
+$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);
+
+
 //  dog breeds
 $url= $rootUrl . "dogbreeds/alphabeticalSearch";
 $res .= construyeUnidad($url, $lastMod, "weekly", 0.5);

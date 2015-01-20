@@ -41,7 +41,7 @@
     <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
 	  
       <div id="arrayRegiones" style="width:550px;margin-left:50px;display:table;">
-           <div style='display:table-cell;width:120px;padding-right:10px'>
+           <div style='display:table-cell;width:120px;padding-right:10px;padding-top:12px;vertical-align:top;'>
               <br/><a name='SelectInitial'>Select your area</a>
             </div>
             <div style="display:table-cell;width:400px;">
@@ -54,7 +54,7 @@
                   }
                   echo "  </div>";
                   echo "  <br/>";
-                  echo "  <div style='text-align:left;padding-top:10px'>";
+                  echo "  <div style='text-align:left;padding-top:10px;'>";
                   echo "       <a href='" . URL . "shelters/advancedList/" . $_REQUEST['country'] .  "'>Advanced Search</a>"; 
                   echo "  </div>";
                  ?>

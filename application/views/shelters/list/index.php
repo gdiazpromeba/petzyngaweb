@@ -34,7 +34,7 @@
       <?php echo Resources::getText($headerTextKey); ?>
     </div>
 	<?php include 'formBusqueda.php'?>
-    <div style='text-align:left;padding-left:60px;display:block;border-style:solid;border-color:red'>
+    <div style='text-align:left;padding-left:60px;display:block;'>
       <?php  echo"<a href='" . URL . "shelters/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
     </div>	
     <br/>

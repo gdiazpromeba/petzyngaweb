@@ -28,12 +28,13 @@
     </script>
     
     <div class="columnLeft">
-      <div class="stickitColumna"><?php echo Resources::getText("india_no_kill_tradition"); ?></div>
-      <div class="stickitColumna"><?php echo Resources::getText("peta_position_on_no_kill"); ?></div>
+      <div class="stickitColumna"><?php echo Resources::getText("col_izq_breeders_02"); ?></div>
+      <div class="stickitColumna"><?php echo Resources::getText("col_izq_breeders_01"); ?></div>
     </div>
     <div class="columnRight">
-      <div class="stickitColumna"><?php echo Resources::getText("mspca_angell"); ?></div>
-      <div class="stickitColumna"><?php echo Resources::getText("saluki"); ?></div>
+      <div class="stickitColumna"><?php echo Resources::getText("adopt_responsibly_teaser_01"); ?></div>
+      <div class="stickitColumna"><?php echo Resources::getText("bulldog"); ?></div>
+      <div class="stickitColumna"><?php echo Resources::getText("responsible_breeders"); ?></div>
     </div>    
 
     <div id="columnCenter"  class="columnCenter" style="margin-left:10px">

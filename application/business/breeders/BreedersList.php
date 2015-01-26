@@ -147,12 +147,12 @@ class BreedersList {
     
     public function siguiente(){
     	$_REQUEST['start'] = $_REQUEST['start'] + self::$tamPagina;
-    	$this->lista();
+    	$this->listaAvanzada();
     }
     
     public function anterior(){
     	$_REQUEST['start']= $_REQUEST['start']- self::$tamPagina;;
-    	$this->lista();
+    	$this->listaAvanzada();
     }
     
 

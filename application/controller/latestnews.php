@@ -3,7 +3,7 @@
 require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/NewsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/news/NewsUtils.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/paginator/Paginator.php';
+//require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/paginator/Paginator.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
 
 
@@ -40,9 +40,9 @@ class LatestNews extends Controller{
 			$this->trataBean($bean);
 		}
 		
-		$paginator=new Paginator("start", $GLOBALS["dirWeb"] . "/latestnews/listing", $amountOfNews, self::$tamPagina, 11);
+		//$paginator=new Paginator("start", $GLOBALS["dirWeb"] . "/latestnews/listing", $amountOfNews, self::$tamPagina, 11);
 		
-		$vinculosPagina=$paginator->getVinculos();
+		//$vinculosPagina=$paginator->getVinculos();
 		 
 		$_REQUEST['hayAnterior']= ($_REQUEST['start']  > 0);
 		$_REQUEST['haySiguiente'] =($amountOfNews > ($_REQUEST['start'] + self::$tamPagina));

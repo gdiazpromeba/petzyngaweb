@@ -102,12 +102,13 @@ h2, h3, footer p {
 	width: 7.7em;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
-	box-sizing: border-box;         /* Opera/IE 8+ */	
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	height: 24px;	
 }
 
 .busquedaSelect{
 	font-size: 12px;
-	height: 22px;
+	height: 24px;
 	width: 200px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
@@ -131,6 +132,7 @@ h2, h3, footer p {
 td.campoBusqueda{
 	text-align: left;
 	padding-left: 5px;
+	padding-top: 5px;
 }
 
 
@@ -360,6 +362,16 @@ div.siteDescription{
 	letter-spacing:1px;
 }
 
+.tituloFormBusqueda{
+	height: 26px;
+	padding-left:10px;'
+	font-family:Dosis;
+	font-size: 16px;
+	padding-top:2px;
+	text-align:left;
+	letter-spacing:1px;
+}
+
 .columnLeft{
 	order:1;
 	flex-grow:1;
@@ -408,6 +420,63 @@ table.regionalTable {
     text-align:middle;
 	
 }
+
+td.shelterContainer{
+	height: 53px;
+	text-align:left;
+	align:center;
+	padding:5px;
+	margin: 0 auto;	
+}
+
+td.distancia{
+	width: 100px;
+	color:#a9b93c; /* verde claro */
+	text-align:right; 
+	padding-right: 20px;
+}
+
+td.locacion{
+	width: 250px;
+	text-align:left; 
+}
+
+a.btnMoreDetails{
+	background: #2ba9bd;
+    color: #FFF;
+    text-align: center;
+    font-weight: bold;
+    text-decoration: none;   
+    border-radius: 8px;
+    padding: 12px;
+}
+
+a.btnMoreDetails:hover{
+	background: #16535b;
+}
+
+
+a.detailMapInfoBox{
+    color: #2ba9bd;
+}
+
+a.detailMapInfoBox:hover{
+	color: #16535b;
+}
+
+
+img.detailShelterAncha{
+	width:750px;
+}
+
+img.detailShelter{
+	height:150px;
+}
+
+.w90 {
+width: 90px;
+}
+
 
 
 

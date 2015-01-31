@@ -18,58 +18,6 @@ table.countryPicturesTable {
 
 
 
-td.shelterContainer{
-	height: 53px;
-	text-align:left;
-	align:center;
-	padding:5px;
-	margin: 0 auto;	
-}
-
-td.distancia{
-	color:#a9b93c; /* verde claro */
-	text-align:left; 
-}
-
-td.locacion{
-	text-align:left; 
-}
-
-a.btnMoreDetails{
-	background: #2ba9bd;
-    color: #FFF;
-    text-align: center;
-    font-weight: bold;
-    text-decoration: none;   
-    border-radius: 8px;
-    padding: 12px;
-}
-
-a.btnMoreDetails:hover{
-	background: #16535b;
-}
-
-
-a.detailMapInfoBox{
-    color: #2ba9bd;
-}
-
-a.detailMapInfoBox:hover{
-	color: #16535b;
-}
-
-
-img.detailShelterAncha{
-	width:750px;
-}
-
-img.detailShelter{
-	height:150px;
-}
-
-.w90 {
-width: 90px;
-}
 
 
 

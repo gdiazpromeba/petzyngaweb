@@ -414,15 +414,20 @@ table.regionalTable {
     width: 670px;
 }
 
+div.marcoFijoTablaPaginada{
+	height:510px;
+}
+
 #columnaCentralAvanzada {
 	background: white;
 	margin-left: 315px;
     text-align:middle;
+    margin-bottom:10px;
 	
 }
 
 td.shelterContainer{
-	height: 53px;
+	height: 30px;
 	text-align:left;
 	align:center;
 	padding:5px;
@@ -448,7 +453,7 @@ a.btnMoreDetails{
     font-weight: bold;
     text-decoration: none;   
     border-radius: 8px;
-    padding: 12px;
+    padding: 6px;
 }
 
 a.btnMoreDetails:hover{

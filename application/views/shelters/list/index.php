@@ -34,44 +34,20 @@
       <?php echo Resources::getText($headerTextKey); ?>
     </div>
 	<?php include 'formBusqueda.php'?>
-    <div style='text-align:left;padding-left:60px;display:block;'>
-      <?php  echo"<a href='" . URL . "shelters/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
-    </div>	
+	
     <br/>
-    <br/>
+    <div class="pagination">
+	    <a href="#" class="first" data-action="first">&laquo;</a>
+	    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
+	     <input type="text" readonly="readonly" data-max-page="40" />
+	    <a href="#" class="next" data-action="next">&rsaquo;</a>
+	    <a href="#" class="last" data-action="last">&raquo;</a>
+    </div> 
 
-    <div>
-   
-              <table class="regionalTable">
-               <?php
-                 foreach ($shelters as $shelter){
-                   echo "<tr> \n"; 
-                   echo "  <td class='shelterContainer'>" . $shelter->getName() . "</td> \n";
-                   if (empty($zipCode)){
-                     echo "  <td class='locacion'>" . $shelter->getAdminAreas() . "</td> \n";
-                   }else{//muestra también la distancia
-                   	echo "  <td><table> \n";
-                   	echo "    <tr><td class='locacion'>" .  $shelter->getAdminAreas() . "</td></tr> \n";
-                   	echo "    <tr><td class='distancia'>" .  round($shelter->getDistancia() * $conversionFactor)  . " " . $distanceUnit . "</td></tr> \n";
-                   	echo "  </table></td> \n";
-                   }
-                   
-                   echo "  <td>  <a class='btnMoreDetails w90' href='#' onclick=navega('" . URL . "shelters/info/" . $_REQUEST['country'] . "/" . $shelter->getUrlEncoded(). "')>Details</a></td> \n";
-                   echo "</tr> \n"; 
-                 }
-               ?>
-              </table>
-    </div>
-    <span class="navegacionPaginas">
-      <?php 
-        if ($_REQUEST['hayAnterior']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/advancedList/" . $_REQUEST['country']  . "', 'anterior')\"> << Previous </a> &nbsp;&nbsp;\n";
-        }
-        
-        if ($_REQUEST['haySiguiente']){
-          echo "  <a href='#' onclick=\"navegaSigAnt('" . URL . "shelters/advancedList/" . $_REQUEST['country'] . "', 'siguiente')\">  Next >> </a> \n";
-        }
-        
-      ?>
-    </span>
+	
+   <div class="marcoFijoTablaPaginada">
+     <table class="regionalTable" id="regionalTable">
+       <tbody></tbody>
+     </table>
+   </div>
 </div>

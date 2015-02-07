@@ -110,16 +110,8 @@ class Shelters extends Controller{
     			break;
     	}
     	
-        if (!RequestUtils::notSetOrEmpty('navegacion')){
-    		$navegacion=$_REQUEST['navegacion'];
-    		if ($navegacion=="siguiente"){
-    			$ctr->siguiente();
-    		}else if ($navegacion=="anterior"){
-    			$ctr->anterior();
-    		}
-    	}else{
+
     	  $ctr->iniciaAvanzada();
-    	}
     	
     }
     

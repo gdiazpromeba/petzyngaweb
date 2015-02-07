@@ -1,24 +1,24 @@
 	<div id="busquedaShelters">
       <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
-	  <div class="tituloBusqueda">Filter SHELTERS by name, sort them by distance</div>
-	  <form name="frmBusqueda"  method="post" action="<?php echo URL . 'shelters/advancedList/' . $_REQUEST['country'] . '/initial'  ?>" method="get">
+	  <div class="tituloFormBusqueda">Filter SHELTERS by name, sort them by distance</div>
+	  <form name="frmBusqueda"  method="post" action="<?php echo URL . 'shelters/advancedList/' . $_REQUEST['country'] . '/initial'  ?>" method="post">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_REQUEST['specialBreedId'])) echo "value='" . $_REQUEST['specialBreedId'] . "'"; ?> />
 	    <input type="hidden" name="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
 	    <input type="hidden" name="start"  <?php echo "value='" . $_REQUEST['start'] . "'"; ?> />
-	    <table width="100%">
+	    <table style="width:100%;padding-top:5px;">
 	      <tr>
 	        <td class="campoBusqueda">
 	          <label class="labelBusqueda" for="shelterName">By Name</label><input class="shelterNameInput" type="text" name="shelterName"  <?php if (isset($_REQUEST['shelterName'])) echo "value='" . $_REQUEST['shelterName'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
-	          <label class="labelBusqueda" for="zipCode">By Zip Code</label><input class="busquedaInput" type="text" name="zipCode"  <?php if (isset($_REQUEST['zipCode'])) echo "value='" . $_REQUEST['zipCode'] . "'"; ?> />
+	          <label class="labelBusqueda" for="zipCode">By Zip Code</label><input class="busquedaInput" type="text" name="zipCode"  id="zipCode"   <?php if (isset($_REQUEST['zipCode'])) echo "value='" . $_REQUEST['zipCode'] . "'"; ?> />
 	        </td>
 	        <td class="campoBusqueda">
               <label class="labelBusqueda" for="dogBreedName">By Breed</label><input class="busquedaInput" type="text" name="dogBreedName" id="dogBreedName" <?php if (isset($_REQUEST['dogBreedName'])) echo "value='" . $_REQUEST['dogBreedName'] . "'"; ?> />
             </td>
 	        <td class="campoBusqueda">
               <label class="labelBusqueda" for="firstArea">By Location</label>
-              <select class="busquedaSelect" name="firstArea" onchange="selectedFirstArea(this.options[this.selectedIndex].value)">
+              <select class="busquedaSelect" name="firstArea" id="firstArea">
               <?php 
                 foreach ($firstAreas as $area){
                   $areaSelected =  isset($_REQUEST['firstArea']) && ($area['value'] == $_REQUEST['firstArea']);
@@ -38,7 +38,14 @@
             
           </tr>
           <tr>
-	      	<td align="right" colspan="4">
+            <td class="campoBusqueda">
+                <div style='text-align:left;display:block;'>
+                  <?php  echo"<a href='" . URL . "shelters/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
+                </div>
+            </td>   
+            <td/>
+            <td/>                   
+	      	<td class="campoBusqueda" align="right">
               <input type="button" onClick="javascript: submitFrmBusqueda()" value="Search" class="busquedaBotones" />	      	  
 	      	  &nbsp;
 	          <input type="button" onclick="javascript: resetFrmBusqueda()" value="Reset" class="busquedaBotones" />

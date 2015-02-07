@@ -149,12 +149,11 @@
 				   $.each( respuesta.data, function( key, val ) {
                      var html  =  "<tr>";
                      html += "       <td class='shelterContainer'>" + val.name + "</td>"; 
-                     console.log($("#zipCode").val());
                      if ($.trim($("#zipCode").val()).length == 0){
                        html += "     <td class='locacion'>" + val.adminArea2  +", " +  val.adminArea1 + "</td>";
                      }else{
                     	 html += "   <td>";
-                    	 html += "     <table border='1'><tr>";
+                    	 html += "     <table><tr>";
                     	 html += "       <tr>";
                     	 html += "         <td class='locacion'>" + val.adminArea2 +", " +  val.adminArea1 +  "</td>";
 						 html += "         <td class='distancia'>"  + val.distanceMiles.toFixed(1) + '<?php echo " " . $distanceUnit; ?>' +  "</td>";

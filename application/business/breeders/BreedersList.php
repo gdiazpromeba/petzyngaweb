@@ -94,6 +94,7 @@ class BreedersList {
     
     public function listaAvanzada(){
     	$firstAreas = $this->svc->selFirstAreas();
+    	$firstArea      = $this->recogeVariable("firstArea");
     	$secondArea      = $this->recogeVariable("secondArea");
     	
     	$_REQUEST['country'] = $this->countryUrl;

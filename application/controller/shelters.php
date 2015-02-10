@@ -46,35 +46,49 @@ class Shelters extends Controller{
     }
     
     public function regionalList($country){
-    
+    	$_REQUEST["country"]=$country;
     	$ctrl=null;
     	switch ($country){
     		case "usa":
-    			$ctr=new SheltersList("usa",  "shelters_in_usa_title", "shelters_in_usa_content", "meta_description_shelters_usa", "meta_keywords_shelters_usa",
-    			"mi", 0.621371192, new SheltersUsaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_usa_title";
+    			$headerTextKey = "shelters_in_usa_content";
+    			$metaDescriptionKey = "meta_description_shelters_usa";
+    			$metaKeywordsKey = "meta_keywords_shelters_usa";
     			break;
     		case "uk":
-    			$ctr=new SheltersList("uk", "shelters_in_uk_title", "shelters_in_uk_content",  "meta_description_shelters_uk", "meta_keywords_shelters_uk",
-    			"km", 1, new SheltersUkSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_uk_title";
+    			$headerTextKey = "shelters_in_uk_content";
+    			$metaDescriptionKey = "meta_description_shelters_uk";
+    			$metaKeywordsKey = "meta_keywords_shelters_uk";    			
     			break;
     		case "china":
-    			$ctr=new SheltersList("china", "shelters_in_china_title", "shelters_in_china_content", "meta_description_shelters_china", "meta_keywords_shelters_china",
-    			"km", 1, new SheltersChinaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_china_title";
+    			$headerTextKey = "shelters_in_china_content";
+    			$metaDescriptionKey = "meta_description_shelters_china";
+    			$metaKeywordsKey = "meta_keywords_shelters_china";
     			break;
     		case "japan":
-    			$ctr=new SheltersList("japan", "shelters_in_japan_title", "shelters_in_japan_content", "meta_description_shelters_japan", "meta_keywords_shelters_japan",
-    			"km", 1, new SheltersJapanSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_japan_title";
+    			$headerTextKey = "shelters_in_japan_content";
+    			$metaDescriptionKey = "meta_description_shelters_japan";
+    			$metaKeywordsKey = "meta_keywords_shelters_japan";
     			break;
     		case "canada":
-    			$ctr=new SheltersList("canada", "shelters_in_canada_title", "shelters_in_canada_content", "meta_description_shelters_canada", "meta_keywords_shelters_canada",
-    			"km", 1, new SheltersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_canada_title";
+    			$headerTextKey = "shelters_in_canada_content";
+    			$metaDescriptionKey = "meta_description_shelters_canada";
+    			$metaKeywordsKey = "meta_keywords_shelters_canada";
     			break;
     		case "india":
-    			$ctr=new SheltersList("india", "shelters_in_india_title", "shelters_in_india_content", "meta_description_shelters_india", "meta_keywords_shelters_india",
-    			"km", 1, new SheltersIndiaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "shelters_in_india_title";
+    			$headerTextKey = "shelters_in_india_content";
+    			$metaDescriptionKey = "meta_description_shelters_india";
+    			$metaKeywordsKey = "meta_keywords_shelters_india";
     			break;
     	}
-        $ctr->iniciaRegional();
+        require 'application/views/shelters/regionallist/header.php';
+    	require 'application/views/shelters/regionallist/index.php';
+    	require 'application/views/_templates/footer.php';
     }
     	 
         

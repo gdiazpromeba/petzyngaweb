@@ -41,25 +41,37 @@ class Breeders extends Controller{
     }
     
     
+
+    
     public function regionalList($country){
+    	$_REQUEST["country"]=$country;
     	$ctrl=null;
     	switch ($country){
     		case "usa":
-    			$ctr=new BreedersList("usa",  "breeders_in_usa_title", "breeders_in_usa_content", "meta_description_breeders_usa", "meta_keywords_breeders_usa", 
-    			 "mi", 0.621371192, new BreedersUsaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "breeders_in_usa_title";
+    			$headerTextKey = "breeders_in_usa_content";
+    			$metaDescriptionKey = "meta_description_breeders_usa";
+    			$metaKeywordsKey = "meta_keywords_breeders_usa";
     			break;
+    		case "uk":
+    			$headerTitleKey = "breeders_in_uk_title";
+    			$headerTextKey = "breeders_in_uk_content";
+    			$metaDescriptionKey = "meta_description_breeders_uk";
+    			$metaKeywordsKey = "meta_keywords_breeders_uk";
+    			break;
+
     		case "canada":
-    			$ctr=new BreedersList("canada",  "breeders_in_canada_title", "breeders_in_canada_content", "meta_description_breeders_canada", "meta_keywords_breeders_canada", 
-    			 "km", 1, new BreedersCanadaSvcImpl(), new ZipsGenericoSvcImpl());
+    			$headerTitleKey = "breeders_in_canada_title";
+    			$headerTextKey = "breeders_in_canada_content";
+    			$metaDescriptionKey = "meta_description_breeders_canada";
+    			$metaKeywordsKey = "meta_keywords_breeders_canada";
     			break;
-    	   case "uk":
-    			$ctr=new BreedersList("uk",  "breeders_in_uk_title", "breeders_in_uk_content", "meta_description_breeders_uk", "meta_keywords_breeders_uk",
-    			"km", 1, new BreedersUkSvcImpl(), new ZipsGenericoSvcImpl());
-    			break;
-    				 
+
     	}
-    	$ctr->iniciaRegional();
-    }
+    	require 'application/views/breeders/regionallist/header.php';
+    	require 'application/views/breeders/regionallist/index.php';
+    	require 'application/views/_templates/footer.php';
+    }    
     
     public function advancedList($country){
     	$ctrl=null;

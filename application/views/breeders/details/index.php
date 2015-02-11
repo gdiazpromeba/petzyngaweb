@@ -92,32 +92,7 @@
         ?> 
 	    
 		
-    <!-- pequeño form y javascript para volver a la pantalla de lista con un parámetro "start" como post -->
-    <form name="frmNavegacion" action=""" method="post">
-      <input type="hidden" name="start" value=<?php echo $_REQUEST['start']; ?> />
-      <input type="hidden" name="firstArea" value="<?php echo $_REQUEST['firstArea']; ?>" />      
-      <input type="hidden" name="secondArea" value="<?php echo $_REQUEST['secondArea']; ?>" />  
-      <input type="hidden" name="zipCode" value="<?php echo $_REQUEST['zipCode']; ?>" />
-      <input type="hidden" name="breederName" value="<?php echo $_REQUEST['breederName']; ?>" />
-      <input type="hidden" name="country" value="<?php echo $_REQUEST['country']; ?>" />
-    </form>
-    <script type="text/javascript">
-      function navega(url){
-        document.frmNavegacion.action=url;
-        document.frmNavegacion.submit();
-      }
-    </script>		
-		
     
-    
-        <br/>
-        <span class="navegacionPaginas">
-	      <?php 
-	        echo "  <a href='#' onclick=navega('" . URL . "breeders/regionalList/" . $_REQUEST['country'] .  "/list')> << Back to List </a> \n";
-	      ?>
-        </span> 
-        <br/>
-        <br/>      
     
 
   

@@ -281,23 +281,13 @@ img.breedImage{
   cursor: hand;
 }
 
-div.pictureContainerAlpha{
-	text-align:center;
-	align:center;
-	margin: 0 auto;
-}
+
 
 img.breedImageAlpha{
 	height: 120px;
 	width: auto;
 }
 
-.pictureTitleAlpha{
-	text-align: center;
-	color: #1e6b88;
-	font-size: 12px;
-	font-family: "Dosis";
-}
 
 
 

@@ -40,43 +40,7 @@ class DogBreeds extends Controller{
 	
     public function advancedSearch(){
     	
-    	if (RequestUtils::notSetOrEmpty('start')){
-    		$start=0;
-    	}else{
-    		$start = $_REQUEST['start'];
-    	}
-    	
-        if (!RequestUtils::notSetOrEmpty('navegacion')){
-    		$navegacion=$_REQUEST['navegacion'];
-    		if ($navegacion=="siguiente"){
-    			$start = $start + self::$tamPagina;
-    		}else if ($navegacion=="anterior"){
-    			$start= $start - self::$tamPagina;;
-    		}
-    	}
-    	$_REQUEST['start']=$start;
-    	
-    	
-    	$letraInicial         = RequestUtils::getValue("letraInicial");
-    	$nombreOParte         = RequestUtils::getValue("nombreOParte");
-    	$selDogSize           = RequestUtils::getValue("selDogSize");
-    	$selDogFeeding        = RequestUtils::getValue("selDogFeeding");
-    	$selUpkeep            = RequestUtils::getValue("selUpkeep");
-    	
-    	
-    	$arrTamaños= DogBreedUtils::calculaTamaños($selDogSize);
-    	$tamañoDesde=$arrTamaños[0];
-    	$tamañoHasta=$arrTamaños[1];
-    	
-    	$arrUpkeep= DogBreedUtils::calculaUpkeep($selUpkeep);
-    	$upkeepDesde=$arrUpkeep[0];
-    	$upkeepHasta=$arrUpkeep[1];
-	 
-   	    $dogBreeds=$this->svc->selecciona($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta, $start, self::$tamPagina);
-    	$amountOfDogBreeds=$this->svc->seleccionaCuenta($nombreOParte, $letraInicial, $tamañoDesde, $tamañoHasta, $selDogFeeding, null, null, $upkeepDesde, $upkeepHasta);
-    	
-    	$_REQUEST['hayAnterior']= ($start  > 0);
-    	$_REQUEST['haySiguiente'] =($amountOfDogBreeds > ($start + self::$tamPagina));
+ 
     	
 //     	echo "letra inicial=" . $letraInicial . " start=" . $start . " nombreOParte" . " selDogSize=" . $selDogSize . " selDogFeeding=" . $selDogFeeding .  " <br/>";
 //     	echo "hayAnterior=" . $_REQUEST['hayAnterior'] . " haySiguiente=" . $_REQUEST['haySiguiente'] .   " amountOfDogBreeds=" . $amountOfDogBreeds .  " <br/>";

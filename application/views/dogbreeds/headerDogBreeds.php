@@ -1,6 +1,6 @@
 <?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="breeds">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,8 +13,21 @@
     <link href="<?php echo URL; ?>public/css/estiloDogBreeds.css" rel="stylesheet"/>
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
     
-    <script src="<?php echo URL; ?>/jquery/external/jquery/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
     
+ 
+
+       
+    <!--  jqPagination pagination plugin -->
+	<link rel="stylesheet" href="<?php echo URL; ?>public/csspagination/jqpagination.css" />
+	<script src="<?php echo URL; ?>public/jspagination/jquery.jqpagination.js"></script>     
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+	<script src="<?php echo URL; ?>public/js/dogbreeds/app.js"></script>  
+	
+
     
     
     

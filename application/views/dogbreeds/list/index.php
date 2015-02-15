@@ -70,9 +70,7 @@
        <div id="columnCenter"  class="columnCenter">
          <?php include 'formBusqueda.php'?>
          <br/>
-         <div style='text-align:left;height:50px;padding-top:10px;margin-left:65px'>
-           <a href='<?php  echo URL ?>dogbreeds/alphabeticalSearch' >Alphabetical Search</a>
-         </div> 
+
  
     
 	    

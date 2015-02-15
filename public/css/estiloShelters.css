@@ -38,15 +38,6 @@ table.countryPicturesTable {
 
 
 
-#busquedaShelters{
-    top: 201px;
-    left: 215px;
-    width: 670px;
-	margin-left:auto; 
-    margin-right:auto;  
-    margin-top: 25px;  
-    font-size:10px;
-}
 
 #map-canvas{
 	top: 32px;

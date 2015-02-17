@@ -307,7 +307,7 @@
 
 			switch (method.toLowerCase()) {
 
-				case 'option':
+				case 'option':	
 
 					// if we're getting, immediately return the value
 					if ( value === undefined && typeof key !== "object" ) {
@@ -315,7 +315,7 @@
 					}
 
 					// set default object to trigger the paged event (legacy opperation)
-					var options = {'trigger': false},
+					var options = {'trigger': true},
 					result = false;
 
 					// if the key passed in is an object

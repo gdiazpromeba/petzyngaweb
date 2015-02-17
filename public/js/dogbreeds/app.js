@@ -20,17 +20,25 @@
 		  return $scope.page;
 		}, function(newValue, oldValue) {
 			$scope.page=newValue;
-			$scope.callService();
-		});	 
+			$scope.callService(false);
+	  });	 
 	  
-	    $scope.callService = function(){
+	  /**
+	   * el parámetro "reset" indica si se debe correr el cursor a la primera página 
+	   * Eso debe ocurrir sólo cuando el servicio se llama a raíz de haber pulsado "Buscar".
+	   * Los "callService" producidos por la navegación del cursor no deben actualizar la current_page
+	   */
+	  $scope.callService = function(reset){
 			var url=$scope.buildUrl();
 		    $http.get(url).
 		    success(function(data, status, headers, config) {
 			  $scope.tableData=data.data;
-			  var pageCount=$scope.calculatePages(data.size);
-			  if ($(".pagination").length){
-			    $(".pagination").jqPagination('option', 'max_page', pageCount);
+			  if ($(".pagination").length){//esto es al principio, por si no encuentra todavía el control
+			    var pageCount=$scope.calculatePages(data.size);
+			    $(".pagination").jqPagination('option', 'max_page', pageCount);//el recálculo ocurre siempre
+			    if (reset){
+			    	$(".pagination").jqPagination('option', 'current_page', 1);
+			    }
 			  }else{
 				  alert('no pagination found');
 			  }
@@ -38,9 +46,9 @@
 		    error(function(data, status, headers, config) {
 			  alert('there was a problem');
 		    });		    	
-	    };
+	   };
 	    
-	    $scope.calculatePages = function(itemCount){
+	   $scope.calculatePages = function(itemCount){
             var pageCount;
             var division= itemCount /15;
             if (division > Math.floor(division)){
@@ -49,7 +57,7 @@
          	 pageCount = Math.floor(division);  
             }	
             return pageCount;
-	    };
+	   };
 	  
 	    $scope.buildUrl=function(){
 	    	var url=$scope.connectorUrl;
@@ -75,7 +83,7 @@
 	  
 	    $rootScope.$on('buttonClicked', function($event, $formParams){
 	    	$scope.formParams=$formParams;  //paso una variable "formParams" también a este controller
-	    	$scope.callService();
+	    	$scope.callService(true);
 	    	
 	    });
 	    

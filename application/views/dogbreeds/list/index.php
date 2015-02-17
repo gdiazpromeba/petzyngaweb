@@ -80,7 +80,7 @@
             <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="page"  style="width: 80px"/>
             <div style="display:flex;flex-direction:row;justify-content:center" ng-repeat="row in tableData.rows" >
               <div style="display:flex;flex-direction:column" ng-repeat="cell in row.cells" last-detector-directive>
-                <div class='pictureContainerAlpha'>
+                <div class='pictureContainerAlpha' ng-click="itemClicked(cell.nameEncoded)">
                   <div data-nombreCodificado='{{cell.nameEncoded}}'/> 
                   <div class="pictureTitleAlpha">{{cell.name}}</div>
                   <div><img class="breedImageAlpha" ng-src="<?php echo $GLOBALS['dirAplicacion'] . "/resources/images/breeds/";?>{{cell.pictureUrl}}"/></div>
@@ -91,8 +91,26 @@
 
     
 
-        
-
+			         <div ng-show="visible" style="display: flex;flex-direction:column;justify-content:space-around;align-items:stretch;align-content:stretch;position:fixed;left:50%;top:50%;  zindex:9999; transform: translate(-50%, -50%); background-color:white; width:690px; padding: 20px; "" ng-controller="DetailCtrl as det">
+			           <div id="superior" flex-grow="1" style="color:black">
+			             <div style="display:block">{{details.dogBreedName}}</div>
+			             <div style="display:block">{{details.headerText}}</div>
+			           </div>
+			           <div id="medio" style="display:flex;flex-grow:1;flex-direction:row">
+			             <div id="detalleFoto">
+			               <div><img class="breedImageAlpha" ng-src="<?php echo $GLOBALS['dirAplicacion'] . "/resources/images/breeds/";?>{{details.pictureUrl}}"/></div>
+			               <div class="mainFeatures">{{details.mainFeatures}}</div>
+			               <div class="mainFeatures"> "Watch a <a target='_blank' href='http://www.youtube.com/watch?v={{details.videoUrl}}'>Video</a></div>
+			             </div> 
+			             <div id="stats" style="flex-grow=2;display:flex;flex-direction:column;">
+			               <div style="display:flex;flex-direction:row">
+			                 <div style="display:inline-block;widthL50%">Size</div>
+			                 <div sthyle="display:inline-block;widthL50%">{{details.dogSizeName}}</div>
+			               </div>
+			             </div>
+			           </div>
+			           <div id="inferior" style="flex-grow:2"></div>
+			         </div>
 
          
 

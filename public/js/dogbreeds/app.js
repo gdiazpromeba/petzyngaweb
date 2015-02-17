@@ -87,6 +87,10 @@
 	    	
 	    });
 	    
+	    $scope.itemClicked=function(nameEncoded){
+		  $rootScope.$broadcast('itemClicked', nameEncoded);
+	    }
+	    
 	    
     
     //$log.info("la página es " + $scope.page);
@@ -104,6 +108,39 @@
 	  $scope.reset=function(){
 		  $scope.formParams={};
 	  }	  
+	  
+  }]); 
+  
+  app.controller('DetailCtrl', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
+	  $scope.details={};
+	  $scope.visible=false;
+	  
+	  $scope.isVisible=function(){
+		  $scope.visible;
+	  }
+	  
+	  $scope.populateDetails = function(nameEncoded){
+		  var url=$scope.buildUrl(nameEncoded);
+		  $http.get(url).
+		    success(function(data, status, headers, config) {
+			  $scope.details=data;
+		    }).
+		    error(function(data, status, headers, config) {
+			  alert("there was a problem calling the details' service");
+		  });		    	
+	  }	 
+	  
+	  $scope.buildUrl=function(nameEncoded){
+      	var dataString = 'nombreCodificado='+ nameEncoded;
+    	var url= Global.dirCms + '/svc/conector/dogBreeds.php/obtienePorNombreCodificado?' + dataString;		  
+		return url;
+	  }
+	  
+	 $rootScope.$on('itemClicked', function($event, nameEncoded){
+		 $scope.populateDetails(nameEncoded);
+		 $scope.visible=true;
+	 });
+	  
 	  
   }]);  
   
@@ -134,33 +171,33 @@
 	      if (scope.$last){
 	      //window.alert("im the last!");
 	      
-	        $(".pictureContainerAlpha").click(function(){
-
-	            var imageSource=$(this).find("img").attr("src");
-	            ultimoNombreCodificado = $(this).find("div").attr("data-nombreCodificado");
-	        	$("#ventanita #ventanitaImg").attr("src", imageSource);
-	        	var dataString = 'nombreCodificado='+ ultimoNombreCodificado;
-	        	var url= Global.dirCms + '/svc/conector/dogBreeds.php/obtienePorNombreCodificado';
-	            $.ajax({
-	            	  type: "POST", 
-	                  url: url, 
-	                  data: dataString,
-	                  success: function(data){
-	                	  var obj = jQuery.parseJSON( data );
-	                      $("#derechaTitulo").html(obj.dogBreedName);
-	                      $("#friendlyRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.friendlyRank + '.jpg');
-	                      $("#activeRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.activeRank + '.jpg');
-	                      $("#healthyRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.healthyRank + '.jpg');
-	                      $("#guardianRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.guardianRank + '.jpg');
-	                      $("#groomingRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.groomingRank + '.jpg');
-	                  },
-	                  error: function(XMLHttpRequest, textStatus, errorThrown) { 
-	                        alert( " Status: " + textStatus); alert("Error: " + errorThrown); 
-	                  }
-	             });
-	             $("#ventanita").fadeIn(600);
-	           
-	         });	      
+//	        $(".pictureContainerAlpha").click(function(){
+//
+//	            var imageSource=$(this).find("img").attr("src");
+//	            ultimoNombreCodificado = $(this).find("div").attr("data-nombreCodificado");
+//	        	$("#ventanita #ventanitaImg").attr("src", imageSource);
+//	        	var dataString = 'nombreCodificado='+ ultimoNombreCodificado;
+//	        	var url= Global.dirCms + '/svc/conector/dogBreeds.php/obtienePorNombreCodificado';
+//	            $.ajax({
+//	            	  type: "POST", 
+//	                  url: url, 
+//	                  data: dataString,
+//	                  success: function(data){
+//	                	  var obj = jQuery.parseJSON( data );
+//	                      $("#derechaTitulo").html(obj.dogBreedName);
+//	                      $("#friendlyRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.friendlyRank + '.jpg');
+//	                      $("#activeRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.activeRank + '.jpg');
+//	                      $("#healthyRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.healthyRank + '.jpg');
+//	                      $("#guardianRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.guardianRank + '.jpg');
+//	                      $("#groomingRank").attr("src", Global.dirCms  + "/resources/images/estrellas_"  + obj.groomingRank + '.jpg');
+//	                  },
+//	                  error: function(XMLHttpRequest, textStatus, errorThrown) { 
+//	                        alert( " Status: " + textStatus); alert("Error: " + errorThrown); 
+//	                  }
+//	             });
+//	             $("#ventanita").fadeIn(600);
+//	           
+//	         });	      
 	      
 	      
 	      

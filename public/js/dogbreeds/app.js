@@ -114,6 +114,8 @@
   app.controller('DetailCtrl', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
 	  $scope.details={};
 	  $scope.visible=false;
+	  $scope.tabsClicked=[false, true, false, false, false, false];
+	  $scope.tabNumber=1;
 	  
 	  $scope.isVisible=function(){
 		  $scope.visible;
@@ -124,6 +126,7 @@
 		  $http.get(url).
 		    success(function(data, status, headers, config) {
 			  $scope.details=data;
+			  $scope.rankingText=$scope.details.friendlyText;
 		    }).
 		    error(function(data, status, headers, config) {
 			  alert("there was a problem calling the details' service");
@@ -140,6 +143,31 @@
 		 $scope.populateDetails(nameEncoded);
 		 $scope.visible=true;
 	 });
+	 
+	 $scope.setTab = function(value){
+		 for (var i=1; i<=5; i++){
+			 	  $scope.tabsClicked[i]=false;	
+	     };
+		 $scope.tabsClicked[value]=true;
+		 $scope.tabNumber=value;
+		 switch(value){
+		 case 1:
+			 $scope.rankingText=$scope.details.friendlyText;
+			 break;
+		 case 2:
+			 $scope.rankingText=$scope.details.activeText;
+			 break;
+		 case 3:
+			 $scope.rankingText=$scope.details.healthyText;
+			 break;
+		 case 4:
+			 $scope.rankingText=$scope.details.guardianText;
+			 break;
+		 case 5:
+			 $scope.rankingText=$scope.details.groomingText;
+			 break;
+		 }
+	 }
 	  
 	  
   }]);  

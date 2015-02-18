@@ -554,6 +554,118 @@ width: 90px;
     font-size:10px;
 }
 
+.detalleDogBreed{
+	style="display: flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:stretch;
+	align-content:stretch;
+	position:fixed;
+	left:50%;
+	top:50%;  
+	zindex:9999; 
+	transform: translate(-50%, -50%); 
+	background-color:white; 
+	width:1200px; 
+	padding: 20px;
+	border-radius:5px;
+	background-color:#EFFBEF;
+}
+
+img.breedImageDetalle{
+	height: 220px;
+	width: auto;
+}
+
+.feature{
+  display:flex;
+  flex-direction:row;
+  padding-left:5px;
+  padding-top:5px;	
+}
+
+
+.featureTitle {
+  text-align: left;
+  vertical-align: middle;
+  color: #1e6b88;
+  font-size: 16px;
+  font-family: "Dosis";
+  height: 30px;
+  width: 150px;
+}
+
+.featureText {
+  text-align: justify;
+  vertical-align: middle;
+  font-size: 16px;
+  width: 500px;
+}
+
+.rankingBlock{
+;
+	display:flex;
+	flex-direction:row;
+	flex-grow:1;
+	justify-content:flex-start;
+}
+
+.rankingTabs{
+	display:flex;
+	flex-direction:column;
+
+}
+
+.rankingHeaderSelected {
+;	
+  text-align: left;
+  vertical-align: middle;
+  display:flex;
+  flex-direction:row;
+  background-color:#FFCECE;
+  height:30px;
+  width:360px;
+  border-radius: 10px 0 0 10px ;
+  padding-left:10px;
+}
+
+.rankingHeader {
+
+  text-align: left;
+  vertical-align: middle;
+  display:flex;
+  flex-direction:row;
+  background-color:#CBC5F5;
+  height:30px;
+  width:360px;
+  border-radius: 10px 0 0 10px ;
+  padding-left:10px;
+  margin-top:2px;
+  margin-bottom:2px;
+}
+
+
+.rankingTitle {
+  text-align: left;
+  vertical-align: middle;
+  color: #1e6b88;
+  font-size: 16px;
+  font-family: "Dosis";
+  height: 30px;
+  width: 210px;
+
+}
+
+.rankingText {
+  text-align: justify;
+  vertical-align: middle;
+  font-size: 16px;
+  flex-grow:1;
+  height:190px;
+  width:1000px;
+  background-color:#FFCECE;
+  padding:5px;
+}
 
 
 

@@ -566,10 +566,17 @@ width: 90px;
 	zindex:9999; 
 	transform: translate(-50%, -50%); 
 	background-color:white; 
-	width:1200px; 
+	width:900px; 
 	padding: 20px;
 	border-radius:5px;
 	background-color:#EFFBEF;
+}
+
+.tituloVentanaDetalle{
+	font-size:32px;
+	font-weight:900;
+	color:#102739;
+	padding:5px;
 }
 
 img.breedImageDetalle{
@@ -613,6 +620,7 @@ img.breedImageDetalle{
 .rankingTabs{
 	display:flex;
 	flex-direction:column;
+	width:380px;
 
 }
 
@@ -622,7 +630,7 @@ img.breedImageDetalle{
   vertical-align: middle;
   display:flex;
   flex-direction:row;
-  background-color:#FFCECE;
+  background-color:#A4C6CF;
   height:30px;
   width:360px;
   border-radius: 10px 0 0 10px ;
@@ -653,6 +661,7 @@ img.breedImageDetalle{
   font-family: "Dosis";
   height: 30px;
   width: 210px;
+  padding-top:5px;
 
 }
 
@@ -662,9 +671,55 @@ img.breedImageDetalle{
   font-size: 16px;
   flex-grow:1;
   height:190px;
-  width:1000px;
-  background-color:#FFCECE;
+  width:610px;
+  background-color:#A4C6CF;
   padding:5px;
+}
+
+
+
+div.closeButton{
+	background-image: url('../img/close_button_turquesa.gif');
+	top:50px;
+	right: 50px;
+    max-height: 25px;
+    max-width: 25px;
+}
+
+.areaHeader{
+  border-style:solid;
+  background-color:#D9D9DB;
+  color:#10203A;
+  border-width:1px;
+  border-radius:3px;
+  margin:3px;	
+}
+
+.countryTitle{
+	padding-top:10px;
+	font-size:24px;
+	text-align:center;
+	margin-bottom:5px;
+}
+
+.area1Title{
+	padding-top:8px;
+	font-size:20px;
+	text-align:center;
+	margin-bottom:5px;
+}
+
+.area2Title{
+	padding-top:5px;
+	font-size:16px;
+	text-align:center;
+	margin-bottom:5px;
+}
+
+.areaItemContainer{
+	padding:4px;
+	font-size:16px;
+	text-align:center;
 }
 
 

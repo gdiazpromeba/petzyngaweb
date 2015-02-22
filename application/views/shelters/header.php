@@ -1,6 +1,6 @@
 <?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="shelters">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +12,15 @@
     <link href="<?php echo URL; ?>public/css/estilo.css" rel="stylesheet">
     <link href="<?php echo URL; ?>public/css/estiloShelters.css" rel="stylesheet">
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/themes/smoothness/jquery-ui.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>  
+    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/shelters/areaslist/app.js"></script>   
 </head>
 <body>
 <?php include $GLOBALS['pathWeb'] . '/application/views/_templates/analyticstracking.php' ?>

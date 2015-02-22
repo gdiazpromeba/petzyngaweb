@@ -92,8 +92,11 @@
     
 
 			         <div ng-show="visible" class="detalleDogBreed" ng-controller="DetailCtrl as det">
+			           <div style="position:absolute;top:10px;right:10px;" ng-click="visible=false">
+			             <img style="width:20px;height:20px;" ng-src="<?php echo $GLOBALS['dirWeb'] . "/public/img/close_button_turquesa.gif";?>"/>
+			           </div>
 			           <div id="superior" flex-grow="1" style="color:black;padding:5px">
-			             <div style="display:block">{{details.dogBreedName}}</div>
+			             <div class="tituloVentanaDetalle" style="display:block;text-align:center">{{details.dogBreedName}}</div>
 			             <div style="display:block">{{details.headerText}}</div>
 			           </div>
 			           <div id="medio" style="display:flex;flex-grow:1;flex-direction:row;padding:5px;">
@@ -134,23 +137,23 @@
 			               <div class="rankingTabs">
 			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[1]]" ng-click="setTab(1)" >
 			                   <div class="rankingTitle" >How friendly are they?</div>
-                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.friendlyRank}}.jpg'/>
+                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.friendlyRank}}.gif'/>
                              </div>
 			                 <div  ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[2]]" ng-click="setTab(2)" >
 			                   <div class="rankingTitle"> How active are they?</div>
-                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.activeRank}}.jpg'/>
+                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.activeRank}}.gif'/>
                              </div>
 			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[3]]" ng-click="setTab(3)" >
 			                   <div class="rankingTitle"> How healthy are they?</div>
-                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.healthyRank}}.jpg'/>
+                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.healthyRank}}.gif'/>
                              </div>   
 			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[4]]" ng-click="setTab(4)" >
 			                   <div class="rankingTitle"> Are they good guardians?</div>
-                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.guardianRank}}.jpg'/>
+                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.guardianRank}}.gif'/>
                              </div>  
 			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[5]]" ng-click="setTab(5)" >
 			                   <div class="rankingTitle"> How much grooming needed?</div>
-                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.groomingRank}}.jpg'/>
+                               <img style="height:20px;margin-left:5px" ng-src='<?php echo  $GLOBALS['dirAplicacion']  . "/resources/images/estrellas_";?>{{details.groomingRank}}.gif'/>
                              </div>                                                                                   
                              
                            </div>

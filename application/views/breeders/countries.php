@@ -11,21 +11,21 @@
        <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/usa">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/usa_map_menu_outline.jpeg"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_the_usa'); ?></div>
-         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $shelterCount["usa"]); ?></div>
+         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["usa"]); ?></div>
        </a>
      </td>
      <td>
        <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/canada">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/canada_map_menu_outline.png"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_canada'); ?></div>
-         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $shelterCount["canada"]); ?></div>
+         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["canada"]); ?></div>
        </a>
      </td>
      <td>
        <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/uk">
          <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/uk_map_menu_outline.jpg"; ?>" />
          <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_the_uk'); ?></div>
-         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $shelterCount["uk"]); ?></div>
+         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["uk"]); ?></div>
        </a>
      </td>     
      <td style="text-align: left">

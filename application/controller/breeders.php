@@ -26,14 +26,14 @@ class Breeders extends Controller{
 	
     public function countries(){
     	
-    	//pupulate the amount of shelters per country
+    	//pupulate the amount of breeders per country
     	$breederCount=Resources::get("breeder_count_per_country");
-    	if (empty($shelterCount)){
-    	  $svc = new BreedersUsaSvcImpl(); $shelterCount["usa"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
-    	  $svc = new BreedersCanadaSvcImpl(); $shelterCount["canada"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
-    	  $svc = new BreedersUkSvcImpl(); $shelterCount["uk"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	if (empty($breederCount)){
+    	  $svc = new BreedersUsaSvcImpl(); $breederCount["usa"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new BreedersCanadaSvcImpl(); $breederCount["canada"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
+    	  $svc = new BreedersUkSvcImpl(); $breederCount["uk"]=$svc->selTodosCuenta(null, null, null, null, null, null, null);
 
-    	  Resources::set("breeder_count_per_country", $shelterCount);
+    	  Resources::set("breeder_count_per_country", $breederCount);
     	}
     	require 'application/views/breeders/header.php';
     	require 'application/views/breeders/countries.php';
@@ -92,6 +92,72 @@ class Breeders extends Controller{
     	}
     	$ctr->iniciaAvanzada();
 
+    }    
+    
+    public function sitemap($country, $area1Value, $area2Value, $breed){
+    
+    	switch ($country){
+    		case "usa":
+    			$headerTitleKey =  "breeders_in_usa_title";
+    			$headerTextKey =  "breeders_in_usa_content";
+    			$metaDescriptionKey = "meta_description_breeders_usa";
+    			$metaKeywordsKey = "meta_keywords_breeders_usa";
+    			break;
+    		case "uk":
+    			$headerTitleKey =  "breeders_in_uk_title";
+    			$headerTextKey =  "breeders_in_uka_content";
+    			$metaDescriptionKey = "meta_description_breeders_uk";
+    			$metaKeywordsKey = "meta_keywords_breeders_uk";
+    			break;
+    		case "japan":
+    			$headerTitleKey =  "breeders_in_japan_title";
+    			$headerTextKey =  "breeders_in_japan_content";
+    			$metaDescriptionKey = "meta_description_breeders_japan";
+    			$metaKeywordsKey = "meta_keywords_breeders_japan";
+    			break;
+    		case "canada":
+    			$headerTitleKey =  "breeders_in_japan_title";
+    			$headerTextKey =  "breeders_in_japan_content";
+    			$metaDescriptionKey = "meta_description_breeders_japan";
+    			$metaKeywordsKey = "meta_keywords_breeders_japan";
+    			break;
+    		case "india":
+    			$headerTitleKey =  "breeders_in_india_title";
+    			$headerTextKey =  "breeders_in_india_content";
+    			$metaDescriptionKey = "meta_description_breeders_india";
+    			$metaKeywordsKey = "meta_keywords_breeders_india";
+    			break;
+    		case "china":
+    			$headerTitleKey =  "breeders_in_china_title";
+    			$headerTextKey =  "breeders_in_china_content";
+    			$metaDescriptionKey = "meta_description_breeders_china";
+    			$metaKeywordsKey = "meta_keywords_breeders_china";
+    			break;
+    	}
+    
+
+    	if ($country!=null && $area1Value!=null && $area2Value!=null && $breed!= null ){
+		 
+    		$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "','" . $breed . "'";
+    	 
+    	}elseif ($country!=null && $area1Value!=null && $area2Value!=null){
+  		 
+    		$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "', null";
+    
+    	}else if ($country!=null && $area1Value!=null){
+    		$area1Value=urldecode($area1Value);
+    		 
+    		$initParams="'".  $country . "','" . $area1Value . "',null, null";
+    	}else if ($country!=null){
+    		$area1Value=urldecode($area1Value);
+    		 
+    		$initParams="'".  $country . "', null, null, null";
+    	}
+    
+    
+    	require 'application/views/breeders/sitemap/headerSitemapBreeders.php';
+    	require 'application/views/breeders/sitemap/indexSitemapBreeders.php';
+    	require 'application/views/_templates/footer.php';
     }    
     
     public function info($country, $urlEncoded){

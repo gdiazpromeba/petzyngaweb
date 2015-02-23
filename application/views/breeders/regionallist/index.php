@@ -17,7 +17,8 @@
       <div ng-controller="GeoListController as geoCtrl" style="border-color:green;border-style:solid" ng-init="setCountry('<?php echo $country; ?>')">
         <div style="padding:5px;width:100%;display:flex;flex-direction:row;justify-content:space-around">
           <div class="tituloFormBusqueda">Search for breeders in ... </div>
-          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/breeders/advancedList/".  $country; ?>'>Advanced Search</a> 
+          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/breeders/advancedList/".  $country; ?>'>Advanced Search</a>
+          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/breeders/sitemap/".  $country; ?>'>Sitemap</a>  
         </div>
         <div ng-repeat="area1 in geoList.firstAreas" style="border-color:red;border-style:none;text-align:left;padding:5px;">
            <button class="butFirstArea2" ng-click="area1.collapsed = !area1.collapsed">{{area1.name}}</button>

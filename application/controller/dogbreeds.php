@@ -70,8 +70,8 @@ class DogBreeds extends Controller{
     	
     	$arrayLetras=array_keys($mapLetras);
     	
-    	require 'application/views/dogbreeds/alphalist/header.php';
-    	require 'application/views/dogbreeds/alphalist/index.php';
+    	require 'application/views/dogbreeds/alphalist/headerAlpha.php';
+    	require 'application/views/dogbreeds/alphalist/indexAlpha.php';
     	require 'application/views/_templates/footer.php';
     }
     

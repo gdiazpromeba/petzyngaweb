@@ -266,6 +266,15 @@
 	  }]); 
   
 
+	  app.directive('dogBreedDetails', function() {
+		  return {
+			  restrict : 'E',
+			  templateUrl : Global.dirAplicacion + "/public/js/dogbreeds/dog-breed-details.html",
+		  }
+		});
+		
+		
+
   
   
   

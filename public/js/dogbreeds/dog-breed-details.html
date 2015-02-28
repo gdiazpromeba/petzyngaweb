@@ -1,0 +1,70 @@
+ 			         <div ng-show="visible" class="detalleDogBreed">
+			           <div style="position:absolute;top:10px;right:10px;" ng-click="visible=false">
+			             <img style="width:20px;height:20px;" ng-src="{{details.imgBotonCerrar}}"/>
+			           </div>
+			           <div id="superior" flex-grow="1" style="color:black;padding:5px">
+			             <div class="tituloVentanaDetalle" style="display:block;text-align:center">{{details.dogBreedName}}</div>
+			             <div style="display:block">{{details.headerText}}</div>
+			           </div>
+			           <div id="medio" style="display:flex;flex-grow:1;flex-direction:row;padding:5px;">
+			             <div id="detalleFoto" style="flex-grow=2;display:flex;flex-direction:column">
+			               <img class="breedImageDetalle" ng-src="{{details.imgBreed}}"/>
+			               <div class="mainFeatures">{{details.mainFeatures}}</div>
+			               <div class="mainFeatures"> "Watch a <a target='_blank' href='http://www.youtube.com/watch?v={{details.videoUrl}}'>Video</a></div>
+			             </div> 
+			             <div id="stats" style="flex-grow=2;display:flex;flex-direction:column;padding:5px;margin-left:10px">
+			               <div class="feature">
+			                 <div class="featureTitle">Size</div>
+			                 <div class="featureText">{{details.dogSizeName}}</div>
+			               </div>
+			               <div class="feature">
+			                 <div class="featureTitle">Color</div>
+			                 <div class="featureText">{{details.colors}}</div>
+			               </div>
+			               <div class="feature">
+			                 <div class="featureTitle">Weight (lbs)</div>
+			                 <div class="featureText">from {{details.weightMin}} to {{details.weightMax}}</div>
+			               </div>
+			               <div class="feature">
+			                 <div class="featureTitle">Height (inches)</div>
+			                 <div class="featureText">from {{details.sizetMin}} to {{details.sizeMax}}</div>
+			               </div>
+			               <div class="feature">
+			                 <div class="featureTitle">Shedding</div>
+			                 <div class="featureText">{{details.dogSheddingAmountName}}, {{details.dogSheddingFrequencyName}}</div>
+			               </div>
+			               <div class="feature">
+			                 <div class="featureTitle">Feeding</div>
+			                 <div class="featureText">{{details.feedingArmado}}</div>
+			               </div>			               			               			               			               
+			             </div>
+			           </div>
+
+
+			             <div class="rankingBlock">
+			               <div class="rankingTabs">
+			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[1]]" ng-click="setTab(1)" >
+			                   <div class="rankingTitle" >How friendly are they?</div>
+                               <img style="height:20px;margin-left:5px" ng-src='{{details.imgStarFriendly}}'/>
+                             </div>
+			                 <div  ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[2]]" ng-click="setTab(2)" >
+			                   <div class="rankingTitle"> How active are they?</div>
+                               <img style="height:20px;margin-left:5px" ng-src='{{details.imgStarActive}}'/>
+                             </div>
+			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[3]]" ng-click="setTab(3)" >
+			                   <div class="rankingTitle"> How healthy are they?</div>
+                               <img style="height:20px;margin-left:5px" ng-src='{{details.imgStarHealthy}}'/>
+                             </div>   
+			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[4]]" ng-click="setTab(4)" >
+			                   <div class="rankingTitle"> Are they good guardians?</div>
+                               <img style="height:20px;margin-left:5px" ng-src='{{details.imgStarGuardian}}'/>
+                             </div>  
+			                 <div ng-class="{true: 'rankingHeaderSelected' , false: 'rankingHeader'}[tabsClicked[5]]" ng-click="setTab(5)" >
+			                   <div class="rankingTitle"> How much grooming needed?</div>
+                               <img style="height:20px;margin-left:5px" ng-src='{{details.imgStarGrooming}}'/>
+                             </div>                                                                                   
+                             
+                           </div>
+                           <div class="rankingText">{{rankingText}}</div>
+			             </div>
+			         </div><!-- detalleDogBreed -->    

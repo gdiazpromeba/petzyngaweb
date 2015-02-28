@@ -100,7 +100,7 @@
          
 
        
-          <div  ng-controller="PicTableController" style="margin-bottom: 20px;display:flex;flex-direction:column" ng-init="init()">
+          <div  ng-controller="PicTableControllerAlpha" style="margin-bottom: 20px;display:flex;flex-direction:column" ng-init="init()">
             <div ng-repeat="bloque in bloques" style="margin-left:10px;margin-top:30px">
                   <a name='{{bloque.letra}}'>{{bloque.letra}}</a> &nbsp;<a href='#SelectInitial'>Back to top</a>
               
@@ -135,7 +135,7 @@
        
 
 
- 			         <div ng-show="visible" class="detalleDogBreed" ng-controller="DetailCtrl as det">
+ 			         <div ng-show="visible" class="detalleDogBreed" ng-controller="DetailCtrlAlpha as det">
 			           <div style="position:absolute;top:10px;right:10px;" ng-click="visible=false">
 			             <img style="width:20px;height:20px;" ng-src="<?php echo $GLOBALS['dirWeb'] . "/public/img/close_button_turquesa.gif";?>"/>
 			           </div>

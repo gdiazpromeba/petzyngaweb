@@ -17,12 +17,16 @@
       }
 
     </script>
+    
+    
+    <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/breeders/submenuBreeders.php' ?>
 
     <div class="descriptiveParagraph2">
       <b><?php echo Resources::getText($headerTitleKey); ?></b>
       <br/>
       <?php echo Resources::getText($headerTextKey); ?>
     </div>
+    
 	<?php include 'formBusqueda.php'?>
 	
     <br/>

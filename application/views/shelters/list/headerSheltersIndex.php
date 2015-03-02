@@ -47,7 +47,7 @@
 	    	   var lastSecondArea='<?php echo $_REQUEST['secondArea']; ?>';
 	    	   if (lastSecondArea!='' && lastSecondArea !=null && lastSecondArea!=undefined){
 	             var secondAreas=document.frmBusqueda.secondArea;
-	             //alert('el combo tiene ' + secondArea.options.length + '  elementos, y el último seleccionado es ' + lastSecondArea);
+	             //alert('el combo tiene ' + secondArea.options.length + '  elementos, y el ï¿½ltimo seleccionado es ' + lastSecondArea);
 	    		 for (var i = 0; i < secondArea.options.length; i++) {
 	    		   if (secondArea.options[i].value == lastSecondArea) {
 	    			   secondArea.selectedIndex = i;
@@ -89,6 +89,7 @@
 
     <script>
 	  function initialize(data) {
+		  return true;
 		  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 		  var mapOptions = {
 		    zoom: 4
@@ -139,7 +140,7 @@
 
       $(document).ready(function() {
     	  $.when(checkSecondArea())
-    	    .then(showPage(1));
+    	    .then(showPage(1, true));
           
 
 
@@ -168,11 +169,11 @@
       
     	   $('.pagination').jqPagination({
     		   paged: function(page) {
-        		     showPage(page);
+        		     showPage(page, false);
     		   }
     	   });
 
-		   function showPage(page) {
+		   function showPage(page, calculaCount) {
 			   var frm = document.frmBusqueda;
 			   var specialBreedId = frm.specialBreedId.value;
 			   var shelterName = frm.shelterName.value;
@@ -196,14 +197,16 @@
 			   $.getJSON( selectionUrl, function( respuesta ) {
 				   initialize(respuesta.data);
                    var rowCount = respuesta.total;  
-                   var pageCount;
-                   var division= rowCount /12;
-                   if (division > Math.floor(division)){
-                     pageCount = Math.floor(division) + 1;
-                   }else{
-                	 pageCount = Math.floor(division);  
+                   if (calculaCount){  
+                     var pageCount;
+                     var division= rowCount /12;
+                     if (division > Math.floor(division)){
+                       pageCount = Math.floor(division) + 1;
+                     }else{
+                	   pageCount = Math.floor(division);  
+                     }
+                     $('.pagination').jqPagination('option', 'max_page', pageCount);
                    }
-                   $('.pagination').jqPagination('option', 'max_page', pageCount);
 				   $.each( respuesta.data, function( key, val ) {
                      var html  =  "<tr>";
                      html += "       <td class='shelterContainer'>" + val.name + "</td>"; 
@@ -261,7 +264,7 @@
        	    	   var lastSecondArea='<?php echo $_REQUEST['secondArea']; ?>';
        	    	   if (lastSecondArea!='' && lastSecondArea !=null && lastSecondArea!=undefined){
        	             var secondAreas=document.frmBusqueda.secondArea;
-       	             //alert('el combo tiene ' + secondArea.options.length + '  elementos, y el último seleccionado es ' + lastSecondArea);
+       	             //alert('el combo tiene ' + secondArea.options.length + '  elementos, y el ï¿½ltimo seleccionado es ' + lastSecondArea);
        	    		 for (var i = 0; i < secondArea.options.length; i++) {
        	    		   if (secondArea.options[i].value == lastSecondArea) {
        	    			   secondArea.selectedIndex = i;

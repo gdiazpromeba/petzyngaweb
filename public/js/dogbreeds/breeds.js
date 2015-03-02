@@ -1,7 +1,7 @@
 (function(){
 
 
-  var app = angular.module('breeds', []);
+  var app = angular.module('breeds', ['ngSanitize']);
   
   
   
@@ -129,7 +129,7 @@
 			  $scope.rankingText=$scope.details.friendlyText;
 		    }).
 		    error(function(data, status, headers, config) {
-			  alert("there was a problem calling the details' service");
+		    	 alert("there was a problem calling the details' service.\nUrl:=" + url);
 		  });		    	
 	  }	 
 	  
@@ -168,6 +168,10 @@
 			 break;
 		 }
 	 }
+	 
+	 $scope.closeButtonClicked = function(){
+		 $rootScope.$broadcast('detailsClosedEvent');
+	 }
 	  
 	  
   }]);  
@@ -203,67 +207,7 @@
 	  }]);
 	  
 
-	  
-	  app.controller('DetailCtrlAlpha', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
-		  $scope.details={};
-		  $scope.visible=false;
-		  $scope.tabsClicked=[false, true, false, false, false, false];
-		  $scope.tabNumber=1;
-		  
-		  $scope.isVisible=function(){
-			  $scope.visible;
-		  }
-		  
-		  $scope.populateDetails = function(nameEncoded){
-			  var url=$scope.buildUrl(nameEncoded);
-			  $http.get(url).
-			    success(function(data, status, headers, config) {
-				  $scope.details=data;
-				  $scope.rankingText=$scope.details.friendlyText;
-			    }).
-			    error(function(data, status, headers, config) {
-				  alert("there was a problem calling the details' service");
-			  });		    	
-		  }	 
-		  
-		  $scope.buildUrl=function(nameEncoded){
-	      	var dataString = 'nombreCodificado='+ nameEncoded;
-	    	var url= Global.dirCms + '/svc/conector/dogBreeds.php/obtienePorNombreCodificado?' + dataString;		  
-			return url;
-		  }
-		  
-		 $rootScope.$on('itemClicked', function($event, nameEncoded){
-			 $scope.populateDetails(nameEncoded);
-			 $scope.visible=true;
-		 });
-		 
-		 $scope.setTab = function(value){
-			 for (var i=1; i<=5; i++){
-				 	  $scope.tabsClicked[i]=false;	
-		     };
-			 $scope.tabsClicked[value]=true;
-			 $scope.tabNumber=value;
-			 switch(value){
-			 case 1:
-				 $scope.rankingText=$scope.details.friendlyText;
-				 break;
-			 case 2:
-				 $scope.rankingText=$scope.details.activeText;
-				 break;
-			 case 3:
-				 $scope.rankingText=$scope.details.healthyText;
-				 break;
-			 case 4:
-				 $scope.rankingText=$scope.details.guardianText;
-				 break;
-			 case 5:
-				 $scope.rankingText=$scope.details.groomingText;
-				 break;
-			 }
-		 }
-		  
-		  
-	  }]); 
+	   
   
 
 	  app.directive('dogBreedDetails', function() {
@@ -272,7 +216,39 @@
 			  templateUrl : Global.dirAplicacion + "/public/js/dogbreeds/dog-breed-details.html",
 		  }
 		});
-		
+	  
+	  
+	  app.controller('DogGroupCtrl', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
+		  $scope.data={};
+		  
+		  $scope.tipoMuestra="";
+		  
+		  $scope.init = function(dogGroup, dogBreed){
+			  var url;
+			  if (dogBreed!=null){
+				  $scope.tipoMuestra="breed";
+				  //uses the detail controller
+				  return true;
+			  }else if (dogGroup==null){
+				  $scope.tipoMuestra="groups";
+				  url= Global.dirCms + '/svc/conector/dogBreeds.php/selDogBreedGroups';
+			  }else{
+				  $scope.tipoMuestra="group";
+				  url= Global.dirCms + '/svc/conector/dogBreeds.php/getDogBreedGroup?group=' + dogGroup;
+			  }
+			  $http.get(url).
+			    success(function(data, status, headers, config) {
+				  $scope.data=data;
+			    }).
+			    error(function(data, status, headers, config) {
+				  alert("there was a problem calling the details' service");
+			  });		    	
+		  }
+		  
+		  $rootScope.$on('detailsClosedEvent', function($event){
+		    window.history.back();
+		  });
+	  }]);
 		
 
   

@@ -1,5 +1,5 @@
 	<div id="busquedaShelters" style="width:90%;margin-left:20px;">
-	  <div class="tituloFormBusqueda">DOG BREEDS Advanced search</div>
+	  
 	  <form name="frmBusqueda"   ng-controller="ParameterController as paramCtrl" >
 	    <table width="100%">
 	      <tr>
@@ -54,11 +54,7 @@
 	        </td>	                
 	      </tr>
 	      <tr>
-	        <td>
-	           <div style='text-align:left;padding-left:5px;font-size:16px'>
-	             <a href='<?php  echo URL ?>dogbreeds/alphabeticalSearch' >Alphabetical Search</a>
-	           </div>	        
-	        </td>
+	        <td/>
 	        <td/>
 	        <td/>
 	        <td/>

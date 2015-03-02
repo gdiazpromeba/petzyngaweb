@@ -16,6 +16,7 @@
     <script src="<?php echo URL; ?>jquery/external/jquery/jquery.js"></script>
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular-sanitize.js"></script>
 	<script src="<?php echo URL; ?>/public/js/dogbreeds/breeds.js"></script> 
     
     

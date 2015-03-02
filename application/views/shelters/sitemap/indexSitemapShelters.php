@@ -17,6 +17,8 @@
        </div>
        
        <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
+       
+          <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
 
 		  <div ng-controller="MainController" ng-init="initialize(<?php echo $initParams;?>)">
 		    {{showPanels}}

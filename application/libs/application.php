@@ -54,7 +54,7 @@ class Application
                     $this->handleMethod($this->url_controller, $this->url_action, 1);
                 } else {
                     // if no parameters given, just call the method without parameters, like $this->home->method();
-                    $this->url_controller->{$this->url_action}();
+                    $this->handleMethod($this->url_controller, $this->url_action, 0);
                 }
             } else {
                 // default/fallback: call the index() method of a selected controller

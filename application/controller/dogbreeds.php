@@ -75,6 +75,22 @@ class DogBreeds extends Controller{
     	require 'application/views/_templates/footer.php';
     }
     
+    public function groups($dogGroup, $breedNameEncoded){
+       
+    	if ($breedNameEncoded != null){
+    		$initParams="'" . $dogGroup . "','" . $breedNameEncoded . "'";
+    		$breedParam= "'" . $breedNameEncoded . "'";
+    	}elseif ($dogGroup != null){
+            $initParams="'" . $dogGroup . "'";		
+    	}else{
+    		$initParams="null";
+    	}
+    	 
+    	require 'application/views/dogbreeds/groups/headerGroups.php';
+    	require 'application/views/dogbreeds/groups/indexGroups.php';
+    	require 'application/views/_templates/footer.php';
+    }    
+    
     
 
 

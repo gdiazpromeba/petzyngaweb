@@ -27,6 +27,8 @@
       }      
       
     </script>
+    
+    <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
 
     <div class="descriptiveParagraph2">
       <b><?php echo Resources::getText($headerTitleKey); ?></b>

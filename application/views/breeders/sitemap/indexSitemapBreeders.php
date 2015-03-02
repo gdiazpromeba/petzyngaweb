@@ -1,5 +1,7 @@
  <?php require_once 'utils/Resources.php';?>
 <div style="display:flex;justify-content:center">
+
+      
     
       <div  class="columnLeft">
          <div class="stickitColumna"><?php echo Resources::getText('breeders_directory'); ?></div>
@@ -16,7 +18,9 @@
          <div class="stickitColumna"><?php echo Resources::getText('tica'); ?></div>
        </div>
        
-       <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
+       <div id="columnCenter"  class="columnCenter" style="margin-left:10px;display:flex;flex-direction:column">
+       
+          <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/breeders/submenuBreeders.php' ?>
 
 		  <div ng-controller="MainController" ng-init="initialize(<?php echo $initParams;?>)">
 		    {{showPanels}}

@@ -189,6 +189,7 @@ class Shelters extends Controller{
 	    	$initParams="'".  $country . "', null, null";
     	 }
 	    	
+    	 $_REQUEST["country"] = $country;
     	 
     	 require 'application/views/shelters/sitemap/headerSitemapShelters.php';
     	 require 'application/views/shelters/sitemap/indexSitemapShelters.php';

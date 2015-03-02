@@ -15,13 +15,13 @@
     </div>
 
     <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
+    
+      <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
 	  
 
-      <div ng-controller="GeoListController as geoCtrl" style="border-color:green;border-style:solid" ng-init="setCountry('<?php echo $country; ?>')">
+      <div ng-controller="GeoListController as geoCtrl"  ng-init="setCountry('<?php echo $country; ?>')">
         <div style="padding:5px;width:100%;display:flex;flex-direction:row;justify-content:space-around">
           <div class="tituloFormBusqueda">Search for shelters in ... </div>
-          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/shelters/advancedList/".  $country; ?>'>Advanced Search</a> 
-          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/shelters/sitemap/".  $country; ?>'>Sitemap</a>
         </div>
         <div ng-repeat="area1 in geoList.firstAreas" style="border-color:red;border-style:none;text-align:left;padding:5px;">
            <button class="butFirstArea" ng-click="area1.collapsed = !area1.collapsed">{{area1.name}}</button>

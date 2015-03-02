@@ -154,7 +154,7 @@ class Breeders extends Controller{
     		$initParams="'".  $country . "', null, null, null";
     	}
     
-    
+        $_REQUEST["country"]=$country;
     	require 'application/views/breeders/sitemap/headerSitemapBreeders.php';
     	require 'application/views/breeders/sitemap/indexSitemapBreeders.php';
     	require 'application/views/_templates/footer.php';

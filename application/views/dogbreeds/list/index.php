@@ -68,6 +68,9 @@
        </div>
        
        <div id="columnCenter"  class="columnCenter">
+       
+         <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/dogbreeds/submenuDogBreeds.php' ?>
+       
          <?php include 'formBusqueda.php'?>
          <br/>
 

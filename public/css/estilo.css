@@ -153,7 +153,7 @@ td.tdPictureContainer{
 	align: center;
 }
 
-td.pictureTitle{
+.pictureTitle{
 	text-align: center;
 	color: #1e6b88;
 	font-size: 18px;
@@ -720,6 +720,29 @@ div.closeButton{
 	padding:4px;
 	font-size:16px;
 	text-align:center;
+}
+
+.dogPurposeDescription{
+	width:500px;
+	padding:5px;
+	font-size:15px;
+	text-align:justify;
+}
+
+.contVinculosSubmenu{
+	font-size:18px;
+	color:olive;
+	display:flex;
+	flex-direction:row;
+	justify-content:space-around;
+	padding:5px;
+	
+}
+
+.vinculoSubmenu{
+	padding:10px;
+	color:olive;
+	text-decoration:none;
 }
 
 

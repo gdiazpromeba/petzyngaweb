@@ -38,11 +38,7 @@
             
           </tr>
           <tr>
-            <td class="campoBusqueda">
-                <div style='text-align:left;display:block;'>
-                  <?php  echo"<a href='" . URL . "shelters/regionalList/" .  $_REQUEST['country'] .  "'>Search by location</a>"; ?>
-                </div>
-            </td>   
+            <td/>   
             <td/>
             <td/>                   
 	      	<td class="campoBusqueda" align="right">

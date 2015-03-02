@@ -2,6 +2,7 @@
 <div style="display:flex;justify-content:center">
 
     
+    
     <div class="columnLeft">
       <div class="stickitColumna"><?php echo Resources::getText("col_izq_breeders_02"); ?></div>
       <div class="stickitColumna"><?php echo Resources::getText("col_izq_breeders_01"); ?></div>
@@ -13,12 +14,12 @@
     </div>    
 
     <div id="columnCenter"  class="columnCenter" style="margin-left:10px">
+    
+      <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/breeders/submenuBreeders.php' ?>
 	  
-      <div ng-controller="GeoListController as geoCtrl" style="border-color:green;border-style:solid" ng-init="setCountry('<?php echo $country; ?>')">
+      <div ng-controller="GeoListController as geoCtrl"  ng-init="setCountry('<?php echo $country; ?>')">
         <div style="padding:5px;width:100%;display:flex;flex-direction:row;justify-content:space-around">
           <div class="tituloFormBusqueda">Search for breeders in ... </div>
-          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/breeders/advancedList/".  $country; ?>'>Advanced Search</a>
-          <a  href='<?php echo  $GLOBALS['dirWeb'] . "/breeders/sitemap/".  $country; ?>'>Sitemap</a>  
         </div>
         <div ng-repeat="area1 in geoList.firstAreas" style="border-color:red;border-style:none;text-align:left;padding:5px;">
            <button class="butFirstArea2" ng-click="area1.collapsed = !area1.collapsed">{{area1.name}}</button>

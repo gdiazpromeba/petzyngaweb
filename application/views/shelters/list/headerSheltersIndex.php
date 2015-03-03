@@ -1,6 +1,6 @@
 <?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="geoFlatList">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,6 +25,10 @@
     <!--  jqPagination pagination plugin -->
 	<link rel="stylesheet" href="<?php echo URL; ?>public/csspagination/jqpagination.css" />
 	<script src="<?php echo URL; ?>public/jspagination/jquery.jqpagination.js"></script>    
+	
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+    <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/shelters/regionallist/app.js"></script>  	
     
     <script>
       function loadSecondArea(country,firstArea){
@@ -88,8 +92,7 @@
     
 
     <script>
-	  function initialize(data) {
-		  return true;
+	  function initializeMap(data, country) {
 		  var myLatlng = new google.maps.LatLng(-25.363882,131.044922);
 		  var mapOptions = {
 		    zoom: 4
@@ -124,7 +127,7 @@
 		          var contentString  ="<div style='font-weight:bold'>" + locations[i][0] + "</div><br/>";
 		          contentString +="<div style='font-color:gray'>" + locations[i][1] + "</div>";
 		          contentString +="<br/>";
-		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelters/info/<?php echo $_REQUEST['country']; ?>/" + locations[i][4] + "'>Details</a> \n";
+		          contentString +="<a class='detailMapInfoBox' href='" + Global.dirAplicacion + "/shelters/info/" + country + locations[i][4] + "'>Details</a> \n";
 	              infowindow.setContent(contentString);
 	              infowindow.open(map, marker);
 	            }
@@ -140,13 +143,16 @@
 
       $(document).ready(function() {
     	  $.when(checkSecondArea())
-    	    .then(showPage(1, true));
+    	    .then(function(){
+
+        	      //showPage(1);
+    	    });
           
 
 
 		   $("#firstArea").change(function(){
-                var country= document.frmBusqueda.country.value;
-                var first  = document.frmBusqueda.firstArea.value;
+                var country= document.getElementById("country").value;
+                var first  = document.getElementById("firstArea").value;
           	    if(first!=""){
           	      loadSecondArea(country, first);
           	    }else{
@@ -160,76 +166,86 @@
            * And, if there was a previous selection in this second combo, forces it again.
            */
            function checkSecondArea(){
-        	   var firstArea = document.frmBusqueda.firstArea.value;
+        	   var firstArea = document.getElementById("firstArea").value;
         	   if (firstArea!='' && firstArea !=null && firstArea!=undefined){
-        		   var country=document.frmBusqueda.country.value;
+        		   var country=document.getElementById("country").value;
         		   loadSecondArea(country,firstArea);
         	   }
            }
       
-    	   $('.pagination').jqPagination({
-    		   paged: function(page) {
-        		     showPage(page, false);
-    		   }
-    	   });
+   		$('.pagination').jqPagination({
+			link_string	: '/?page={page_number}',
+			max_page	: 40,
+			paged		: function(page) {
+				$("#hiddenPageNumber").val(page);
+				$("#hiddenPageNumber").trigger('input');
+			}
+		});
 
-		   function showPage(page, calculaCount) {
-			   var frm = document.frmBusqueda;
-			   var specialBreedId = frm.specialBreedId.value;
-			   var shelterName = frm.shelterName.value;
-			   var zipCode = frm.zipCode.value;
-			   var specialBreedId = frm.specialBreedId.value;
-			   var firstArea = frm.firstArea.value;
-			   var secondArea = frm.secondArea.value;
+//     	   var updateMaxPage = true;
 
-			   var params='?start=' + ((page-1) * 12);
-			   params+='&limit=12';
-			   if (specialBreedId!='') params+='&specialBreedId=' + specialBreedId;
-			   if (shelterName!='') params+='&shelterName=' + shelterName;
-			   if (zipCode!='') params+='&zipCode=' + zipCode;
-			   if (specialBreedId!='') params+='&specialBreedId=' + specialBreedId;
-			   if (firstArea!='') params+='&firstArea=' + firstArea;
-			   if (secondArea!='') params+='&secondArea=' + secondArea;
+// 		   function showPage(page) {
+// 			   var frm = document.frmBusqueda;
+// 			   var specialBreedId = frm.specialBreedId.value;
+// 			   var shelterName = frm.shelterName.value;
+// 			   var zipCode = frm.zipCode.value;
+// 			   var specialBreedId = frm.specialBreedId.value;
+// 			   var firstArea = frm.firstArea.value;
+// 			   var secondArea = frm.secondArea.value;
+
+// 			   var params='?start=' + ((page-1) * 12);
+// 			   params+='&limit=12';
+// 			   if (specialBreedId!='') params+='&specialBreedId=' + specialBreedId;
+// 			   if (shelterName!='') params+='&shelterName=' + shelterName;
+// 			   if (zipCode!='') params+='&zipCode=' + zipCode;
+// 			   if (specialBreedId!='') params+='&specialBreedId=' + specialBreedId;
+// 			   if (firstArea!='') params+='&firstArea=' + firstArea;
+// 			   if (secondArea!='') params+='&secondArea=' + secondArea;
 			   
-			   $("#regionalTable tr").remove();
+// 			   $("#regionalTable tr").remove();
                 
-			   var selectionUrl = '<?php echo $selectionUrl; ?>' + params;
-			   $.getJSON( selectionUrl, function( respuesta ) {
-				   initialize(respuesta.data);
-                   var rowCount = respuesta.total;  
-                   if (calculaCount){  
-                     var pageCount;
-                     var division= rowCount /12;
-                     if (division > Math.floor(division)){
-                       pageCount = Math.floor(division) + 1;
-                     }else{
-                	   pageCount = Math.floor(division);  
-                     }
-                     $('.pagination').jqPagination('option', 'max_page', pageCount);
-                   }
-				   $.each( respuesta.data, function( key, val ) {
-                     var html  =  "<tr>";
-                     html += "       <td class='shelterContainer'>" + val.name + "</td>"; 
-                     if ($.trim($("#zipCode").val()).length == 0){
-                       html += "     <td class='locacion'>" + val.adminArea2  +", " +  val.adminArea1 + "</td>";
-                     }else{
-                    	 html += "   <td>";
-                    	 html += "     <table><tr>";
-                    	 html += "       <tr>";
-                    	 html += "         <td class='locacion'>" + val.adminArea2 +", " +  val.adminArea1 +  "</td>";
-						 html += "         <td class='distancia'>"  + val.distanceMiles.toFixed(1) + '<?php echo " " . $distanceUnit; ?>' +  "</td>";
-						 html += "       </tr>";
-						 html += "     </table>";
-						 html += "   </td>";
-					 }
-					 var urlEncoded =  Global.dirAplicacion + "/shelters/info/" + document.frmBusqueda.country.value + "/" + val.urlEncoded;
-                     html += "       <td>  <a class='btnMoreDetails w90' href='#' onclick=navega('" +  urlEncoded + "')>Details</a></td>";
-					 html += "</tr>";
-					 $('#regionalTable > tbody:last').append(html);
-				   });
-			   });
+//			   var selectionUrl =
+// 			   $.getJSON( selectionUrl, function( respuesta ) {
+// 				   initialize(respuesta.data);
+//                    var rowCount = respuesta.total;
+//                    updatePaginatorMaxPage(rowCount);
+// 				   $.each( respuesta.data, function( key, val ) {
+//                      var html  =  "<tr>";
+//                      html += "       <td class='shelterContainer'>" + val.name + "</td>"; 
+//                      if ($.trim($("#zipCode").val()).length == 0){
+//                        html += "     <td class='locacion'>" + val.adminArea2  +", " +  val.adminArea1 + "</td>";
+//                      }else{
+//                     	 html += "   <td>";
+//                     	 html += "     <table><tr>";
+//                     	 html += "       <tr>";
+//                     	 html += "         <td class='locacion'>" + val.adminArea2 +", " +  val.adminArea1 +  "</td>";
+//						 html += "         <td class='distancia'>"  + val.distanceMiles.toFixed(1) + '<?php echo " " . $distanceUnit; ?>' +  "</td>";
+// 						 html += "       </tr>";
+// 						 html += "     </table>";
+// 						 html += "   </td>";
+// 					 }
+// 					 var urlEncoded =  Global.dirAplicacion + "/shelters/info/" + document.frmBusqueda.country.value + "/" + val.urlEncoded;
+//                      html += "       <td>  <a class='btnMoreDetails w90' href='#' onclick=navega('" +  urlEncoded + "')>Details</a></td>";
+// 					 html += "</tr>";
+// 					 $('#regionalTable > tbody:last').append(html);
+// 				   });
+// 			   });
 
-		   }
+// 		   };
+
+// 		   function updatePaginatorMaxPage(rowCount){
+// 			   if (updateMaxPage){
+//                  var pageCount;
+//                  var division= rowCount /12;
+//                  if (division > Math.floor(division)){
+//                    pageCount = Math.floor(division) + 1;
+//                  }else{
+//           	       pageCount = Math.floor(division);  
+//                  }
+//                  $('.pagination').jqPagination('option', 'max_page', pageCount);
+// 			   }
+//                updateMaxPage = false;
+// 	       };	
 
 
            $('#dogBreedName').autocomplete({
@@ -299,4 +315,3 @@
     </div>
     <?php include 'application/views/_templates/menu.php'?>
 
-    <?php include 'shelterLocations.php'?>

@@ -81,7 +81,10 @@
 
       $(document).ready(function() {
     	  $.when(checkSecondArea())
-    	    .then(showPage(1, true));
+    	    .then(function(){
+    	    	updateMaxPage = true;
+        	      showPage(1);
+    	    });
           
 
 
@@ -110,11 +113,14 @@
       
     	   $('.pagination').jqPagination({
     		   paged: function(page) {
-        		     showPage(page, false);
+        		     showPage(page);
+        		     
     		   }
     	   });
 
-		   function showPage(page, calculaCount) {
+    	   var updateMaxPage = false;
+
+		   function showPage(page) {
 			   var frm = document.frmBusqueda;
 			   var specialBreedId = frm.specialBreedId.value;
 			   var breederName = frm.breederName.value;
@@ -137,17 +143,8 @@
 			   var selectionUrl = '<?php echo $selectionUrl; ?>' + params;
 			   $.getJSON( selectionUrl, function( respuesta ) {
 				   initialize(respuesta.data);
-                   if (calculaCount){
-                     var rowCount = respuesta.total;  
-                     var pageCount;
-                     var division= rowCount /12;
-                     if (division > Math.floor(division)){
-                       pageCount = Math.floor(division) + 1;
-                     }else{
-                	   pageCount = Math.floor(division);  
-                     }
-                     $('.pagination').jqPagination('option', 'max_page', pageCount);
-                   }
+                   var rowCount = respuesta.total;  
+                   updatePaginatorMaxPage(rowCount);
 				   $.each( respuesta.data, function( key, val ) {
                      var html  =  "<tr>";
                      html += "       <td class='shelterContainer'>" + val.name + "</td>"; 
@@ -170,7 +167,21 @@
 				   });
 			   });
 
-		   }
+		   };
+
+		   function updatePaginatorMaxPage(rowCount){
+			   if (updateMaxPage){
+                 var pageCount;
+                 var division= rowCount /12;
+                 if (division > Math.floor(division)){
+                   pageCount = Math.floor(division) + 1;
+                 }else{
+          	       pageCount = Math.floor(division);  
+                 }
+                 $('.pagination').jqPagination('option', 'max_page', pageCount);
+			   }
+               updateMaxPage = false;
+	       };		   
 
 
            $('#dogBreedName').autocomplete({

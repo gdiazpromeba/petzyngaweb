@@ -1,26 +1,26 @@
 	<div id="busquedaShelters" style="background-color:#E8EDE9;width:310px">
       <img src="<?php echo URL . 'public/img/ajax-loader.gif'; ?>" id="imgEsperaShelters" style="display:none;z-index:10;position:absolute;top:300px;left:650px;" />
 	  
-	  <form name="frmBusqueda"   ng-controller="AdvSearchFormParamCtrl" style="display:flex;flex-direction:column;">
+	  <form name="frmBusqueda"    style="display:flex;flex-direction:column;">
 	    <input type="hidden" name="specialBreedId" id="specialBreedId" <?php if (isset($_REQUEST['specialBreedId'])) echo "value='" . $_REQUEST['specialBreedId'] . "'"; ?> />
 	    <input type="hidden" name="country" id="country" <?php echo "value='" . $_REQUEST['country'] . "'"; ?> />
 	    <input type="hidden" name="start"  <?php echo "value='" . $_REQUEST['start'] . "'"; ?> />
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="shelterName">By Name</label>
-	      <input class="shelterNameInput" type="text" name="shelterName" ng-model="formParams.shelterName"  />
+	      <input class="shelterNameInput" type="text" name="shelterName" ng-model="storage.formParams.shelterName"  />
 	    </div>
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="zipCode">By Zip Code</label>
-	      <input class="busquedaInput" type="text" name="zipCode"  ng-model="formParams.zipCode" />
+	      <input class="busquedaInput" type="text" name="zipCode"  ng-model="storage.formParams.zipCode" />
 	    </div>
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="dogBreedName">By Breed</label>
-	      <input class="busquedaInput" type="text" name="dogBreedName" ng-model="formParams.dogBreedName" />
+	      <input class="busquedaInput" type="text" name="dogBreedName" ng-model="storage.formParams.dogBreedName" />
 	    </div>
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="firstArea">By Location</label>
 	      <div style="display:flex;flex-direction:column;">
-            <select class="busquedaSelect" name="firstArea" id="firstArea" ng-model="formParams.firstArea">
+            <select class="busquedaSelect" name="firstArea" id="firstArea" ng-model="storage.formParams.firstArea">
               <?php 
                 foreach ($firstAreas as $area){
                   $areaSelected =  isset($_REQUEST['firstArea']) && ($area['value'] == $_REQUEST['firstArea']);
@@ -29,7 +29,7 @@
                 }
               ?>
             </select>
-            <select class="busquedaSelect" name="secondArea"  id="secondArea" ng-model="formParams.secondArea">
+            <select class="busquedaSelect" name="secondArea"  id="secondArea" ng-model="storage.formParams.secondArea">
             </select>
           </div>          	      
 	    </div>

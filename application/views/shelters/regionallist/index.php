@@ -19,7 +19,7 @@
       <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
 	  
 
-      <div ng-controller="GeoListController as geoCtrl"  ng-init="setCountry('<?php echo $country; ?>')">
+      <div ng-controller="GeoListController"  ng-init="setCountry('<?php echo $country; ?>')">
         <div style="padding:5px;width:100%;display:flex;flex-direction:row;justify-content:space-around">
           <div class="tituloFormBusqueda">Search for shelters in ... </div>
         </div>

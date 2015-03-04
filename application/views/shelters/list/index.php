@@ -20,7 +20,7 @@
          <div class="stickitColumna"><?php echo Resources::getText('col_der_03'); ?></div>
        </div>
        
-       <div id="columnCenter"  class="columnCenter" style="flex-direction:column">
+       <div id="columnCenter"  class="columnCenter" style="flex-direction:column" ng-controller="AdvSearchCtrl"  ng-init="initialize('usa')" >
  
  	        <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
  	        
@@ -46,8 +46,8 @@
 		    </div> 
 		
 		    <div class="marcoFijoTablaPaginada">
-		      <div ng-controller="AdvSearchPicTableCtrl" ng-init="initialize('usa')">
-		        <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="page"  style="width: 80px"/>
+		      <div>
+		        <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="storage.page"  style="width: 80px"/>
 		        <div ng-repeat="fila in tableData" class="resultRowContainer">
 		          <div class="shelterContainer">{{fila.name}}</div>
 		          <div class="locacion">{{fila.adminArea2}}, {{fila.adminArea1}}</div>

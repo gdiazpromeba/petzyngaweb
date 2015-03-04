@@ -458,7 +458,7 @@ td.distancia{
 }
 
 .locacion{
-	width: 250px;
+	width: 190px;
 	text-align:left; 
 }
 
@@ -490,7 +490,7 @@ a.detailMapInfoBox:hover{
 
 
 img.detailShelterAncha{
-	width:750px;
+	width:550px;
 }
 
 img.detailShelter{

@@ -1,8 +1,8 @@
 
   <div class="navigation-div">
-    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/"><h1 style="padding-left:50px">HOME</h1></a></span>
-    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/dogbreeds"><h1>DOG BREEDS</h1></a></span>
-    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/shelters/countries"><h1>SHELTERS</h1></a></span>
-    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/breeders/countries"><h1>BREEDERS</h1></a></span>
-    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/latestnews"><h1>ARTICLES</h1></a></span>
+    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/">HOME</a></span>
+    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/dogbreeds">DOG BREEDS</a></span>
+    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/shelters/countries">SHELTERS</a></span>
+    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/breeders/countries">BREEDERS</a></span>
+    <span class="menuItem"><a href="<?php  echo  $GLOBALS['dirWeb']; ?>/latestnews">ARTICLES</a></span>
   </div>

@@ -24,6 +24,7 @@
     
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
     <!--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css"> -->
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>
     <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/shelters/regionallist/app.js"></script>    
    
     

@@ -1,10 +1,10 @@
 (function(){
 
 
-  var app = angular.module('geoFlatList', []);
+  var app = angular.module('geoFlatList', ['ngStorage']);
   
   
-  app.controller('GeoListController', function($scope, $http){
+  app.controller('GeoListController',  ['$scope', '$http', function($scope, $http){
     $scope.lastSelectedSecondArea={};
     
     $scope.geoList = [];
@@ -27,27 +27,34 @@
         .then(function(result) {
           $scope.geoList = result.data;
         });      	
-    }
+    };
     
     
-  });
+  }]);
   
-  app.controller('AdvSearchPicTableCtrl', ['$scope', '$rootScope', '$log', '$http', function($scope, $rootScope, $log, $http){
+  app.controller('AdvSearchCtrl', ['$scope', '$rootScope', '$log', '$http', '$localStorage', function($scope, $rootScope, $log, $http, $localStorage){
+	  
+	 $scope.storage=$localStorage;
 	  
       $scope.usaDistancia = true;
 	  
 	  $scope.initialize = function(country){
 		$log.info("en init"); 
-		$scope.page=1;
 		$scope.connectorUrl = Global.dirCms + "/svc/conector/shelters" +  country.charAt(0).toUpperCase() + country.slice(1)  + ".php/seleccionaUniversal";
-		$scope.formParams={};
+		if ($scope.storage.formParams==undefined){
+			$log.info('reconstruye formParams');
+			$scope.storage.formParams={};
+			$scope.storage.page=1;
+			$scope.callService(true);
+		}
+		
 	  };
 	  
 	  $scope.$watch(function() {
-		  return $scope.page;
+		  return $scope.storage.page;
 		}, function(newValue, oldValue) {
-			$scope.page=newValue;
-			$scope.callService(false);
+			  //$scope.storage.page=newValue;
+			  $scope.callService(false);
 	  });	 
 	  
 	  /**
@@ -90,35 +97,33 @@
 	    $scope.buildUrl=function(){
 	    	var url=$scope.connectorUrl;
 	    	url +="?latitude=0&longitude=0";
-	    	url +='&start=' + (($scope.page-1) * 10);
+	    	url +='&start=' + (($scope.storage.page-1) * 10);
 	    	url +='&limit=10';
-	    	if (typeof($scope.formParams.shelterName)!='undefined'){
-	    		url +='&shelterName=' + $scope.formParams.shelterName;	
-	    	}
-	    	if (typeof($scope.formParams.zipCode)!='undefined'){
-	    		url +='&zipCode=' + $scope.formParams.zipCode;
+	    	if ($scope.storage.formParams!=undefined){
+	    	  if (typeof($scope.storage.formParams.shelterName)!='undefined'){
+	    		url +='&shelterName=' +$scope.storage.formParams.shelterName;	
+	    	  }
+	    	  if (typeof($scope.storage.formParams.zipCode)!='undefined'){
+	    		url +='&zipCode=' +$scope.storage.formParams.zipCode;
 	    		$scope.usaDistancia = true;
-	    	}else{
+	    	  }else{
 	    		$scope.usaDistancia = false;
+	    	  }
+	    	  if (typeof($scope.storage.formParams.dogBreedName)!='undefined'){
+	    		url +='&dogBreedName=' +$scope.storage.formParams.dogBreedName;	
+	    	  }	    	
+	    	  if (typeof($scope.storage.formParams.firstArea)!='undefined'){
+	    		url +='&firstArea=' +$scope.storage.formParams.firstArea;	
+	    	  }	
+	    	  if (typeof($scope.storage.formParams.secondArea)!='undefined'){
+	    		url +='&secondArea=' +$scope.storage.formParams.secondArea;	
+	    	  }
 	    	}
-	    	if (typeof($scope.formParams.dogBreedName)!='undefined'){
-	    		url +='&dogBreedName=' + $scope.formParams.dogBreedName;	
-	    	}	    	
-	    	if (typeof($scope.formParams.firstArea)!='undefined'){
-	    		url +='&firstArea=' + $scope.formParams.firstArea;	
-	    	}	
-	    	if (typeof($scope.formParams.secondArea)!='undefined'){
-	    		url +='&secondArea=' + $scope.formParams.secondArea;	
-	    	}	    	
 	    	$log.info(url);
 	    	return url;
 	    };
 	  
-	    $rootScope.$on('AdvSearchFormButtonClicked', function($event, $formParams){
-	    	$scope.formParams=$formParams;  //paso una variable "formParams" también a este controller
-	    	$scope.callService(true);
-	    	
-	    });
+
 	    
 	    $scope.itemClicked=function(nameEncoded){
 		  $rootScope.$broadcast('itemClicked', nameEncoded);
@@ -126,23 +131,20 @@
 	    
 	    
     
-    //$log.info("la página es " + $scope.page);
+
+		  
+		  $scope.buttonClick=function(){
+			  $scope.callService(true);
+		  }
+		  
+		  $scope.reset=function(){
+			  $scope.storage.$reset({});
+		  }	
   
     
   }]); 
   
-  app.controller('AdvSearchFormParamCtrl', ['$scope',  '$rootScope', function($scope, $rootScope){
-	  $scope.formParams={};
-	  
-	  $scope.buttonClick=function(){
-		  $rootScope.$broadcast('AdvSearchFormButtonClicked', $scope.formParams);
-	  }
-	  
-	  $scope.reset=function(){
-		  $scope.formParams={};
-	  }	  
-	  
-  }]);   
+
   
   
   

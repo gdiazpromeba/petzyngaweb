@@ -20,7 +20,7 @@
          <div class="stickitColumna"><?php echo Resources::getText('col_der_03'); ?></div>
        </div>
        
-       <div id="columnCenter"  class="columnCenter" style="flex-direction:column" ng-controller="AdvSearchCtrl"  ng-init="initialize('usa')" >
+       <div id="columnCenter"  class="columnCenter" style="flex-direction:column" ng-controller="AdvSearchCtrl"  ng-init="initialize(<?php echo $_REQUEST["ctrlParams"]; ?>)" >
  
  	        <?php include $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/views/shelters/submenuShelters.php' ?>
  	        
@@ -50,7 +50,7 @@
 		        <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="storage.page"  style="width: 80px"/>
 		        <div ng-repeat="fila in tableData" class="resultRowContainer">
 		          <div class="shelterContainer">{{fila.name}}</div>
-		          <div class="locacion">{{fila.adminArea2}}, {{fila.adminArea1}}</div>
+		          <div class="locacion">{{fila.locacion}}</div>
 		          <div ng-show="usaDistancia==true" class="distancia">{{fila.distanciaFormateada}}</div>
 		          <a class='btnMoreDetails w90' href='{{fila.urlCompleta}}'>Details</a>
 		        </div>

@@ -37,9 +37,21 @@
 	 $scope.storage=$localStorage;
 	  
       $scope.usaDistancia = true;
+      
+	  /**
+	   * si el país cambia, debe resetearse todo el caché
+	   */
+      $scope.$watch(function() {
+		  return $scope.country;
+		}, function(newValue, oldValue) {
+			  $scope.storage.reset();
+	  });      
+      
 	  
 	  $scope.initialize = function(country){
 		$log.info("en init"); 
+		$scope.country = country;
+		$scope.storage.$reset();
 		$scope.connectorUrl = Global.dirCms + "/svc/conector/shelters" +  country.charAt(0).toUpperCase() + country.slice(1)  + ".php/seleccionaUniversal";
 		if ($scope.storage.formParams==undefined){
 			$log.info('reconstruye formParams');
@@ -138,7 +150,7 @@
 		  }
 		  
 		  $scope.reset=function(){
-			  $scope.storage.$reset({});
+			  $scope.storage.formParams={};
 		  }	
   
     

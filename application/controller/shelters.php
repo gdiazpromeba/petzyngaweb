@@ -95,7 +95,7 @@ class Shelters extends Controller{
     
     
     public function advancedList($country){
-
+        
     	$ctrl=null;
     	switch ($country){
     		case "usa":
@@ -124,7 +124,7 @@ class Shelters extends Controller{
     			break;
     	}
     	
-
+          $_REQUEST["ctrlParams"]= "'$country'";
     	  $ctr->iniciaAvanzada();
     	
     }

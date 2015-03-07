@@ -99,7 +99,7 @@ h2, h3, footer p {
 
 .busquedaInput{
 	font-size: 12px;
-	width: 7.7em;
+	width: 200px;
 	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
@@ -405,6 +405,7 @@ div.siteDescription{
 	order:2;
 	flex-grow:2;
 	width:500px;
+	margin-left:10px;
 }
 
 .stickitColumna{
@@ -436,21 +437,21 @@ div.marcoFijoTablaPaginada{
 }
 
 .shelterContainer{
-	height: 30px;
-	text-align:left;
-	padding:5px;
+	text-align:left;;
 	width:300px;
 }
 
 .resultRowContainer{
+	border: 1px solid #999;
 	padding:5px;
 	display:flex;
 	flex-direction:row;
 	justify-content:space-around;
-	padding:5px;		
+	padding:5px;	
+	height: 40px;	
 }
 
-td.distancia{
+.distancia{
 	width: 100px;
 	color:#a9b93c; /* verde claro */
 	text-align:right; 
@@ -462,6 +463,10 @@ td.distancia{
 	text-align:left; 
 }
 
+.textoElementoResultado{
+	vertical-align:-50%;
+}
+
 a.btnMoreDetails{
 	background: #2ba9bd;
     color: #FFF;
@@ -469,9 +474,6 @@ a.btnMoreDetails{
     font-weight: bold;
     text-decoration: none;   
     border-radius: 8px;
-    padding: 3px;
-    vertical-align:middle;
-    padding-top: 8px;
     width: 55px;
 }
 
@@ -760,6 +762,16 @@ div.closeButton{
 	display:flex;
 	flex-direction:row;
 	padding:5px;
+}
+
+.botonPaginador{
+	font-size:14px;
+}
+
+.leyendaPaginador{
+	border-top:    1px solid #999;
+	border-bottom:    1px solid #999;
+	width: 150px;
 }
 
 

@@ -111,6 +111,10 @@
 	  
   }]); 
   
+
+  
+  
+
   app.controller('DetailCtrl', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
 	  $scope.details={};
 	  $scope.visible=false;
@@ -212,7 +216,7 @@
 
 	  app.directive('dogBreedDetails', function() {
 		  return {
-			  restrict : 'E',
+			  restrict : 'E',		  
 			  templateUrl : Global.dirAplicacion + "/public/js/dogbreeds/dog-breed-details.html",
 		  }
 		});

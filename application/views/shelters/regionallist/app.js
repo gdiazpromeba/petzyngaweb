@@ -51,7 +51,6 @@
 	  $scope.initialize = function(country){
 		$log.info("en init"); 
 		$scope.country = country;
-		$scope.storage.$reset();
 		$scope.connectorUrl = Global.dirCms + "/svc/conector/shelters" +  country.charAt(0).toUpperCase() + country.slice(1)  + ".php/seleccionaUniversal";
 		if ($scope.storage.formParams==undefined){
 			$log.info('reconstruye formParams');
@@ -60,6 +59,7 @@
 			$scope.callService(true);
 		}
 		
+		
 	  };
 	  
 	  $scope.$watch(function() {
@@ -67,7 +67,9 @@
 		}, function(newValue, oldValue) {
 			  //$scope.storage.page=newValue;
 			  $scope.callService(false);
-	  });	 
+	  });
+	  
+
 	  
 	  /**
 	   * el parámetro "reset" indica si se debe correr el cursor a la primera página 
@@ -141,9 +143,6 @@
 		  $rootScope.$broadcast('itemClicked', nameEncoded);
 	    }
 	    
-	    
-    
-
 		  
 		  $scope.buttonClick=function(){
 			  $scope.callService(true);

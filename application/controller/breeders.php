@@ -90,6 +90,8 @@ class Breeders extends Controller{
     			break;
     				
     	}
+    	$_REQUEST["ctrlParams"]= "'$country'";
+    	
     	$ctr->iniciaAvanzada();
 
     }    

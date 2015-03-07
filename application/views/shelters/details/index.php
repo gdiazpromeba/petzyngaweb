@@ -19,7 +19,7 @@
          <div class="stickitColumna"><?php echo Resources::getText('col_der_03'); ?></div>
        </div>
        
-       <div id="columnCenter"  class="columnCenter" style="flex-direction:column" ng-controller="AdvSearchCtrl"  ng-init="initialize('usa')" >
+       <div id="columnCenter"  class="columnCenter" style="flex-direction:column">
 
     
 		        <br/>

@@ -94,7 +94,7 @@
 
 
          <div ng-controller="DetailCtrl">
-           <dog-breed-details></dog-breed-details>
+           <dog-breed-details item="details"></dog-breed-details>
          </div>
 	         
 	          

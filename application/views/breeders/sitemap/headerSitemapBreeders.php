@@ -1,6 +1,6 @@
 <?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
-<html lang="en" ng-app="areaShelters">
+<html lang="en" ng-app="sitemapBreeders">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

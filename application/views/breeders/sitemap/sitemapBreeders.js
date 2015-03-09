@@ -1,7 +1,7 @@
 (function(){
 
 
-  var sitemapBreeders = angular.module('areaShelters', []);
+  var sitemapBreeders = angular.module('sitemapBreeders', []);
   
   
 

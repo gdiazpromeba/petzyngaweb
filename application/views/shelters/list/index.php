@@ -36,27 +36,32 @@
  	          </div>
 			</div>
 			
+			
+		     <div id="paginador" style="display:flex;flex-direction:row;margin-left:300px" ng-controller="PageCtrl">
+		      <button ng-click="back()" class="botonPaginador">&lsaquo;</button>
+		      <div class="leyendaPaginador"">Page {{page}} of {{pageCount}}</div>
+		      <button ng-click="forward()" class="botonPaginador">&rsaquo;</button> 
+		    </div>
+			
 		    <br/>
-		    <div class="pagination">
-			    <a href="#" class="first" data-action="first">&laquo;</a>
-			    <a href="#" class="previous" data-action="previous">&lsaquo;</a>
-			     <input type="text" readonly="readonly" data-max-page="40" />
-			    <a href="#" class="next" data-action="next">&rsaquo;</a>
-			    <a href="#" class="last" data-action="last">&raquo;</a>
-		    </div> 
+
+		    
+
 		
 		    <div class="marcoFijoTablaPaginada">
 		      <div>
 		        <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="storage.page"  style="width: 80px"/>
-		        <div ng-repeat="fila in tableData" class="resultRowContainer">
-		          <div class="shelterContainer">{{fila.name}}</div>
-		          <div class="locacion">{{fila.locacion}}</div>
-		          <div ng-show="usaDistancia==true" class="distancia">{{fila.distanciaFormateada}}</div>
-		          <a class='btnMoreDetails w90' href='{{fila.urlCompleta}}'>Details</a>
+		        <div ng-repeat="fila in storage.tableData" class="resultRowContainer">
+		          <div class="shelterContainer"><span class="textoElementoResultado">{{fila.name}}</span></div>
+		          <div class="locacion"><span class="textoElementoResultado">{{fila.locacion}}</span></div>
+		          <div ng-show="usaDistancia==true" class="distancia"><span class="textoElementoResultado">{{fila.distanciaFormateada}}</span></div>
+		          <a class='btnMoreDetails w90' href='{{fila.urlCompleta}}'><span class="textoElementoResultado">Details</span></a>
 		        </div>
 		      </div>
 		    </div>
+	    
 	
       </div>
       
     </div>
+

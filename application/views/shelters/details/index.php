@@ -81,38 +81,37 @@
 					  ?>
 			    </div>
 			    
-			    <?php
-			      if (!empty($dogBreeds)){
-		            echo "<br/>";
-		            echo "<div class='shelterDescriptionTitle'>This shelter focuses on the following breeds</div>";
-		  
-		            echo "<table class='picturesTable'>";
-		            $keys = array_keys($dogBreeds);
-		            $index=0;
-		            for ($row=0; $row <4 && $index < count($keys) ; $row++){
-		            	echo "<tr> \n";
-		            	for ($col=0; $col<3 && $index < count($keys) ; $col++){
-		            		$bean=$dogBreeds[$keys[$index]];
-		            		echo "<td class='tdPictureContainer'> \n";
-		            		echo "<div class='pictureContainer'> \n";
-		            		echo "  <a href='" . URL . "dogbreeds/info/" . str_replace(" ", "_", $bean->getNombre()) . "'>\n";
-		            		echo "    <table class='pictureInternalTable'> \n";
-		            		echo "      <tr><td class='pictureTitle'>" . $bean->getNombre() . "</td></tr> \n";
-		            		echo "      <tr><td><img class='breedImage' src='" . $GLOBALS['dirAplicacion'] . "/resources/images/breeds/" . $dogBreeds[$keys[$index]]->getPictureUrl() . "'></td></tr>";
-		            		echo "    </table> \n";
-		            		echo "  </a> \n";
-		            		echo "</div>";
-		            		echo "</td> \n";
-		            
-		            		$index++;
-		            	}
-		            	echo "</tr> \n";
-		            }
-		            echo "</table>";
-		          } 
-		        ?> 
-	    
+			    <br/>
+			    <br/>
+			    
+                <div ng-controller="RelatedDogBreedsCtrl" ng-init="setShelterId('<?php echo $info->getId(); ?>')" >
+                  
+                  <div ng-show="breeds.length>0"  class='shelterDescriptionTitle'>This shelter focuses on the following breeds</div>
 
+                  <div style="display:flex;flex-direction:row;flex-wrap:wrap"> 
+  
+	
+	                    
+	                   
+		                <div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)" ng-repeat="breed in breeds" >
+		                  <div data-nombreCodificado='{{breed.nameEncoded}}'></div> 
+		                  <div class="pictureTitleAlpha">{{breed.name}}</div>
+		                  <div><img class="breedImage" ng-src="{{breed.fullPictureUrl}}"/></div>
+		                </div>              
+	              
+	                   
+	                
+	                  
+	               </div>
+                  
+                          
+                  
+                </div> 
+	    
+	   
+         <div ng-controller="DetailCtrl">
+           <dog-breed-details></dog-breed-details>
+         </div>
   
        </div> <!--  columnCenter -->
      </div>

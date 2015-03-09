@@ -80,10 +80,7 @@
 
       $(document).ready(function() {
 
-          
-    	  if ($('#dogBreedName').length ) {
-    		   console.log("sí, el dogbreedname existe");
-    		}
+
 
 
 
@@ -102,7 +99,11 @@
            
       });
       
-    </script>   
+    </script>  
+    
+
+    
+     
     
 <style>
 .ui-menu .ui-menu-item {

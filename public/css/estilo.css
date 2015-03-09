@@ -28,13 +28,12 @@ html, body {
   font-family: 'Dosis', arial, serif;
   font-size: 16px;
   height: 50px;
-  background-color: olive;
   width: 100%;
   display:table;
 }
 .navigation-div a:link, .navigation-div a:visited {
     text-decoration: none;
-    color:white;
+    color: #1e6b88;
 }
 
 span.menuItem { 
@@ -73,8 +72,7 @@ h1 {
 }
 
 #footer {
-	color: white;
-	background-color: olive;
+	color: #1e6b88;
     width:  100%;
     margin: 0 auto;
 }
@@ -363,11 +361,10 @@ div.siteDescription{
 	height: 26px;
 	padding-left:10px;'
 	font-family:Dosis;
-	font-size: 16px;
-	color: white;
-	background-color: olive;
+	font-size: 20px;
+	color: #1e6b88;;
 	padding-top:2px;
-	text-align:left;
+	text-align:center;
 	letter-spacing:1px;
 }
 
@@ -753,7 +750,7 @@ div.closeButton{
 
 .vinculoSubmenu{
 	padding:10px;
-	color:olive;
+	color:#1e6b88;
 	text-decoration:none;
 }
 

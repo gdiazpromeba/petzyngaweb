@@ -29,7 +29,7 @@
 		        <div class="area2Title">{{area2TypeName}} : {{area2}}</div>
 		      </div>
 		      <div class="areaItemContainer" ng-repeat="item in items">
-		        <a href="{{urlPrefix}}{{item.urlEncoded}}">{{item.name}}</a>
+		        <a href="{{item.url}}">{{item.name}}</a>
 		      </div>
 		    </div>
 
@@ -39,7 +39,7 @@
 		        <div class="area1Title">{{area1TypeName}} : {{area1}}</div>
 		      </div>
 		      <div class="areaItemContainer" ng-repeat="item in items">
-		        <a href="{{item.urlEncoded}}">{{item.name}}</a>
+		        <a href="{{item.urlEncoded}}">{{item.label}}</a>
 		      </div>
 		    </div>
 		    
@@ -48,7 +48,7 @@
 		        <div class="countryTitle">Search for shelters in {{countryName}}</div>
 		      </div>
 		      <div class="areaItemContainer" ng-repeat="item in items">
-		        <a href="{{item.urlEncoded}}">{{item.name}}</a>
+		        <a href="{{item.urlEncoded}}">{{item.label}}</a>
 		      </div>
 		    </div>		    
 		    

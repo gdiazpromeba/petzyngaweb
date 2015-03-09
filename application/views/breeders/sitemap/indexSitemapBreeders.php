@@ -24,7 +24,7 @@
 
 		  <div ng-controller="MainController" ng-init="initialize(<?php echo $initParams;?>)">
 		    {{showPanels}}
-		    <div ng-show="showPanel=='Items'">
+		    <div ng-show="showPanel=='Items'" >
 		      <div class="areaHeader">
 		        <div class="countryTitle">Search for breeders in {{countryName}}</div>
 		        <div class="area1Title">{{area1TypeName}} : {{area1}}</div>
@@ -47,22 +47,22 @@
 		      </div>
 		    </div>		    
 
-		    <div ng-show="showPanel=='Areas2'">
+		    <div ng-show="showPanel=='Areas2'" >
 		      <div class="areaHeader">
 		        <div class="countryTitle">Search for breeders in {{countryName}}</div>
 		        <div class="area1Title">{{area1TypeName}} : {{area1}}</div>
 		      </div>
 		      <div class="areaItemContainer" ng-repeat="item in items">
-		        <a href="{{item.urlEncoded}}">{{item.name}}</a>
+		        <a href="{{item.urlEncoded}}">{{item.label}}</a>
 		      </div>
 		    </div>
 		    
-		    <div ng-show="showPanel=='Areas1'">
+		    <div ng-show="showPanel=='Areas1'" >
 		      <div class="areaHeader">
 		        <div class="countryTitle">Search for breeders in {{countryName}}</div>
 		      </div>
 		      <div class="areaItemContainer" ng-repeat="item in items">
-		        <a href="{{item.urlEncoded}}">{{item.name}}</a>
+		        <a href="{{item.urlEncoded}}">{{item.label}}</a>
 		      </div>
 		    </div>		    
 		    

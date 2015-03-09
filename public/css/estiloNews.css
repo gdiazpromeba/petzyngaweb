@@ -28,9 +28,6 @@
 div.newsContainer{
 	text-align: left;
 	padding-top: 10px;
-	padding-bottom: 10px;
-	background: #dddddd;
-    border-radius: 25px;
     margin: 10px;
     padding: 10px;
 }

@@ -85,14 +85,14 @@
                   
                   <div ng-show="breeds.length>0"  class='shelterDescriptionTitle'>This breeder specializes on the following breeds</div>
 
-                  <div style="display:flex;flex-direction:row;justify-content:center" ng-repeat="breed in breeds" >
+                  <div style="display:flex;flex-direction:row;flex-wrap:wrap"  >
 
                     
                    
-	                <div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)">
+	                <div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)" ng-repeat="breed in breeds">
 	                  <div data-nombreCodificado='{{breed.nameEncoded}}'></div> 
 	                  <div class="pictureTitleAlpha">{{breed.name}}</div>
-	                  <div><img class="breedImageAlpha" ng-src="{{breed.fullPictureUrl}}"/></div>
+	                  <div><img class="breedImage" ng-src="{{breed.fullPictureUrl}}"/></div>
 	                </div>              
               
                    

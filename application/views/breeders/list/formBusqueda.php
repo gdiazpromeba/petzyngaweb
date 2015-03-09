@@ -5,16 +5,21 @@
 	    <input type="hidden" name="country2"  ng-model="storage.country2"/>
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="breederName">By Name</label>
-	      <input class="busquedaInput" type="text" name="breederName" ng-model="storage.formParams.breederName"  />
 	    </div>
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="zipCode">By Zip Code</label>
 	      <input class="busquedaInput" type="text" name="zipCode"  ng-model="storage.formParams.zipCode" />
 	    </div>
 	    <div class="formFieldContainer">
-	      <label class="labelBusqueda" for="dogBreedName">By Breed</label>
-	      <input class="busquedaInput"  type="text" name="dogBreedName" id="dogBreedName" ng-model="storage.formParams.dogBreedName" />
-	    </div>
+	      <label class="labelBusqueda" for="dogBreed">By Breed</label>
+	      <div style="display:flex;flex-direction:column;">
+		    <div>
+		      <select class="busquedaSelect" ng-model="storage.formParams.dogBreedId"
+		          ng-options="c.dogBreedId as c.dogBreedName for c in storage.dogBreeds" >
+		      </select>
+		    </div>	
+          </div>          	      
+	    </div>	    
 	    <div class="formFieldContainer">
 	      <label class="labelBusqueda" for="firstArea">By Location</label>
 	      <div style="display:flex;flex-direction:column;">
@@ -38,6 +43,10 @@
 	        <input type="button" ng-click="reset()" value="Reset" class="busquedaBotones" />
 	      </div>
 	    </div>
+
+
+	    
+	    
 	  </form>
 
 	</div>

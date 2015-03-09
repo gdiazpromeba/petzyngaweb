@@ -40,7 +40,7 @@
 		     <div id="paginador" style="display:flex;flex-direction:row;margin-left:300px" ng-controller="PageCtrl">
 		      <button ng-click="back()" class="botonPaginador">&lsaquo;</button>
 		      <div class="leyendaPaginador"">Page {{page}} of {{pageCount}}</div>
-		      <button ng-click="forward()">&rsaquo;</button> 
+		      <button ng-click="forward()" class="botonPaginador">&rsaquo;</button> 
 		    </div>
 			
 		    <br/>

@@ -96,7 +96,7 @@ class Breeders extends Controller{
 
     }    
     
-    public function sitemap($country, $area1Value, $area2Value, $breed){
+    public function sitemap($country, $area1Value, $breed){
     
     	switch ($country){
     		case "usa":
@@ -138,22 +138,19 @@ class Breeders extends Controller{
     	}
     
 
-    	if ($country!=null && $area1Value!=null && $area2Value!=null && $breed!= null ){
+    	if ($country!=null && $area1Value!=null && $breed!= null ){
 		 
-    		$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "','" . $breed . "'";
+    		$initParams="'".  $country . "','" . $area1Value . "','" . $breed . "'";
     	 
-    	}elseif ($country!=null && $area1Value!=null && $area2Value!=null){
+    	}elseif ($country!=null && $area1Value!=null){
   		 
-    		$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "', null";
+    		$initParams="'".  $country . "','" . $area1Value . "', null";
     
-    	}else if ($country!=null && $area1Value!=null){
-    		$area1Value=urldecode($area1Value);
-    		 
-    		$initParams="'".  $country . "','" . $area1Value . "',null, null";
+
     	}else if ($country!=null){
-    		$area1Value=urldecode($area1Value);
+
     		 
-    		$initParams="'".  $country . "', null, null, null";
+    		$initParams="'".  $country . "', null,  null";
     	}
     
         $_REQUEST["country"]=$country;

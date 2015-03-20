@@ -181,7 +181,7 @@ span.navegacionPaginas{
 	font-family: "Dosis";
 }
 
-/* form de búsqueda */
+/* form de bï¿½squeda */
 td.submitButtons{
 	align:right;
 }
@@ -395,7 +395,7 @@ div.siteDescription{
 	/* border-style:solid;  */
 	/*  border-color:red; */
 	padding-right:10px;
-	/* más ancha y con padding a la derecha para compensar la sombra de los stickits*/
+	/* mï¿½s ancha y con padding a la derecha para compensar la sombra de los stickits*/
 }
 
 .columnCenter{
@@ -696,12 +696,9 @@ div.closeButton{
 }
 
 .areaHeader{
-  border-style:solid;
-  background-color:#D9D9DB;
-  color:#10203A;
-  border-width:1px;
-  border-radius:3px;
-  margin:3px;	
+  margin:3px;
+  margin-bottom:20px;	
+  font-weight:900;
 }
 
 .countryTitle{
@@ -725,10 +722,26 @@ div.closeButton{
 	margin-bottom:5px;
 }
 
+.areaItemsContainer{
+	display:flex;
+	flex-align:row;
+	flex-wrap: wrap;
+	margin-left: 20px;
+}
+
 .areaItemContainer{
 	padding:4px;
 	font-size:16px;
 	text-align:center;
+	width:45%;
+}
+
+.areaItemContainerFull{
+	padding:4px;
+	font-size:16px;
+	text-align:center;
+	width:95%;
+	
 }
 
 .dogPurposeDescription{

@@ -129,8 +129,72 @@ class Shelters extends Controller{
     	
     }
     
+    public function sitemap2($country, $area1Value, $area2Value){
     
-    public function sitemap($country, $area1Value, $area2Value){
+    	switch ($country){
+    		case "usa":
+    			$headerTitleKey =  "shelters_in_usa_title";
+    			$headerTextKey =  "shelters_in_usa_content";
+    			$metaDescriptionKey = "meta_description_shelters_usa";
+    			$metaKeywordsKey = "meta_keywords_shelters_usa";
+    			break;
+    		case "uk":
+    			$headerTitleKey =  "shelters_in_uk_title";
+    			$headerTextKey =  "shelters_in_uka_content";
+    			$metaDescriptionKey = "meta_description_shelters_uk";
+    			$metaKeywordsKey = "meta_keywords_shelters_uk";
+    			break;
+    		case "japan":
+    			$headerTitleKey =  "shelters_in_japan_title";
+    			$headerTextKey =  "shelters_in_japan_content";
+    			$metaDescriptionKey = "meta_description_shelters_japan";
+    			$metaKeywordsKey = "meta_keywords_shelters_japan";
+    			break;
+    		case "canada":
+    			$headerTitleKey =  "shelters_in_japan_title";
+    			$headerTextKey =  "shelters_in_japan_content";
+    			$metaDescriptionKey = "meta_description_shelters_japan";
+    			$metaKeywordsKey = "meta_keywords_shelters_japan";
+    			break;
+    		case "india":
+    			$headerTitleKey =  "shelters_in_india_title";
+    			$headerTextKey =  "shelters_in_india_content";
+    			$metaDescriptionKey = "meta_description_shelters_india";
+    			$metaKeywordsKey = "meta_keywords_shelters_india";
+    			break;
+    		case "china":
+    			$headerTitleKey =  "shelters_in_china_title";
+    			$headerTextKey =  "shelters_in_china_content";
+    			$metaDescriptionKey = "meta_description_shelters_china";
+    			$metaKeywordsKey = "meta_keywords_shelters_china";
+    			break;
+    	}
+    
+    	 
+    	 
+    	if ($country!=null && $area1Value!=null && $area2Value!=null){
+    		//     		$area1Value=urldecode($area1Value);
+    		//     		$area2Value=urldecode($area2Value);
+    		 
+    		$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "'";
+    
+    	}else if ($country!=null && $area1Value!=null){
+    		$area1Value=urldecode($area1Value);
+    		 
+    		$initParams="'".  $country . "','" . $area1Value . "',null";
+    	}else if ($country!=null){
+    		$area1Value=urldecode($area1Value);
+    		 
+    		$initParams="'".  $country . "', null, null";
+    	}
+    
+    	$_REQUEST["country"] = $country;
+    
+    	require 'application/views/shelters/sitemap/headerSitemapShelters.php';
+    	require 'application/views/shelters/sitemap/indexSitemapShelters.php';
+    	require 'application/views/_templates/footer.php';
+    }   
+    public function sitemap($country, $area1Value){
     	 
     	 switch ($country){
     	 	case "usa":
@@ -173,20 +237,17 @@ class Shelters extends Controller{
     	 
        	 
     	
-    	if ($country!=null && $area1Value!=null && $area2Value!=null){
+    	if ($country!=null && $area1Value!=null ){
 //     		$area1Value=urldecode($area1Value);
 //     		$area2Value=urldecode($area2Value);
     	
-	    	$initParams="'".  $country . "','" . $area1Value . "','" . $area2Value . "'";
+	    	$initParams="'".  $country . "','" . $area1Value . "'";
 
-    	 }else if ($country!=null && $area1Value!=null){
-    		$area1Value=urldecode($area1Value);
-    	
-	    	$initParams="'".  $country . "','" . $area1Value . "',null";
+ 
     	 }else if ($country!=null){
-    		$area1Value=urldecode($area1Value);
+
     	
-	    	$initParams="'".  $country . "', null, null";
+	    	$initParams="'".  $country . "', null";
     	 }
 	    	
     	 $_REQUEST["country"] = $country;

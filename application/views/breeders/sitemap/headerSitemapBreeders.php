@@ -24,7 +24,7 @@
 	
 	<!-- angular -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-	<script type="text/javascript" src="<?php echo URL; ?>/application/views/breeders/sitemap/sitemapBreeders.js"></script>  	
+	<script type="text/javascript" src="<?php echo URL; ?>application/views/breeders/sitemap/sitemapBreeders.js"></script>  	
     
   
     

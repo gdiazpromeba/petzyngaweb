@@ -24,7 +24,7 @@
           <div style="display:flex;flex-direction:row;flex-wrap:wrap;height:500px;justify-content:space-around">
             
             <div style="width:200px;height:200px">
-               <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/usa">
+               <a class="noUnderline" href="<?php echo URL; ?>breeders/listing/usa">
                  <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/usa_map_menu_outline.jpeg"; ?>" />
                  <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_the_usa'); ?></div>
                  <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["usa"]); ?></div>
@@ -32,7 +32,7 @@
              </div> 
              
             <div style="width:200px;height:200px">
-		       <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/canada">
+		       <a class="noUnderline" href="<?php echo URL; ?>breeders/listing/canada">
 		         <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/canada_map_menu_outline.png"; ?>" />
 		         <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_canada'); ?></div>
 		         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["canada"]); ?></div>
@@ -40,7 +40,7 @@
             </div> 
              
             <div style="width:200px;height:200px">
-		       <a class="noUnderline" href="<?php echo URL; ?>breeders/regionallist/uk">
+		       <a class="noUnderline" href="<?php echo URL; ?>breeders/listing/uk">
 		         <img class="menuCountries" src="<?php echo $GLOBALS['dirAplicacion'] .  "/resources/images/uk_map_menu_outline.jpg"; ?>" />
 		         <div class="itemMenuCountries"><?php echo Resources::getText('breeders_in_the_uk'); ?></div>
 		         <div class="itemMenuCountries"><?php echo Resources::getText('number_breeders_available', $breederCount["uk"]); ?></div>

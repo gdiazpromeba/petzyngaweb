@@ -94,7 +94,7 @@ class Shelters extends Controller{
         
     
     
-    public function advancedList($country){
+    public function search($country){
         
     	$ctrl=null;
     	switch ($country){
@@ -194,7 +194,7 @@ class Shelters extends Controller{
     	require 'application/views/shelters/sitemap/indexSitemapShelters.php';
     	require 'application/views/_templates/footer.php';
     }   
-    public function sitemap($country, $area1Value){
+    public function listing($country, $area1Value){
     	 
     	 switch ($country){
     	 	case "usa":

@@ -1,5 +1,4 @@
          <div class="contVinculosSubmenu" >
-           <a class="vinculoSubmenu"   href="<?php echo URL  . "breeders/regionallist/" . $_REQUEST['country']; ?>">All areas in one page</a>
-           <a class="vinculoSubmenu"   href="<?php echo URL .  "breeders/advancedList/" . $_REQUEST['country']; ?>"> Advanced Search</a>
-           <a class="vinculoSubmenu"   href="<?php echo URL .  "breeders/sitemap/" . $_REQUEST['country']; ?>">Sitemap</a>
+           <a class="vinculoSubmenu"   href="<?php echo URL  . "breeders/listing/" . $_REQUEST['country']; ?>">Listing</a>
+           <a class="vinculoSubmenu"   href="<?php echo URL .  "breeders/search/" . $_REQUEST['country']; ?>">Search</a>
          </div>

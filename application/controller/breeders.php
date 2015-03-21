@@ -73,7 +73,7 @@ class Breeders extends Controller{
     	require 'application/views/_templates/footer.php';
     }    
     
-    public function advancedList($country){
+    public function search($country){
     	$ctrl=null;
     	switch ($country){
     		case "usa":
@@ -96,7 +96,7 @@ class Breeders extends Controller{
 
     }    
     
-    public function sitemap($country, $area1Value, $breed){
+    public function listing($country, $area1Value, $breed){
     
     	switch ($country){
     		case "usa":

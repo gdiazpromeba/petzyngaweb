@@ -724,7 +724,8 @@ div.closeButton{
 
 .areaItemsContainer{
 	display:flex;
-	flex-align:row;
+	flex-direction:row;
+	justify-content:center;
 	flex-wrap: wrap;
 	margin-left: 20px;
 }

@@ -16,7 +16,7 @@
     <?php if ($GLOBALS['env']=="qa") echo  "<link href='" . URL . "public/css/estiloQa.css' rel='stylesheet'/> "; ?>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-    <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/home/homeApp.js"></script> 	 
+    <script type="text/javascript" src="<?php echo URL; ?>application/views/home/homeApp.js"></script> 	 
     
     
 </head>

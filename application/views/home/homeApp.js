@@ -4,14 +4,15 @@
   var app = angular.module('homeApp', []);
   
 
-  app.controller('FeaturedDogBreedsCtrl', ['$scope',  '$rootScope', '$http',  function($scope, $rootScope, $http){
+  app.controller('HomePageCtrl', ['$scope',  '$rootScope', '$http', '$sce',  function($scope, $rootScope, $http, $sce){
 
 	  
 	  $scope.init = function(){
-		  var url= Global.dirCms + '/svc/conector/frontPage.php/readFeaturedBreeds';
+		  var url= Global.dirCms + '/svc/conector/frontPage.php/readDatos';
 		  $http.get(url).
 		    success(function(data, status, headers, config) {
-				  $scope.breeds=data;
+				  $scope.datos=data;
+				  $scope.trataHtml();
 			    }).
 			    error(function(data, status, headers, config) {
 			    	 alert("there was a problem getting featured breeds.\nUrl:=" + url);
@@ -20,9 +21,26 @@
 	  
 	  $scope.itemClicked=function(nameEncoded){
 		  $rootScope.$broadcast('itemClicked', nameEncoded);
-      };	  
+      };
+      
+      
+      /**
+       * el html tiene que ser transformado en "confiable". Las urls, lo mismo.
+       * El servicio $sce ya viene dispobible, "sanitize" no hace falta más.
+       */
+      $scope.trataHtml = function(){
+    	  $scope.datos.homePageHeader = $sce.trustAsHtml($scope.datos.homePageHeader);
+    	  for (var i=0; i< $scope.datos.videoUrls.length; i++){
+    		  var a=   $scope.datos.videoUrls[i];
+    		  var b = $sce.trustAsResourceUrl(a);
+    		  $scope.datos.videoUrls[i]= b; 
+    	  }
+      }
 	  
   }]);  
+  
+  
+  
   
   
   /**

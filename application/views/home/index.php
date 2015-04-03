@@ -19,41 +19,23 @@
          <div class="stickitColumna"><?php echo Resources::getText('blue_cross_uk'); ?></div>
        </div>
        
-       <div id="columnCenter"  class="columnCenter">   
+       
+       
+       
+       
+       <div id="columnCenter"  class="columnCenter" ng-controller="HomePageCtrl"  ng-init="init()">   
 
 		<br />
 		<div class="tituloSeccion">What is Petzynga?</div>
 		<hr />
-		<div
-			style="font-size: 16px; text-align: justify; padding-top: 20px; padding-bottom: 20px; padding-left: 30px; padding-right: 30px; line-height: 150%">
-		      <?php echo Resources::getText('home_page_content'); ?>
-		      
-		 
-		</div>
-
+		<div class="homePageMainText" ng-bind-html="datos.homePageHeader"></div>
 
 		<div class="centro">
-		
-		
-		
-		
-		
-			<br />
+		<br />
 			<div class="tituloSeccion">Videos of the week</div>
 			<hr />
-			<div class="videoWrapper">
-				<div style="height: 6px" />
-				&nbsp;
-			</div>
-			<iframe width='297' height='221'
-				src='http://www.youtube.com/embed/<?php echo $bean->getVideo1Url();?>'
-				frameborder='0' allowfullscreen></iframe>
-			<iframe width='297' height='221'
-				src='http://www.youtube.com/embed/<?php echo $bean->getVideo2Url();?>'
-				frameborder='0' allowfullscreen></iframe>
-			<iframe width='297' height='221'
-				src='http://www.youtube.com/embed/<?php echo $bean->getVideo3Url();?>'
-				frameborder='0' allowfullscreen></iframe>
+			<iframe  width='297' height='221' frameborder='0' src="{{datos.videoUrls[1]}}" allowfullscreen></iframe>
+			<iframe  width='297' height='221' frameborder='0' src="{{datos.videoUrls[2]}}" allowfullscreen></iframe>
 		</div>
 
 
@@ -63,13 +45,10 @@
 		<div class="tituloSeccion">Featured Breeds</div>
 		<hr />
 
-
-		<div ng-controller="FeaturedDogBreedsCtrl" ng-init="init()">
-		
 			
 			<div style="display: flex; flex-direction: row; flex-wrap: wrap">
 		
-				<div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)" ng-repeat="breed in breeds">
+				<div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)" ng-repeat="breed in datos.featuredBreeds">
 					<div data-nombreCodificado='{{breed.nameEncoded}}'></div>
 					<div class="pictureTitleAlpha">{{breed.name}}</div>
 					<div>
@@ -79,17 +58,12 @@
 		
 			</div>
 		
-			
+ 
 			   
 		    <div ng-controller="DetailCtrl">
 		       <dog-breed-details></dog-breed-details>
 		    </div>	
 		
-		
-		</div>
-
-
-
 
 		
 	   </div>

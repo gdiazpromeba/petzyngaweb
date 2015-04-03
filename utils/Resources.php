@@ -1,5 +1,9 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/TextResourcesSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] .  "/utils/phpfastcache/phpfastcache.php";
+phpFastCache::setup("storage","file");
+phpFastCache::setup("path", $GLOBALS['pathWeb']);
+
 
   class Resources{
   	

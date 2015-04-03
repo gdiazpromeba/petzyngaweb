@@ -47,10 +47,12 @@
                   <a name='{{bloque.letra}}'>{{bloque.letra}}</a> &nbsp;<a href='#SelectInitial'>Back to top</a>
 	              <div style="display:flex;flex-direction:row;justify-content:center;" ng-repeat="row in bloque.rows" >
 	                <div style="display:flex;flex-direction:column;" ng-repeat="cell in row.cells">
-	                  <div class='pictureContainerAlpha' ng-click="itemClicked(cell.nameEncoded)">
-	                    <div class="pictureTitleAlpha">{{cell.name}}</div>
-	                    <div><img class="breedImageAlpha" ng-src="{{cell.pictureUrl}}"/></div>
-	                  </div>
+	                  <a href="{{cell.link}}">
+	                    <div class='pictureContainerAlpha'>
+	                      <div class="pictureTitleAlpha">{{cell.name}}</div>
+	                      <div><img class="breedImageAlpha" ng-src="{{cell.pictureUrl}}"/></div>
+	                    </div>
+	                  </a>
 	                </div>
 	              </div>
             </div>

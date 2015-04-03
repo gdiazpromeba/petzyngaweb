@@ -83,11 +83,13 @@
             <input  type="number"  id="hiddenPageNumber" style="display:none" ng-model="page"  style="width: 80px"/>
             <div style="display:flex;flex-direction:row;justify-content:center" ng-repeat="row in tableData.rows" >
               <div style="display:flex;flex-direction:column" ng-repeat="cell in row.cells" last-detector-directive>
-                <div class='pictureContainerAlpha' ng-click="itemClicked(cell.nameEncoded)">
-                  <div data-nombreCodificado='{{cell.nameEncoded}}'/> 
-                  <div class="pictureTitleAlpha">{{cell.name}}</div>
-                  <div><img class="breedImageAlpha" ng-src="<?php echo $GLOBALS['dirAplicacion'] . "/resources/images/breeds/";?>{{cell.pictureUrl}}"/></div>
-                </div>
+                <a href="{{cell.link}}">
+                  <div class='pictureContainerAlpha'>
+                    <div data-nombreCodificado='{{cell.nameEncoded}}'/> 
+                    <div class="pictureTitleAlpha">{{cell.name}}</div>
+                    <div><img class="breedImageAlpha" ng-src="<?php echo $GLOBALS['dirAplicacion'] . "/resources/images/breeds/";?>{{cell.pictureUrl}}"/></div>
+                  </div>
+                </a>
               </div>            
             </div><!-- rows -->
           </div>

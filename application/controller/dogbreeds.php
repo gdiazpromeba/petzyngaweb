@@ -4,6 +4,8 @@ require_once 'config.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/beans/DogBreed.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/DogBreedsSvcImpl.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/PetForumsSvcImpl.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirAplicacion'] . '/svc/impl/FrontPageSvcImpl.php';
+
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/RequestUtils.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/utils/UrlUtils.php';
 require_once $_SERVER['DOCUMENT_ROOT'] . $GLOBALS['dirWeb'] . '/application/business/dogbreeds/DogBreedUtils.php';
@@ -91,8 +93,18 @@ class DogBreeds extends Controller{
     	require 'application/views/_templates/footer.php';
     }    
     
+    public function details($nombreCodificado){
     
-
+    	$svc = new FrontPageSvcImpl();
+    	$bean = $svc->obtiene();
+    
+    	$initParams = "'detalleRaza', '" . $nombreCodificado  . "'";
+    
+    
+    	require 'application/views/home/header.php';
+    	require 'application/views/home/index.php';
+    	require 'application/views/_templates/footer.php';
+    }
 
     
 

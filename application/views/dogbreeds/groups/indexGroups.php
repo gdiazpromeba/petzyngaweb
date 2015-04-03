@@ -49,7 +49,7 @@
 	                <div class="dogPurposeDescription" ng-bind-html="data.group.description"></div>
 	              </div>
 	             <div ng-repeat="item in data.items" style="padding:5px">
-	               <a href="{{item.url}}">{{item.dogBreedName}}</a>
+	               <a href="{{item.link}}">{{item.dogBreedName}}</a>
 	             </div>
             </div> 
             

@@ -564,7 +564,7 @@ width: 90px;
 }
 
 .detalleDogBreed{
-	style="display: flex;
+	display: flex;
 	flex-direction:column;
 	justify-content:space-around;
 	align-items:stretch;
@@ -581,6 +581,18 @@ width: 90px;
 	background-color:#EFFBEF;
 }
 
+.detalleDogBreedEmbebido{
+	style=display: flex;
+	flex-direction:column;
+	justify-content:space-around;
+	align-items:stretch;
+	align-content:stretch;
+	background-color:white; 
+	padding: 20px;
+	border-radius:5px;
+	background-color:#EFFBEF;
+}
+
 .tituloVentanaDetalle{
 	font-size:32px;
 	font-weight:900;
@@ -590,7 +602,7 @@ width: 90px;
 
 img.breedImageDetalle{
 	height: 220px;
-	width: auto;
+	width: 293px;
 }
 
 .feature{
@@ -618,8 +630,33 @@ img.breedImageDetalle{
   width: 500px;
 }
 
+
+.featureTitleEmbebido {
+  text-align: left;
+  vertical-align: middle;
+  color: #1e6b88;
+  font-size: 16px;
+  font-family: "Dosis";
+  height: 30px;
+  width: 20%;
+}
+
+.featureTextEmbebido {
+  text-align: justify;
+  vertical-align: middle;
+  font-size: 16px;
+  width: 75%;
+}
+
+.detalleFotoEmbebido{
+	display:flex;
+	flex-direction:column;
+	justify-content:center;
+	align-items:center;
+	padding-top:20px;
+}
+
 .rankingBlock{
-;
 	display:flex;
 	flex-direction:row;
 	flex-grow:1;
@@ -633,8 +670,7 @@ img.breedImageDetalle{
 
 }
 
-.rankingHeaderSelected {
-;	
+.rankingHeaderSelected {	
   text-align: left;
   vertical-align: middle;
   display:flex;
@@ -661,6 +697,34 @@ img.breedImageDetalle{
   margin-bottom:2px;
 }
 
+.rankingHeaderEmbebido {
+  text-align: left;
+  vertical-align: middle;
+  display:flex;
+  flex-direction:column;
+  background-color:#CBC5F5;
+  height:60px;
+  width:200px;
+  border-radius: 10px 0 0 10px ;
+  padding-left:10px;
+  margin-top:2px;
+  margin-bottom:2px;
+  cursor: hand; 
+}
+
+.rankingHeaderEmbebidoSelected {	
+  text-align: left;
+  vertical-align: middle;
+  display:flex;
+  flex-direction:column;
+  background-color:#A4C6CF;
+  height:60px;
+  width:200px;
+  border-radius: 10px 0 0 10px ;
+  padding-left:10px;
+  cursor: hand; 
+}
+
 
 .rankingTitle {
   text-align: left;
@@ -683,6 +747,23 @@ img.breedImageDetalle{
   width:610px;
   background-color:#A4C6CF;
   padding:5px;
+}
+
+.rankingTextEmbebido {
+  text-align: justify;
+  vertical-align: middle;
+  font-size: 16px;
+  flex-grow:1;
+  height:380px;
+  width:720px;
+  background-color:#A4C6CF;
+  padding:5px 10px 5px 10px;
+}
+
+.califEstrellas{
+	height:15px;
+	width:90px;
+	margin-left:5px;
 }
 
 

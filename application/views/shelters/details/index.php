@@ -93,10 +93,12 @@
 	
 	                    
 	                   
-		                <div class='pictureContainerAlpha' ng-click="itemClicked(breed.nameEncoded)" ng-repeat="breed in breeds" >
+		                <div class='pictureContainerAlpha'  ng-repeat="breed in breeds" >
 		                  <div data-nombreCodificado='{{breed.nameEncoded}}'></div> 
-		                  <div class="pictureTitleAlpha">{{breed.name}}</div>
-		                  <div><img class="breedImage" ng-src="{{breed.fullPictureUrl}}"/></div>
+		                  <a href="{{breed.link}}">
+		                    <div class="pictureTitleAlpha">{{breed.name}}</div>
+		                    <div><img class="breedImage" ng-src="{{breed.fullPictureUrl}}"/></div>
+		                  </a>
 		                </div>              
 	              
 	                   

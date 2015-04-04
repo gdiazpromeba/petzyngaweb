@@ -80,7 +80,7 @@ td.tdPictureContainer{
 
 .pictureTitle{
 	text-align: center;
-	color: #1e6b88;
+	color: -webkit-link;
 	font-size: 18px;
 	font-family: "Dosis";
 }
@@ -99,7 +99,7 @@ span.navegacionPaginas{
 	font-family: "Dosis";
 }
 
-/* form de búsqueda */
+/* form de bï¿½squeda */
 td.submitButtons{
 	align:right;
 }

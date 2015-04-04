@@ -33,7 +33,7 @@ html, body {
 }
 .navigation-div a:link, .navigation-div a:visited {
     text-decoration: none;
-    color: #1e6b88;
+    color: -webkit-link;
 }
 
 span.menuItem { 
@@ -546,7 +546,7 @@ width: 90px;
 
 .pictureTitleAlpha{
 	text-align: center;
-	color: #1e6b88;
+	color: -webkit-link;
 	font-size: 14px;
 	font-family: "Dosis";
 	padding:5px;
@@ -845,7 +845,7 @@ div.closeButton{
 
 .vinculoSubmenu{
 	padding:10px;
-	color:#1e6b88;
+	color: -webkit-link;
 	text-decoration:none;
 }
 

@@ -45,7 +45,9 @@ $res =  "<?xml version=\"1.0\" encoding=\"UTF-8\"?>   \n";
 $res .= "  <?xml-stylesheet type=\"text/xsl\" href=\"gss.xsl\"?>   \n";
 $res .= "  <urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xsi:schemaLocation=\"http://www.google.com/schemas/sitemap/0.84 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd\">   \n";
 
-$rootUrl = "http://petzynga.com/";
+//$rootUrl = "http://petzynga.com/";
+$rootUrl = "http://iskandermuebles.com/petzyngaweb/";
+
 $lastMod = date("Y-m-d");;
 
 $url= $rootUrl;
@@ -101,7 +103,7 @@ foreach ($beans as $bean){
      $stm2->execute();
      $stm2->bind_result($name, $nameEncoded);
      while ($stm2->fetch()) {
-       	 $url=   $GLOBALS['dirWeb']  . "/dogbreeds/groups/"  .  urlencode($bean->getNombre()) . "/" . $nameEncoded;
+       	 $url=    $rootUrl   . "/dogbreeds/groups/"  .  urlencode($bean->getNombre()) . "/" . $nameEncoded;
        	 $res .= construyeUnidad($url, $lastMod, "monthly", 0.6);
        }       
        
@@ -198,14 +200,14 @@ foreach ($paisesShelters as $country){
 	$stm->execute();
 	$stm->bind_result($firstArea, $amount);
 	while ($stm->fetch()) {
-		$url= $GLOBALS["dirWeb"] . "/shelters/listing/" . $country . "/" . urlencode($firstArea) ;
+		$url= $rootUrl .  "/shelters/listing/" . $country . "/" . urlencode($firstArea) ;
 		$res .= construyeUnidad($url, $lastMod, "weekly", 0.5);		
 	}
 	$stm->close();
 }
 
 
-echo "breeders \n";
+
 $res .= "<!-- breeders per country  -->   \n";
 $paisesBreeders = array("usa", "uk",  "canada");
 
@@ -263,10 +265,9 @@ foreach ($paisesBreeders as $country){
 	}
 	$stm->execute();
 	$stm->store_result();
-	echo "executed area query for " . $countryName;
 	$stm->bind_result($firstArea, $amount);
 	while ($stm->fetch()) {
-		$url = $GLOBALS["dirWeb"] . "/breeders/listing/" . $country . "/" . urlencode($firstArea) ;
+		$url =  $rootUrl .  "/breeders/listing/" . $country . "/" . urlencode($firstArea) ;
 		$res .= construyeUnidad($url, $lastMod, "monthly", 0.6);
 		
 		//raza para cada área
@@ -327,11 +328,11 @@ foreach ($paisesBreeders as $country){
 		}
 		$stm2->execute();
 		$stm2->store_result();
-		echo "executed breed query for " . $firstArea;
+		
 		$stm2->bind_result($name, $nameEncoded);
 
 		while ($stm2->fetch()) {
-			$url = $GLOBALS["dirWeb"] . "/breeders/listing/" . $country . "/" . urlencode($firstArea) . "/" .   $nameEncoded ;
+			$url =  $rootUrl .  "/breeders/listing/" . $country . "/" . urlencode($firstArea) . "/" .   $nameEncoded ;
 			$res .= construyeUnidad($url, $lastMod, "monthly", 0.50);
 			
 			//breeders para cada área y raza
@@ -396,12 +397,12 @@ foreach ($paisesBreeders as $country){
 				echo $db_connection->error;
 				exit();
 			}
-			echo "executed breeder query for " . $firstArea;
+
 			$stm3->execute();
 			$stm3->store_result();
 			$stm3->bind_result($shelterName, $shelterNameEncoded, $dogBreedName);
 			while ($stm3->fetch()) {
-				$url = $GLOBALS["dirWeb"] . "/breeders/info/" . $country . "/" .  $shelterNameEncoded ;
+				$url = $rootUrl .  "/breeders/info/" . $country . "/" .  $shelterNameEncoded ;
 				$res .= construyeUnidad($url, $lastMod, "monthly", 0.50);
 			}
 			$stm3->free_result();
@@ -432,6 +433,31 @@ $db_connection->close();
 
 $res .="</urlset>";
 
+// $elem = new SimpleXMLElement($res);
+
+// $i=0;
+
+// foreach ($elem->children() as $segunda_gen) {
+//     echo 'La persona engendra un/a ' . $segunda_gen['role'];
+//     $i++;
+//     $e=0;
+
+//     foreach ($segunda_gen->children() as $tercera_gen) {
+//         echo ' quien engendra un/a ' . $tercera_gen['role'] . ';';
+//         $e++;
+//         $j=0;
+
+//         foreach ($tercera_gen->children() as $cuarta_gen) {
+//             echo ' y ese/a ' . $tercera_gen['role'] .
+//                 ' engendra un/a ' . $cuarta_gen['role'];
+//             $j++;
+//         }
+//     }
+// }
+
+// echo "i=" . $i . " e=" . $e . " j=" . $j;
+ 
 escribeArchivo("sitemap.xml", $res);
+echo "sitemao generado exitosamente"
   
 ?>

@@ -1,6 +1,6 @@
 <?php require_once $GLOBALS['pathWeb']  . '/utils/Resources.php';?>
 <!DOCTYPE html>
-<html lang="en" ng-app="shelters">
+<html lang="en" ng-app="geoFlatList">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,8 +19,9 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.2/jquery-ui.min.js"></script>  
     
     
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
-    <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/shelters/areaslist/app.js"></script>   
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script src="https://rawgithub.com/gsklee/ngStorage/master/ngStorage.js"></script>   
+    <script type="text/javascript" src="<?php echo $GLOBALS['dirWeb']; ?>/application/views/shelters/shelters.js"></script>   
 </head>
 <body>
 <?php include $GLOBALS['pathWeb'] . '/application/views/_templates/analyticstracking.php' ?>
